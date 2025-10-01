@@ -149,7 +149,7 @@ const Header = ({ enableScrollEffects = false }: HeaderProps) => {
               <div className="scale-[0.70] pt-2">
                 <LogoTest />
               </div>
-              <span className="text-2xl  tracking-tighter text-black">
+              <span className="text-2xl  tracking-tighter font-medium text-black">
                 Lattice
               </span>
             </Link>
