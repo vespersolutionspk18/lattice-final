@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import Button from "../components/Button";
 import FrostedGlass from "../components/FrostedGlass";
 import { ArrowRight } from "lucide-react";
@@ -29,20 +30,15 @@ const Hero = () => {
   return (
     <div className="p-5 mt-24">
       <div
-        className="flex flex-row rounded-2xl justify-between h-[760px] relative overflow-hidden bg-[#4d4d4d]"
-        id="bg here"
+        className="flex flex-row rounded-2xl justify-between h-[760px] relative overflow-hidden bg-white"
       >
-        {/* Background placeholder */}
-        <div className="absolute inset-x-0 bottom-0 p-4 text-center">
-          <span className="text-gray-400 text-sm font-medium">BG IMAGE</span>
-        </div>
 
         {/* Left Content Section */}
         <div className="w-1/2 h-full p-5 flex flex-col justify-center relative z-10">
           <div className="p-5 flex flex-col gap-7 items-start text-left">
             {/* AR/VR Announcement Banner */}
             <Link href="/services/ar-vr">
-              <FrostedGlass rounded="full" blur="md" className="inline-flex items-center gap-3 px-4 py-2 w-fit cursor-pointer hover:scale-105 transition-transform duration-200">
+              <div className="inline-flex items-center gap-3 px-4 py-2 w-fit cursor-pointer hover:scale-105 transition-transform duration-200 border border-gray-300 rounded-full bg-gray-50">
                 <span
                   className="px-2.5 py-1 rounded-md text-xs font-bold text-white"
                   style={{
@@ -54,29 +50,70 @@ const Hero = () => {
                 >
                   NEW
                 </span>
-                <span className="text-white text-sm font-medium tracking-tight flex items-center gap-2">
+                <span className="text-gray-900 text-sm font-medium tracking-tight flex items-center gap-2">
                   AR/VR capabilities now available for all interior and exterior renderings
                   <ArrowRight className="w-4 h-4" />
                 </span>
-              </FrostedGlass>
+              </div>
             </Link>
 
-            <h1 className="text-7xl text-white tracking-tighter">
+            <h1 className="text-7xl text-gray-900 tracking-tighter">
               Empowering Contractors <br></br>& Home Remodelers
             </h1>
-            <h5 className="text-2xl text-stone-300 tracking-tighter">
+            <h5 className="text-2xl text-gray-600 tracking-tighter">
               Your complete B2B solution for design, CRM, and digital <br></br>tools to grow your remodeling business.
             </h5>
             <div className="flex flex-row gap-3">
-              <Button variant="secondary">Get Started</Button>
+              <Button variant="primary">Get Started</Button>
               <Button variant="green">Contact Us</Button>
+            </div>
+
+            {/* Rating Section */}
+            <div className="flex items-center gap-3 mt-2">
+              <div className="flex items-center justify-center h-10 flex-shrink-0">
+                <Image
+                  src="/capterra-icon.png"
+                  alt="Capterra"
+                  width={60}
+                  height={14}
+                  className="object-contain"
+                />
+              </div>
+              <div className="flex flex-col">
+                <div className="flex items-center gap-2">
+                  <span className="text-gray-900 text-lg font-semibold">4.8 Rating (50+ Reviews)</span>
+                </div>
+                <div className="flex gap-1 mt-1">
+                  {[...Array(5)].map((_, i) => {
+                    if (i < 4) {
+                      return (
+                        <svg key={i} className="w-5 h-5 fill-orange-400" viewBox="0 0 24 24">
+                          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                        </svg>
+                      );
+                    } else {
+                      return (
+                        <svg key={i} className="w-5 h-5" viewBox="0 0 24 24">
+                          <defs>
+                            <linearGradient id="partialFill">
+                              <stop offset="80%" stopColor="#fb923c" />
+                              <stop offset="80%" stopColor="#d1d5db" />
+                            </linearGradient>
+                          </defs>
+                          <path fill="url(#partialFill)" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                        </svg>
+                      );
+                    }
+                  })}
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
         {/* Right Contact Form Section */}
         <div className="w-1/2 h-full p-5 flex items-center justify-center relative z-10">
-          <div className="bg-white rounded-3xl p-10 w-full max-w-md shadow-2xl">
+          <div className="bg-white rounded-3xl p-10 w-full max-w-md shadow-2xl border-2 border-gray-300">
             <h2 className="text-3xl font-normal text-gray-900 mb-3 tracking-tight">
               Request a Professional Quote Today
             </h2>
