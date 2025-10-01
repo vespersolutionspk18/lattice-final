@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Check, X, Zap, Shield, Palette, TrendingUp, Users, Globe, Info } from 'lucide-react'
 import LogoTestSmall from '../components/LogoTestSmall'
@@ -15,6 +15,8 @@ interface ComparisonFeature {
 
 const WhyChooseUs = () => {
   const [visibleCount, setVisibleCount] = useState(1)
+  const [hasAnimated, setHasAnimated] = useState(false)
+  const statsCardRef = useRef<HTMLDivElement>(null)
 
   const comparisonFeatures: ComparisonFeature[] = [
     {
@@ -85,6 +87,30 @@ const WhyChooseUs = () => {
     }, 1200)
     return () => clearInterval(interval)
   }, [])
+
+  // Intersection observer for animation trigger
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !hasAnimated) {
+            setHasAnimated(true)
+          }
+        })
+      },
+      { threshold: 0.3 }
+    )
+
+    if (statsCardRef.current) {
+      observer.observe(statsCardRef.current)
+    }
+
+    return () => {
+      if (statsCardRef.current) {
+        observer.unobserve(statsCardRef.current)
+      }
+    }
+  }, [hasAnimated])
 
   // Show notifications in reverse order (newest first)
   const visibleNotifications = notifications.slice(0, visibleCount).reverse()
@@ -199,7 +225,7 @@ const WhyChooseUs = () => {
 
         <div className="grid grid-cols-3 grid-rows-3 gap-3 auto-rows-[280px]">
           {/* Card 1: Large stats showcase - 2 cols */}
-          <div className="col-span-2 row-span-1 bg-stone-200/40 rounded-3xl p-8 flex flex-col justify-between">
+          <div ref={statsCardRef} className="col-span-2 row-span-1 bg-stone-200/40 rounded-3xl p-8 flex flex-col justify-between">
             <div>
               <h3 className="text-2xl font-medium tracking-tighter text-black/80 mb-3">
                 Proven Results
@@ -227,10 +253,27 @@ const WhyChooseUs = () => {
               </div>
             </div>
             <div className="flex gap-3 mt-6">
-              <div className="h-2 flex-1 bg-black/20 rounded-full"></div>
-              <div className="h-2 flex-1 bg-black/20 rounded-full"></div>
-              <div className="h-2 flex-1 bg-black/20 rounded-full"></div>
-              <div className="h-2 flex-1 bg-black/20 rounded-full"></div>
+              {[0, 1, 2, 3].map((index) => (
+                <motion.div
+                  key={index}
+                  className="h-2 flex-1 rounded-full"
+                  initial={{ backgroundColor: 'rgba(0, 0, 0, 0.2)' }}
+                  animate={hasAnimated ? {
+                    backgroundColor: [
+                      'rgba(0, 0, 0, 0.2)',
+                      'rgba(251, 207, 232, 1)',
+                      'rgba(236, 72, 153, 0.7)'
+                    ],
+                    scale: [1, 1.05, 1]
+                  } : {}}
+                  transition={{
+                    delay: index * 1.2,
+                    duration: 1.2,
+                    times: [0, 0.5, 1],
+                    ease: 'easeInOut'
+                  }}
+                />
+              ))}
             </div>
           </div>
 
@@ -250,17 +293,80 @@ const WhyChooseUs = () => {
                 <span className="text-3xl font-medium text-black/80">15hrs</span>
               </div>
               <div className="space-y-2">
-                <div className="flex justify-between text-lg">
+                <div className="flex justify-between text-lg items-center">
                   <span className="text-black/70">CRM included</span>
-                  <span className="text-black/40">●</span>
+                  <motion.div
+                    className="w-2 h-2 rounded-full"
+                    initial={{
+                      background: 'rgba(55, 65, 81, 0.6)',
+                      boxShadow: 'none'
+                    }}
+                    animate={hasAnimated ? {
+                      background: [
+                        'rgba(55, 65, 81, 0.6)',
+                        'radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(34, 197, 94, 0.9) 50%, rgba(34, 197, 94, 1) 100%)'
+                      ],
+                      boxShadow: [
+                        'none',
+                        '0 0 16px 6px rgba(34, 197, 94, 0.7), 0 0 8px 2px rgba(255, 255, 255, 0.8)'
+                      ]
+                    } : {}}
+                    transition={{
+                      delay: 0,
+                      duration: 1.5,
+                      ease: 'easeOut'
+                    }}
+                  />
                 </div>
-                <div className="flex justify-between text-lg">
+                <div className="flex justify-between text-lg items-center">
                   <span className="text-black/70">Design tools</span>
-                  <span className="text-black/40">●</span>
+                  <motion.div
+                    className="w-2 h-2 rounded-full"
+                    initial={{
+                      background: 'rgba(55, 65, 81, 0.6)',
+                      boxShadow: 'none'
+                    }}
+                    animate={hasAnimated ? {
+                      background: [
+                        'rgba(55, 65, 81, 0.6)',
+                        'radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(34, 197, 94, 0.9) 50%, rgba(34, 197, 94, 1) 100%)'
+                      ],
+                      boxShadow: [
+                        'none',
+                        '0 0 16px 6px rgba(34, 197, 94, 0.7), 0 0 8px 2px rgba(255, 255, 255, 0.8)'
+                      ]
+                    } : {}}
+                    transition={{
+                      delay: 0,
+                      duration: 1.5,
+                      ease: 'easeOut'
+                    }}
+                  />
                 </div>
-                <div className="flex justify-between text-lg">
+                <div className="flex justify-between text-lg items-center">
                   <span className="text-black/70">Free website</span>
-                  <span className="text-black/40">●</span>
+                  <motion.div
+                    className="w-2 h-2 rounded-full"
+                    initial={{
+                      background: 'rgba(55, 65, 81, 0.6)',
+                      boxShadow: 'none'
+                    }}
+                    animate={hasAnimated ? {
+                      background: [
+                        'rgba(55, 65, 81, 0.6)',
+                        'radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(34, 197, 94, 0.9) 50%, rgba(34, 197, 94, 1) 100%)'
+                      ],
+                      boxShadow: [
+                        'none',
+                        '0 0 16px 6px rgba(34, 197, 94, 0.7), 0 0 8px 2px rgba(255, 255, 255, 0.8)'
+                      ]
+                    } : {}}
+                    transition={{
+                      delay: 0,
+                      duration: 1.5,
+                      ease: 'easeOut'
+                    }}
+                  />
                 </div>
               </div>
               <div className="mt-4 pt-4 border-t border-black/10">

@@ -47,12 +47,14 @@ const Hero = () => {
             <Link href="/services/ar-vr">
               <div className="inline-flex items-center gap-3 px-4 py-2 w-fit cursor-pointer hover:scale-105 transition-transform duration-200 border border-gray-300 rounded-full bg-gray-50">
                 <span
-                  className="px-2.5 py-1 rounded-md text-xs font-bold text-white"
+                  className="px-2.5 py-1 rounded-md text-xs font-bold"
                   style={{
-                    background: 'linear-gradient(135deg, #3b82f6, #3b82f6)',
+                    background: 'linear-gradient(to right, #6ce2ff 0%, #3b82f6 20%, #3b82f6 80%, #6ce2ff 100%)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    backgroundClip: 'text',
                     boxShadow: '0 0 10px rgba(59, 130, 246, 0.4), inset 0 1px 3px rgba(59, 130, 246, 0.3)',
                     border: '1px solid rgba(59, 130, 246, 0.3)',
-                    textShadow: '0 1px 2px rgba(0, 0, 0, 0.1)'
                   }}
                 >
                   NEW
