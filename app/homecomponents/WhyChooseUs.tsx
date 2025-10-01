@@ -88,13 +88,15 @@ const WhyChooseUs = () => {
     return () => clearInterval(interval)
   }, [])
 
-  // Intersection observer for animation trigger
+  // Intersection observer for animation trigger - restarts when scrolled back
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting && !hasAnimated) {
+          if (entry.isIntersecting) {
             setHasAnimated(true)
+          } else {
+            setHasAnimated(false)
           }
         })
       },
@@ -110,7 +112,7 @@ const WhyChooseUs = () => {
         observer.unobserve(statsCardRef.current)
       }
     }
-  }, [hasAnimated])
+  }, [])
 
   // Show notifications in reverse order (newest first)
   const visibleNotifications = notifications.slice(0, visibleCount).reverse()
