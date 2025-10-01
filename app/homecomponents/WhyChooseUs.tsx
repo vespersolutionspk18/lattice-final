@@ -90,7 +90,7 @@ const WhyChooseUs = () => {
   const visibleNotifications = notifications.slice(0, visibleCount).reverse()
 
   return (
-    <div className="p-5">
+    <div className="p-5" id="whycooseus">
       <div className="p-5 rounded-4xl  flex flex-col gap-24 tracking-tighter">
         <div className="flex flex-row gap-16">
           <h5 className="text-4xl text-black/80 font-medium tracking-tighter w-[28%]">

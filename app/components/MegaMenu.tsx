@@ -2,7 +2,8 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
-import { ChevronDown, ArrowRight, Palette, Box, Database, Sparkles, Monitor, Globe, Target, Users } from "lucide-react";
+import { useRouter, usePathname } from "next/navigation";
+import { ChevronDown, ArrowRight, Palette, Box, Database, Sparkles, Monitor, Globe, Target, Users, Info } from "lucide-react";
 import { useMegaMenu } from "../contexts/MegaMenuContext";
 
 const MegaMenuCard = ({
@@ -19,10 +20,33 @@ const MegaMenuCard = ({
   isNew?: boolean;
 }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    // Check if the href contains a hash
+    if (href.includes('#')) {
+      const [path, hash] = href.split('#');
+
+      // If we're navigating to a different page with a hash
+      if (path && pathname !== path) {
+        e.preventDefault();
+        router.push(path);
+        // Wait for navigation to complete, then scroll
+        setTimeout(() => {
+          const element = document.getElementById(hash);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }, 100);
+      }
+    }
+  };
 
   return (
     <Link
       href={href}
+      onClick={handleClick}
       className="group flex items-start gap-4 p-4 rounded-xl hover:bg-blue-50/50 transition-all duration-200"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -105,6 +129,12 @@ const MegaMenu = () => {
   ];
 
   const aboutItems = [
+    {
+      name: "About Us",
+      href: "/about",
+      icon: Info,
+      description: "Discover who we are and what we do."
+    },
     {
       name: "Our Mission",
       href: "/about/our-mission",

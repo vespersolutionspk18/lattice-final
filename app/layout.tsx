@@ -3,6 +3,8 @@ import { Figtree } from 'next/font/google';
 import "./globals.css";
 import { MegaMenuProvider } from "./contexts/MegaMenuContext";
 import MegaMenuOverlay from "./components/MegaMenuOverlay";
+import ChatBot from "./components/ChatBot";
+import { chatbotConfig } from "./config/chatbot";
 
 const figtree = Figtree({
   subsets: ['latin'],
@@ -26,6 +28,11 @@ export default function RootLayout({
         <MegaMenuProvider>
           <MegaMenuOverlay />
           {children}
+          <ChatBot
+            apiKey={chatbotConfig.apiKey}
+            systemInstructions={chatbotConfig.systemInstructions}
+            welcomeMessage={chatbotConfig.welcomeMessage}
+          />
         </MegaMenuProvider>
       </body>
     </html>
