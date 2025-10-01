@@ -1,8 +1,7 @@
 'use client'
 
 import React from 'react'
-import Header from '../../components/Header'
-import Button from '../../components/Button'
+
 
 const Hero = () => {
   return (
@@ -15,7 +14,7 @@ const Hero = () => {
       <div className="absolute inset-0 bg-black/20 -z-10"></div>
       
       <div className="w-full h-full p-5 flex flex-col justify-between relative z-10">
-        <Header />
+      
         <div className="p-5 flex flex-col gap-6">
           <h1 className="w-[75%] text-6xl text-white tracking-tighter">
             Join the team that&apos;s<br />transforming contractor success

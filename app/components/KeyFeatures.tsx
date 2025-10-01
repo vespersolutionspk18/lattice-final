@@ -20,27 +20,24 @@ const KeyFeatures = ({ features }: KeyFeaturesProps) => {
           {features.map((feature) => (
             <div
               key={feature.number}
-              className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden"
+              className="bg-white rounded-3xl border border-gray-200 hover:border-gray-300 transition-all duration-300 overflow-hidden"
             >
-              {/* Blue Top Bar */}
-              <div className="h-2 bg-[#3b82f6]"></div>
-
               {/* Card Content */}
               <div className="p-8 flex flex-col items-center text-center">
                 {/* Numbered Circle */}
-                <div className="w-11 h-11 rounded-full bg-[#3b82f6] flex items-center justify-center mb-6">
-                  <span className="text-lg font-bold text-white">
+                <div className="w-12 h-12 rounded-lg bg-[#3b82f6]/10 flex items-center justify-center mb-6">
+                  <span className="text-xl font-semibold text-[#3b82f6]">
                     {feature.number}
                   </span>
                 </div>
 
                 {/* Title */}
-                <h3 className="text-xl font-bold text-gray-900 mb-4 leading-tight">
+                <h3 className="text-xl font-semibold text-black mb-4 leading-tight tracking-tight">
                   {feature.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-gray-600 leading-relaxed text-sm">
+                <p className="text-gray-600 leading-relaxed text-base tracking-tight">
                   {feature.description}
                 </p>
               </div>

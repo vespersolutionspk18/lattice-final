@@ -2,9 +2,10 @@
 
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { Globe, LogIn, Check, ArrowUpRight } from 'lucide-react'
+import { Globe, LogIn, Check,  } from 'lucide-react'
 import LogoTest from './LogoTest'
 import MegaMenu from './MegaMenu'
+import Button from './Button'
 
 interface HeaderProps {
   enableScrollEffects?: boolean
@@ -49,7 +50,7 @@ const Header = ({ enableScrollEffects = false }: HeaderProps) => {
       <div className={`${enableScrollEffects ? 'fixed' : 'absolute'} top-0 left-0 right-0 z-[10000] bg-gray-100/70 backdrop-blur-sm border-b-2 border-gray-300 transition-all duration-500 ${
         enableScrollEffects && isScrolled ? 'h-0 opacity-0 overflow-hidden' : 'h-8 opacity-100'
       }`}>
-        <div className="w-full px-8">
+        <div className="w-full px-4">
           <div className="flex justify-end items-center h-8 text-xs">
             <div className="flex items-center space-x-4">
               <Link
@@ -133,7 +134,7 @@ const Header = ({ enableScrollEffects = false }: HeaderProps) => {
               <div className="scale-[0.70] pt-2">
                 <LogoTest />
               </div>
-              <span className="text-2xl font-bold text-[#3b82f6]">
+              <span className="text-2xl  tracking-tighter text-black">
                 Lattice
               </span>
             </Link>
@@ -145,14 +146,7 @@ const Header = ({ enableScrollEffects = false }: HeaderProps) => {
 
             {/* CTA Button */}
             <div>
-              <Link
-                href="/schedule"
-                className="schedule-meeting-btn px-6 py-2 bg-[#3b82f6] text-white rounded-lg transition-all duration-200 inline-flex items-center gap-2 relative overflow-hidden"
-                style={{ fontFamily: 'var(--font-figtree)', fontWeight: 600 }}
-              >
-                <span className="relative z-10">Schedule a Meeting</span>
-                <ArrowUpRight className="w-4 h-4 relative z-10" />
-              </Link>
+              <Button variant="blue">Schedule a Meeting</Button>
             </div>
           </div>
         </div>

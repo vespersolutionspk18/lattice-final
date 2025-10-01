@@ -7,7 +7,7 @@ const page = () => {
   return (
     <div>
       <Header />
-      <div className="p-5">
+      <div className="pt-32 px-5 pb-5">
         <Form />
       </div>
       <Footer />

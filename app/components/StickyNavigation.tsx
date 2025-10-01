@@ -119,10 +119,7 @@ const StickyNavigation = ({ items }: StickyNavigationProps) => {
                     {activeSection === item.id && (
                       <motion.div
                         layoutId="activeIndicator"
-                        className="absolute inset-0 rounded-full"
-                        style={{
-                          background: 'linear-gradient(to right, #5bb8e8 0%, #3b82f6 15%, #3b82f6 85%, #5bb8e8 100%)'
-                        }}
+                        className="absolute inset-0 rounded-full bg-blue-500"
                         transition={{
                           type: "spring",
                           stiffness: 400,

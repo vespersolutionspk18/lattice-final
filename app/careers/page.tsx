@@ -8,8 +8,9 @@ import ApplicationForm from './components/ApplicationForm'
 const CareersPage = () => {
   return (
     <div className="min-h-screen">
-      <div className="p-5">
-        <div className="rounded-2xl overflow-hidden">
+      <Header />
+      <div className="p-5 pt-32 px-5 pb-5">
+        <div className="rounded-2xl overflow-hidden ">
           <Hero />
         </div>
       </div>

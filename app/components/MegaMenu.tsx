@@ -62,7 +62,7 @@ interface ServiceMenuItem {
 
 interface AboutMenuItem {
   title: string;
-  leftItems: string[];
+  leftItems: { label: string; href: string }[];
   image: string;
   buttonText: string;
   buttonLink: string;
@@ -97,14 +97,17 @@ const MegaMenu = () => {
     } as ServiceMenuItem,
     "About": {
       title: "About Us",
-      leftItems: ["Our Mission", "Comparison"],
+      leftItems: [
+        { label: "Our Mission", href: "/about/our-mission" },
+        { label: "Comparison", href: "/#whycooseus" }
+      ],
       image: "https://images.unsplash.com/photo-1556761175-b413da4baf72?w=800&h=600&fit=crop",
       buttonText: "Learn More",
       buttonLink: "/about"
     } as AboutMenuItem,
   };
 
-  const simpleLinks = ["Pricing", "Careers", "Contact Us"];
+  const simpleLinks = ["Pricing", "Careers", "Contact"];
 
   useEffect(() => {
     if (activeDropdown) {
@@ -154,7 +157,7 @@ const MegaMenu = () => {
   return (
     <nav className="hidden md:flex items-center space-x-2 whitespace-nowrap">
       <Link
-        href="/home"
+        href="/"
         className="px-5 py-2 text-lg text-black hover:text-[#3b82f6] transition-all duration-200 rounded-full hover:bg-white/50 whitespace-nowrap"
         style={{ fontFamily: 'var(--font-figtree)', fontWeight: 500 }}
       >
@@ -224,9 +227,9 @@ const MegaMenu = () => {
                       {value.leftItems.map((item, index) => (
                         <AnimatedMenuLink
                           key={index}
-                          href={`/${item.toLowerCase().replace(/\s+/g, '-')}`}
+                          href={item.href}
                         >
-                          {item}
+                          {item.label}
                         </AnimatedMenuLink>
                       ))}
                     </div>

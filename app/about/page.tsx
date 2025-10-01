@@ -12,7 +12,9 @@ const page = () => {
       <div className="p-5">
         <Header />
       </div>
-      <Hero />
+      <div className="pt-32">
+        <Hero />
+      </div>
       <WhoWeAre />
       <OurStory />
       <LeadChange text="Join 850+ Successful Contractors" />
