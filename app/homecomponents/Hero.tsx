@@ -47,14 +47,12 @@ const Hero = () => {
             <Link href="/services/ar-vr">
               <div className="inline-flex items-center gap-3 px-4 py-2 w-fit cursor-pointer hover:scale-105 transition-transform duration-200 border border-gray-300 rounded-full bg-gray-50">
                 <span
-                  className="px-2.5 py-1 rounded-md text-xs font-bold"
+                  className="px-2.5 py-1 rounded-md text-xs font-bold text-white"
                   style={{
-                    background: 'linear-gradient(to right, #6ce2ff 0%, #3b82f6 20%, #3b82f6 80%, #6ce2ff 100%)',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    backgroundClip: 'text',
+                    background: 'linear-gradient(135deg, #3b82f6, #3b82f6)',
                     boxShadow: '0 0 10px rgba(59, 130, 246, 0.4), inset 0 1px 3px rgba(59, 130, 246, 0.3)',
                     border: '1px solid rgba(59, 130, 246, 0.3)',
+                    textShadow: '0 1px 2px rgba(0, 0, 0, 0.1)'
                   }}
                 >
                   NEW
@@ -78,8 +76,8 @@ const Hero = () => {
             </div>
 
             {/* Rating Section */}
-            <div className="flex items-center gap-3 mt-2">
-              <div className="flex items-center justify-center h-10 flex-shrink-0">
+            <div className="flex items-center gap-3 mt-2 px-4 py-2 backdrop-blur-md bg-white/30 rounded-full w-fit">
+              <div className="flex items-center justify-center h-6 flex-shrink-0">
                 <Image
                   src="/capterra-icon.png"
                   alt="Capterra"
@@ -88,33 +86,29 @@ const Hero = () => {
                   className="object-contain"
                 />
               </div>
-              <div className="flex flex-col">
-                <div className="flex items-center gap-2">
-                  <span className="text-gray-900 text-lg font-semibold">4.8 Rating (50+ Reviews)</span>
-                </div>
-                <div className="flex gap-1 mt-1">
-                  {[...Array(5)].map((_, i) => {
-                    if (i < 4) {
-                      return (
-                        <svg key={i} className="w-5 h-5 fill-orange-400" viewBox="0 0 24 24">
-                          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                        </svg>
-                      );
-                    } else {
-                      return (
-                        <svg key={i} className="w-5 h-5" viewBox="0 0 24 24">
-                          <defs>
-                            <linearGradient id="partialFill">
-                              <stop offset="80%" stopColor="#fb923c" />
-                              <stop offset="80%" stopColor="#d1d5db" />
-                            </linearGradient>
-                          </defs>
-                          <path fill="url(#partialFill)" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                        </svg>
-                      );
-                    }
-                  })}
-                </div>
+              <span className="text-gray-900 text-base font-semibold">4.8 Rating (50+ Reviews)</span>
+              <div className="flex gap-1">
+                {[...Array(5)].map((_, i) => {
+                  if (i < 4) {
+                    return (
+                      <svg key={i} className="w-4 h-4 fill-orange-400" viewBox="0 0 24 24">
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                      </svg>
+                    );
+                  } else {
+                    return (
+                      <svg key={i} className="w-4 h-4" viewBox="0 0 24 24">
+                        <defs>
+                          <linearGradient id="partialFill">
+                            <stop offset="80%" stopColor="#fb923c" />
+                            <stop offset="80%" stopColor="#d1d5db" />
+                          </linearGradient>
+                        </defs>
+                        <path fill="url(#partialFill)" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                      </svg>
+                    );
+                  }
+                })}
               </div>
             </div>
           </div>
