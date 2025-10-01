@@ -136,7 +136,7 @@ const LeadChange: React.FC<LeadChangeProps> = ({ text = "Lead The Change" }) => 
         className="hidden lg:block absolute pointer-events-none"
         style={{ zIndex: 50, left: 0, top: 0 }}
       >
-        <Link href="/contact-us" className="pointer-events-auto">
+        <Link href="/contact" className="pointer-events-auto">
           <Button variant="default"  className='hover:cursor-pointer hover:bg-highlighter-green hover:text-white'>GET IN TOUCH</Button>
         </Link>
       </div>
