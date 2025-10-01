@@ -14,7 +14,7 @@ Empowering America&apos;s contractors with innovative technology that drives gro
       </div>
       <div className="rounded-3xl overflow-hidden relative w-full h-[600px]">
         <img
-          src="https://images.unsplash.com/photo-1541888946425-d61aa56f46a?q=80&w=2800&auto=format&fit=crop"
+          src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2670&auto=format&fit=crop"
           alt="Construction technology and innovation"
           className="absolute inset-0 w-full h-full object-cover"
         />

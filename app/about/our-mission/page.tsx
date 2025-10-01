@@ -4,13 +4,10 @@ import LeadChange from '@/app/homecomponents/LeadChange'
 import Header from '@/app/components/Header'
 import Hero from './components/Hero'
 import Footer from '@/app/components/Footer'
-import ServicesSection from '../../services/service'
-import { ServiceItem } from '@/app/types/service'
 import React from 'react'
 import Testimonials, { Testimonial } from '@/app/components/Testimonials'
 import FAQ from '@/app/components/FAQ'
-import StickyNavigation from '@/app/components/StickyNavigation'
-import KeyFeatures from '@/app/components/KeyFeatures'
+import { Target, TrendingUp, Users } from 'lucide-react'
 
 const missionTestimonials: Testimonial[] = [
   {
@@ -51,38 +48,32 @@ const missionTestimonials: Testimonial[] = [
   }
 ];
 
-const missionPillars: ServiceItem[] = [
+const missionPillars = [
   {
     id: 'empower-contractors',
     title: 'Empower Every Contractor',
     description: 'We believe every contractor deserves access to enterprise-level technology. From solo operators to growing teams, our mission is to provide world-class tools that were previously only available to large companies. We level the playing field, giving independent contractors the power to compete and win against any competitor.',
-    buttonText: 'Learn More',
-    imageSrc: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2670&auto=format&fit=crop',
-    imageAlt: 'Contractor using advanced technology',
-    priority: true,
-    imageSizes: '(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 45vw',
-    imageQuality: 90
+    icon: Users
   },
   {
     id: 'drive-innovation',
     title: 'Drive Industry Innovation',
     description: 'The home remodeling industry deserves better technology. We push boundaries by integrating AI, automation, and cutting-edge design tools specifically for contractors. Our commitment to innovation means constantly evolving our platform, staying ahead of trends, and ensuring our clients always have the most advanced tools available.',
-    buttonText: 'Learn More',
-    imageSrc: 'https://images.unsplash.com/photo-1581092918484-8313e1f946b4?q=80&w=2670&auto=format&fit=crop',
-    imageAlt: 'Innovation and technology in construction',
-    imageSizes: '(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 45vw',
-    imageQuality: 90
+    icon: Target
   },
   {
     id: 'deliver-results',
     title: 'Deliver Measurable Results',
     description: 'Technology should drive tangible business outcomes. We measure success through contractor revenue growth, time savings, and higher close rates. Every feature we build is designed to deliver measurable ROI – whether it\'s increasing project values by 45%, saving 15 hours weekly, or boosting close rates by 89%.',
-    buttonText: 'Learn More',
-    imageSrc: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop',
-    imageAlt: 'Business growth and success metrics',
-    imageSizes: '(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 45vw',
-    imageQuality: 85
+    icon: TrendingUp
   }
+]
+
+const impactStats = [
+  { value: '850+', label: 'Active Contractors' },
+  { value: '60%', label: 'Average Revenue Increase' },
+  { value: '15hrs', label: 'Saved Per Week' },
+  { value: '89%', label: 'Higher Close Rates' }
 ]
 
 const missionFAQs = [
@@ -119,62 +110,78 @@ const missionFAQs = [
 ]
 
 const OurMissionPage = () => {
-  const handleServiceInquiry = (serviceId: string) => {
-    console.log(`Inquiry for service: ${serviceId}`)
-  }
-
-  const navigationItems = [
-    { id: 'key-features', label: 'Core Values' },
-    { id: 'services', label: 'Mission Pillars' },
-    { id: 'testimonials', label: 'Contractor Stories' },
-    { id: 'faq', label: 'FAQs' },
-    { id: 'contact', label: 'Join Us' }
-  ]
-
-  const keyFeatures = [
-    {
-      number: 1,
-      title: 'Contractor-First Technology',
-      description: 'Every decision starts with one question: How does this serve contractors better? We design with empathy, build with purpose, and deliver solutions that solve real challenges you face daily.'
-    },
-    {
-      number: 2,
-      title: 'Partnership Over Profit',
-      description: 'We\'re not just a software vendor—we\'re your strategic business partner. Your growth is our mission. We invest in your success through dedicated support, comprehensive training, and continuous innovation.'
-    },
-    {
-      number: 3,
-      title: 'Innovation Without Compromise',
-      description: 'We integrate cutting-edge technology like AI and automation, but never sacrifice usability. Enterprise power meets contractor simplicity—advanced tools that anyone can use effectively from day one.'
-    },
-    {
-      number: 4,
-      title: 'Measurable Impact',
-      description: 'We measure success through your results: revenue growth, time savings, higher close rates. Every feature is designed to deliver tangible ROI that you can see in your bottom line.'
-    }
-  ]
-
   return (
     <div className="pt-5">
       <Header />
       <div id="hero">
         <Hero />
       </div>
-      <StickyNavigation items={navigationItems} />
-      <div id="key-features">
-        <KeyFeatures features={keyFeatures} />
+
+      {/* Vision Statement Section */}
+      <div id="vision" className="py-24 px-10">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-5xl font-bold text-center mb-8 tracking-tight">
+            Building the Future of Contracting
+          </h2>
+          <div className="space-y-6 text-xl leading-relaxed text-center">
+            <p>
+              We envision a world where every contractor—from solo operators to growing teams—has access to the same powerful technology that was once reserved for large enterprises.
+            </p>
+            <p>
+              Through innovation, partnership, and unwavering commitment to contractor success, we're transforming the home remodeling industry one business at a time.
+            </p>
+            <p>
+              Our mission isn't just about building software. It's about empowering the people who build America's homes.
+            </p>
+          </div>
+        </div>
       </div>
-      <div id="services">
-        <ServicesSection
-          services={missionPillars}
-          sectionId="mission-pillars"
-          sectionClassName="bg-gradient-to-b from-white to-gray-50"
-          onButtonClick={handleServiceInquiry}
-          headingLevel="h2"
-          lazyLoadImages={true}
-          animateOnScroll={true}
-        />
+
+      {/* Impact Stats Section */}
+      <div id="impact" className="py-20 px-10 bg-gradient-to-b from-gray-50 to-white">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-4xl font-bold text-center mb-16 tracking-tight">
+            Our Impact by the Numbers
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+            {impactStats.map((stat, index) => (
+              <div key={index} className="text-center">
+                <div className="text-6xl font-bold mb-3 bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">
+                  {stat.value}
+                </div>
+                <div className="text-lg font-medium">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
+
+      {/* Mission Pillars Section */}
+      <div id="pillars" className="py-24 px-10">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-4xl font-bold text-center mb-6 tracking-tight">
+            The Three Pillars of Our Mission
+          </h2>
+          <p className="text-xl text-center mb-16 max-w-3xl mx-auto">
+            Everything we do is guided by these fundamental principles
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {missionPillars.map((pillar) => {
+              const IconComponent = pillar.icon
+              return (
+                <div key={pillar.id} className="bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-xl transition-shadow">
+                  <div className="mb-6">
+                    <IconComponent className="w-12 h-12 text-blue-600" />
+                  </div>
+                  <h3 className="text-2xl font-bold mb-4">{pillar.title}</h3>
+                  <p className="text-lg leading-relaxed">{pillar.description}</p>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+      </div>
+
       <div id="testimonials">
         <Testimonials
           testimonials={missionTestimonials}
