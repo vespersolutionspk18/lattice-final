@@ -1,15 +1,35 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import Button from "../components/Button";
 import FrostedGlass from "../components/FrostedGlass";
 import { ArrowRight } from "lucide-react";
 
 const Hero = () => {
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    message: ""
+  });
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log("Form submitted:", formData);
+  };
+
   return (
     <div className="p-5 mt-24">
       <div
-        className="flex flex-col rounded-2xl justify-between h-[760px] relative overflow-hidden bg-[#4d4d4d]"
+        className="flex flex-row rounded-2xl justify-between h-[760px] relative overflow-hidden bg-[#4d4d4d]"
         id="bg here"
       >
         {/* Background placeholder */}
@@ -17,9 +37,9 @@ const Hero = () => {
           <span className="text-gray-400 text-sm font-medium">BG IMAGE</span>
         </div>
 
-        {/* Content goes here - it will appear on top of the video */}
-        <div className="w-full h-full p-5 flex flex-col justify-center items-center relative z-10">
-          <div className="p-5 flex flex-col gap-7 items-center text-center">
+        {/* Left Content Section */}
+        <div className="w-1/2 h-full p-5 flex flex-col justify-center relative z-10">
+          <div className="p-5 flex flex-col gap-7 items-start text-left">
             {/* AR/VR Announcement Banner */}
             <Link href="/services/ar-vr">
               <FrostedGlass rounded="full" blur="md" className="inline-flex items-center gap-3 px-4 py-2 w-fit cursor-pointer hover:scale-105 transition-transform duration-200">
@@ -54,9 +74,66 @@ const Hero = () => {
           </div>
         </div>
 
+        {/* Right Contact Form Section */}
+        <div className="w-1/2 h-full p-5 flex items-center justify-center relative z-10">
+          <div className="bg-white rounded-3xl p-10 w-full max-w-md shadow-2xl">
+            <h2 className="text-3xl font-normal text-gray-900 mb-3 tracking-tight">
+              Request a Professional Quote Today
+            </h2>
+            <p className="text-gray-600 mb-8 text-base leading-relaxed">
+              Get your personalized estimate in just a few clicks, it&apos;s fast, easy, and completely free
+            </p>
 
+            <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+              <input
+                type="text"
+                name="firstName"
+                placeholder="First name"
+                value={formData.firstName}
+                onChange={handleInputChange}
+                className="w-full px-4 py-2 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#3b82f6] focus:border-transparent text-gray-900 placeholder-gray-400"
+                required
+              />
+
+              <input
+                type="text"
+                name="lastName"
+                placeholder="Last name"
+                value={formData.lastName}
+                onChange={handleInputChange}
+                className="w-full px-4 py-2 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#3b82f6] focus:border-transparent text-gray-900 placeholder-gray-400"
+                required
+              />
+
+              <input
+                type="email"
+                name="email"
+                placeholder="Email"
+                value={formData.email}
+                onChange={handleInputChange}
+                className="w-full px-4 py-2 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#3b82f6] focus:border-transparent text-gray-900 placeholder-gray-400"
+                required
+              />
+
+              <textarea
+                name="message"
+                placeholder="Message"
+                value={formData.message}
+                onChange={handleInputChange}
+                rows={2}
+                className="w-full px-4 py-2 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#3b82f6] focus:border-transparent text-gray-900 placeholder-gray-400 resize-none"
+                required
+              />
+
+              <div className="mt-2">
+                <Button type="submit" variant="blue" className="w-full">
+                  Get an Estimate
+                </Button>
+              </div>
+            </form>
+          </div>
+        </div>
       </div>
-
     </div>
   );
 };

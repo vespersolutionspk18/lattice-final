@@ -2,129 +2,134 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
-import Button from "./Button";
-import { motion } from "framer-motion";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, ArrowRight, Palette, Box, Database, Sparkles, Monitor, Globe, Target, Users } from "lucide-react";
 import { useMegaMenu } from "../contexts/MegaMenuContext";
 
-const AnimatedMenuLink = ({ href, children }: { href: string; children: React.ReactNode }) => {
+const MegaMenuCard = ({
+  href,
+  icon: Icon,
+  title,
+  description,
+  isNew
+}: {
+  href: string;
+  icon: React.ElementType;
+  title: string;
+  description: string;
+  isNew?: boolean;
+}) => {
   const [isHovered, setIsHovered] = useState(false);
-
-  const textVariants = {
-    initial: { y: 0 },
-    hover: { y: '-100%' }
-  };
-
-  const textVariantsHover = {
-    initial: { y: '100%' },
-    hover: { y: 0 }
-  };
 
   return (
     <Link
       href={href}
-      className="text-gray-900 text-xl font-semibold whitespace-nowrap tracking-tight block relative h-7 overflow-hidden"
+      className="group flex items-start gap-4 p-4 rounded-xl hover:bg-blue-50/50 transition-all duration-200"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      style={{ fontFamily: 'var(--font-figtree)', fontWeight: 500 }}
     >
-      <motion.span
-        className="block"
-        initial="initial"
-        animate={isHovered ? 'hover' : 'initial'}
-        variants={textVariants}
-        transition={{ duration: 0.15, ease: 'easeInOut' }}
-      >
-        {children}
-      </motion.span>
-      <motion.span
-        className="absolute inset-0 block"
-        initial="initial"
-        animate={isHovered ? 'hover' : 'initial'}
-        variants={textVariantsHover}
-        transition={{ duration: 0.15, ease: 'easeInOut' }}
-      >
-        {children}
-      </motion.span>
+      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-100 to-blue-50 flex items-center justify-center flex-shrink-0">
+        <Icon className="w-6 h-6 text-blue-600" />
+      </div>
+      <div className="flex-1 min-w-0">
+        <div className="flex items-center gap-2 mb-0.5">
+          <h4 className="text-base font-semibold text-gray-900" style={{ fontFamily: 'var(--font-figtree)' }}>
+            {title}
+          </h4>
+          {isNew && (
+            <span className="px-2 py-0.5 text-xs font-medium text-white bg-blue-600 rounded-full">
+              New
+            </span>
+          )}
+        </div>
+        <p className="text-sm text-gray-600" style={{ fontFamily: 'var(--font-figtree)' }}>
+          {description}
+        </p>
+      </div>
+      <ArrowRight
+        className={`w-5 h-5 text-gray-400 group-hover:text-blue-600 flex-shrink-0 transition-all duration-200 ${
+          isHovered ? 'translate-x-1' : ''
+        }`}
+      />
     </Link>
   );
 };
 
-interface ServiceMenuItem {
+interface MenuItem {
   title: string;
-  categories: Record<string, string[]>;
-  activeCategory: string;
-  image: string;
-  buttonText: string;
-  buttonLink: string;
 }
-
-interface AboutMenuItem {
-  title: string;
-  leftItems: { label: string; href: string }[];
-  image: string;
-  buttonText: string;
-  buttonLink: string;
-}
-
-type MenuItem = ServiceMenuItem | AboutMenuItem;
 
 const MegaMenu = () => {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  const [menuWidth, setMenuWidth] = useState<number>(900);
   const contentRef = useRef<HTMLDivElement>(null);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const { setIsOverlayActive } = useMegaMenu();
 
   const services = [
-    { name: "Design & Plans", href: "/services/design-and-plans" },
-    { name: "3D Rendering", href: "/services/3d-rendering" },
-    { name: "CRM for Contractors", href: "/services/crm" },
-    { name: "AI Designer", href: "/services/ai-designer" },
-    { name: "Digital Showroom", href: "/services/digital-showroom" },
-    { name: "Web Design & SEO", href: "/services/web-design-seo" }
+    {
+      name: "Design & Plans",
+      href: "/services/design-and-plans",
+      icon: Palette,
+      description: "Professional design services and detailed construction plans."
+    },
+    {
+      name: "3D Rendering",
+      href: "/services/3d-rendering",
+      icon: Box,
+      description: "Stunning 3D visualizations for your projects."
+    },
+    {
+      name: "CRM for Contractors",
+      href: "/services/crm",
+      icon: Database,
+      description: "Streamline your business operations and client management."
+    },
+    {
+      name: "AI Designer",
+      href: "/services/ai-designer",
+      icon: Sparkles,
+      description: "AI-powered design tools and intelligent user experience.",
+      isNew: true
+    },
+    {
+      name: "Digital Showroom",
+      href: "/services/digital-showroom",
+      icon: Monitor,
+      description: "Showcase your work with interactive digital experiences."
+    },
+    {
+      name: "Web Design & SEO",
+      href: "/services/web-design-seo",
+      icon: Globe,
+      description: "Modern websites with search engine optimization."
+    }
+  ];
+
+  const aboutItems = [
+    {
+      name: "Our Mission",
+      href: "/about/our-mission",
+      icon: Target,
+      description: "Learn about our vision and values."
+    },
+    {
+      name: "Comparison",
+      href: "/#whycooseus",
+      icon: Users,
+      description: "See how we compare to the competition."
+    }
   ];
 
   const menuItems: Record<string, MenuItem> = {
     "Services and Products": {
-      title: "Our Services",
-      categories: {},
-      activeCategory: "",
-      image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop",
-      buttonText: "View All Services",
-      buttonLink: "/services"
-    } as ServiceMenuItem,
+      title: "Our Services"
+    },
     "About": {
-      title: "About Us",
-      leftItems: [
-        { label: "Our Mission", href: "/about/our-mission" },
-        { label: "Comparison", href: "/#whycooseus" }
-      ],
-      image: "https://images.unsplash.com/photo-1556761175-b413da4baf72?w=800&h=600&fit=crop",
-      buttonText: "Learn More",
-      buttonLink: "/about"
-    } as AboutMenuItem,
+      title: "About Us"
+    }
   };
 
   const simpleLinks = ["Pricing", "Careers", "Contact"];
 
-  useEffect(() => {
-    if (activeDropdown) {
-      // Calculate width based on current content
-      setTimeout(() => {
-        if (contentRef.current) {
-          const textContent = contentRef.current.querySelector('.opacity-100');
-          if (textContent) {
-            const contentWidth = textContent.scrollWidth;
-            // Width = left padding (64px) + content + margin (60px) + image (340px) + right padding (12px)
-            const totalWidth = 64 + contentWidth + 150 + 340 + 60;
-            setMenuWidth(Math.max(1600, totalWidth)); 
-          }
-        }
-      }, 10);
-    }
-  }, [activeDropdown]);
 
   const handleMouseEnter = (key: string) => {
     if (timeoutRef.current) {
@@ -192,70 +197,44 @@ const MegaMenu = () => {
             onMouseEnter={() => handleMouseEnter(key)}
             onMouseLeave={handleMouseLeave}
           >
-            <div className="bg-white rounded-3xl shadow-2xl p-3 pl-16 pr-3 flex items-center transition-all duration-300 ease-in-out" style={{ width: `${menuWidth}px`, height: '360px' }}>
-              <div ref={contentRef} className="flex items-center justify-center h-full" style={{ marginRight: "60px" }}>
+            <div className="bg-white rounded-3xl shadow-2xl p-6 transition-all duration-300 ease-in-out" style={{ width: 'auto', minWidth: '850px', maxWidth: '1000px' }}>
+              <div ref={contentRef} className="w-full">
                 {key === "Services and Products" ? (
                   <div className="flex flex-col">
-                    <h3 className="text-2xl text-gray-900 mb-6" style={{ fontFamily: 'var(--font-figtree)', fontWeight: 500 }}>{value.title}</h3>
-                    <div className="flex gap-x-12">
-                      <div className="flex flex-col">
-                        {services.slice(0, 3).map((service, index) => (
-                          <AnimatedMenuLink
-                            key={index}
-                            href={service.href}
-                          >
-                            {service.name}
-                          </AnimatedMenuLink>
-                        ))}
-                      </div>
-                      <div className="flex flex-col">
-                        {services.slice(3).map((service, index) => (
-                          <AnimatedMenuLink
-                            key={index}
-                            href={service.href}
-                          >
-                            {service.name}
-                          </AnimatedMenuLink>
-                        ))}
-                      </div>
+                    <h3 className="text-xl font-semibold text-gray-900 mb-4 px-4" style={{ fontFamily: 'var(--font-figtree)' }}>
+                      {value.title}
+                    </h3>
+                    <div className="grid grid-cols-2 gap-2">
+                      {services.map((service, index) => (
+                        <MegaMenuCard
+                          key={index}
+                          href={service.href}
+                          icon={service.icon}
+                          title={service.name}
+                          description={service.description}
+                          isNew={service.isNew}
+                        />
+                      ))}
                     </div>
                   </div>
-                ) : key === "About" && 'leftItems' in value ? (
+                ) : key === "About" ? (
                   <div className="flex flex-col">
-                    <h3 className="text-2xl text-gray-900 mb-6" style={{ fontFamily: 'var(--font-figtree)', fontWeight: 500 }}>{value.title}</h3>
-                    <div className="flex flex-col">
-                      {value.leftItems.map((item, index) => (
-                        <AnimatedMenuLink
+                    <h3 className="text-xl font-semibold text-gray-900 mb-4 px-4" style={{ fontFamily: 'var(--font-figtree)' }}>
+                      {value.title}
+                    </h3>
+                    <div className="flex flex-col gap-2">
+                      {aboutItems.map((item, index) => (
+                        <MegaMenuCard
                           key={index}
                           href={item.href}
-                        >
-                          {item.label}
-                        </AnimatedMenuLink>
+                          icon={item.icon}
+                          title={item.name}
+                          description={item.description}
+                        />
                       ))}
                     </div>
                   </div>
                 ) : null}
-              </div>
-
-              <div className="w-[340px] h-[340px] flex-shrink-0 ml-auto">
-                <div className="relative rounded-2xl overflow-hidden bg-gray-100 w-full h-full flex flex-col">
-                  <div className="relative flex-1">
-                    <Image
-                      src={value.image}
-                      alt={value.title}
-                      fill
-                      className="object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
-                  </div>
-                  <div className="absolute bottom-2 left-2">
-                    <Link href={value.buttonLink}>
-                      <Button size="md" className="bg-black text-white hover:bg-gray-900">
-                        {value.buttonText}
-                      </Button>
-                    </Link>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
