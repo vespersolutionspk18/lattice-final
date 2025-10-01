@@ -2,8 +2,16 @@
 import React from "react";
 import { Check, X, Zap, Shield, Palette, TrendingUp, Users, Globe } from "lucide-react";
 
+interface Feature {
+  icon: React.ComponentType<{ className?: string }>;
+  title: string;
+  description: string;
+  lattice: boolean | "partial";
+  competitors: boolean | "partial";
+}
+
 const ComparisonTable = () => {
-  const features = [
+  const features: Feature[] = [
     {
       icon: Zap,
       title: "All-in-One Platform",

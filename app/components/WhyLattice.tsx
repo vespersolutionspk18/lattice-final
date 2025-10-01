@@ -60,7 +60,7 @@ const WhyLattice = ({ cards }: WhyLatticeProps) => {
             Why Lattice?
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Nobody does home remodeling like we do. We're confident—here's why.
+            Nobody does home remodeling like we do. We&apos;re confident—here&apos;s why.
           </p>
         </div>
 

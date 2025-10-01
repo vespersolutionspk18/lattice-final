@@ -5,10 +5,18 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Check, X, Zap, Shield, Palette, TrendingUp, Users, Globe, Info } from 'lucide-react'
 import LogoTestSmall from '../components/LogoTestSmall'
 
+interface ComparisonFeature {
+  icon: React.ComponentType<{ className?: string }>;
+  title: string;
+  description: string;
+  lattice: boolean | "partial";
+  competitors: boolean | "partial";
+}
+
 const WhyChooseUs = () => {
   const [visibleCount, setVisibleCount] = useState(1)
 
-  const comparisonFeatures = [
+  const comparisonFeatures: ComparisonFeature[] = [
     {
       icon: Zap,
       title: "All-in-One Platform",
@@ -89,7 +97,7 @@ const WhyChooseUs = () => {
             Why Choose Us
           </h5>
           <p className="text-black/75 text-2xl tracking-tighter w-[68%]">
-            While we're unmatched in our dedication to excellence and setting the industry standard, we get it, sometimes you need to explore other options. But frankly, if you're comparing, choosing elsewhere just doesn't add up.
+            While we&apos;re unmatched in our dedication to excellence and setting the industry standard, we get it, sometimes you need to explore other options. But frankly, if you&apos;re comparing, choosing elsewhere just doesn&apos;t add up.
           </p>
         </div>
 
@@ -185,7 +193,7 @@ const WhyChooseUs = () => {
             Our Features
           </h5>
           <p className="text-black/75 text-2xl tracking-tighter w-[68%]">
-            Beyond the basics, we've built a comprehensive suite of tools designed to transform how you work. Each feature is crafted to deliver measurable results and drive your business forward.
+            Beyond the basics, we&apos;ve built a comprehensive suite of tools designed to transform how you work. Each feature is crafted to deliver measurable results and drive your business forward.
           </p>
         </div>
 
