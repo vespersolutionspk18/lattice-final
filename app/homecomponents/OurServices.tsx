@@ -4,12 +4,12 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import {
-  Network,
-  Fingerprint,
-  Eye,
-  Users,
-  Server,
+  LayoutDashboard,
+  Box,
   Sparkles,
+  Ruler,
+  MonitorPlay,
+  Globe,
   ChevronRight,
 } from "lucide-react";
 
@@ -28,34 +28,34 @@ const OurServices = () => {
 
   const services = [
     {
-      title: "Networking",
-      icon: Network,
-      href: "/services/networking",
+      title: "Real Estate CRM",
+      icon: LayoutDashboard,
+      href: "/services/crm",
     },
     {
-      title: "Security",
-      icon: Fingerprint,
-      href: "/services/security",
+      title: "3D Rendering",
+      icon: Box,
+      href: "/services/3d-rendering",
     },
     {
-      title: "Observability",
-      icon: Eye,
-      href: "/services/observability",
-    },
-    {
-      title: "Collaboration",
-      icon: Users,
-      href: "/services/collaboration",
-    },
-    {
-      title: "Computing",
-      icon: Server,
-      href: "/services/computing",
-    },
-    {
-      title: "AI",
+      title: "AI Designer",
       icon: Sparkles,
-      href: "/services/ai",
+      href: "/services/ai-designer",
+    },
+    {
+      title: "Design & Plans",
+      icon: Ruler,
+      href: "/services/design-and-plans",
+    },
+    {
+      title: "Digital Showroom",
+      icon: MonitorPlay,
+      href: "/services/digital-showroom",
+    },
+    {
+      title: "Web Design & SEO",
+      icon: Globe,
+      href: "/services/web-design-seo",
     },
   ];
 
