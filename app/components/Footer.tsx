@@ -10,7 +10,7 @@ const Footer = () => {
   const router = useRouter();
   return (
     <div className="p-5">
-        <div className="bg-black/98 tracking-tighter text-white px-16 pt-16 pb-4 rounded-3xl flex flex-col gap-10">
+        <div className="bg-[#3b82f6] tracking-tighter text-white px-16 pt-16 pb-4 rounded-3xl flex flex-col gap-10">
         <div className="w-full flex flex-row gap-10 justify-between">
             <div className="flex flex-col gap-7 w-[40%]">
                 <h5 className="text-4xl w-[60%]">Ready to Scale Your Business?</h5>

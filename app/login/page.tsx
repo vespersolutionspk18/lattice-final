@@ -113,13 +113,20 @@ export default function LoginPage() {
           </form>
 
           {/* Footer */}
-          <div className="mt-8 text-center">
+          <div className="mt-8 text-center space-y-2">
             <Link
               href="/"
-              className="text-sm text-gray-600 hover:text-blue-600 transition-colors"
+              className="text-sm text-gray-600 hover:text-blue-600 transition-colors block"
               style={{ fontFamily: 'var(--font-figtree)' }}
             >
               ← Back to Home
+            </Link>
+            <Link
+              href="/contact"
+              className="text-xs text-gray-500 hover:text-blue-600 transition-colors block"
+              style={{ fontFamily: 'var(--font-figtree)' }}
+            >
+              Contact Support
             </Link>
           </div>
         </div>
