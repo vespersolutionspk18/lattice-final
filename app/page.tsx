@@ -6,7 +6,7 @@ import OurServices from "./homecomponents/OurServices";
 import WhyChooseUs from "./homecomponents/WhyChooseUs";
 
 import LeadChange from "./homecomponents/LeadChange";
-import CaseStudies from "./homecomponents/CaseStudies";
+
 import Footer from "./components/Footer";
 import Testimonials from "./components/Testimonials";
 import PurpleBoxSection from "./homecomponents/PurpleBoxSection";
@@ -22,7 +22,7 @@ export default function Home() {
    <PurpleBoxSection />
     <WhyChooseUs />
    <OurServices />
-    <CaseStudies />
+
     <Testimonials
       title="Success Stories"
       subtitle="Contractors Growing with Lattice"

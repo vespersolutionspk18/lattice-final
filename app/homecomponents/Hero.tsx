@@ -30,8 +30,15 @@ const Hero = () => {
   return (
     <div className="p-5 mt-24">
       <div
-        className="flex flex-row rounded-2xl justify-between h-[760px] relative overflow-hidden bg-white"
+        className="flex flex-row rounded-2xl justify-between h-[760px] relative overflow-hidden"
+        style={{
+          backgroundImage: 'url(https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2053&auto=format&fit=crop)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
       >
+        {/* Frosted Glass Overlay */}
+        <div className="absolute inset-0 z-0 backdrop-blur-md bg-white/60"></div>
 
         {/* Left Content Section */}
         <div className="w-1/2 h-full p-5 flex flex-col justify-center relative z-10">
@@ -60,7 +67,7 @@ const Hero = () => {
             <h1 className="text-7xl text-gray-900 tracking-tighter">
               Empowering Contractors <br></br>& Home Remodelers
             </h1>
-            <h5 className="text-2xl text-gray-600 tracking-tighter">
+            <h5 className="text-2xl text-black tracking-tighter">
               Your complete B2B solution for design, CRM, and digital <br></br>tools to grow your remodeling business.
             </h5>
             <div className="flex flex-row gap-3">
@@ -113,7 +120,7 @@ const Hero = () => {
 
         {/* Right Contact Form Section */}
         <div className="w-1/2 h-full p-5 flex items-center justify-center relative z-10">
-          <div className="bg-white rounded-3xl p-10 w-full max-w-md shadow-2xl border-2 border-gray-300">
+          <div className="bg-white rounded-3xl p-10 w-full max-w-md shadow-2xl">
             <h2 className="text-3xl font-normal text-gray-900 mb-3 tracking-tight">
               Request a Professional Quote Today
             </h2>
