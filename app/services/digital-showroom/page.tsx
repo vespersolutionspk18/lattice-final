@@ -11,6 +11,8 @@ import Testimonials, { Testimonial } from '@/app/components/Testimonials'
 import FAQ from '@/app/components/FAQ'
 import StickyNavigation from '@/app/components/StickyNavigation'
 import KeyFeatures from '@/app/components/KeyFeatures'
+import WhyLattice from '@/app/components/WhyLattice'
+import { Sparkles, ShoppingBag, Star } from 'lucide-react'
 
 const showroomTestimonials: Testimonial[] = [
   {
@@ -129,10 +131,10 @@ const DigitalShowroomPage = () => {
 
   const navigationItems = [
     { id: 'key-features', label: 'Key Features' },
+    { id: 'why-lattice', label: 'Why Lattice' },
     { id: 'services', label: 'Services' },
     { id: 'testimonials', label: 'Success Stories' },
     { id: 'faq', label: 'FAQs' },
-    { id: 'why-lattice', label: 'Why Lattice' },
     { id: 'contact', label: 'Get Started' }
   ]
 
@@ -159,6 +161,24 @@ const DigitalShowroomPage = () => {
     }
   ]
 
+  const whyLatticeCards = [
+    {
+      title: 'Pre-Sell Projects Before the First Meeting',
+      description: 'Traditional sales start cold. A digital showroom flips this entirely. Prospects spend 20-30 minutes browsing your portfolio and building wishlists before contacting you. By the time you meet, they\'ve emotionally invested in their vision. Contractors report 60-70% conversion rates for digital showroom leads versus 25-35% for traditional cold inquiries.',
+      icon: Sparkles
+    },
+    {
+      title: 'Showcase Unlimited Possibilities Without Physical Constraints',
+      description: 'Physical showrooms are expensive and limited by square footage. Lattice digital showrooms eliminate these constraints. Display thousands of materials and design styles in organized, searchable categories. Update instantly as trends change. Clients explore 24/7 from anywhere. No rent, utilities, or staffing costs—premium showroom benefits at a fraction of the investment.',
+      icon: ShoppingBag
+    },
+    {
+      title: 'Turn Browsers into Buyers with Engagement Tracking',
+      description: 'Traditional marketing provides limited insight until prospects contact you. Digital showrooms provide detailed engagement analytics. See which projects each prospect viewed, what materials they saved, and when they\'re active. Reach out at the perfect moment with personalized messaging based on their demonstrated interests, dramatically increasing conversions.',
+      icon: Star
+    }
+  ]
+
   return (
     <div className="pt-5">
       <Header />
@@ -168,6 +188,9 @@ const DigitalShowroomPage = () => {
       <StickyNavigation items={navigationItems} />
       <div id="key-features">
         <KeyFeatures features={keyFeatures} />
+      </div>
+      <div id="why-lattice">
+        <WhyLattice cards={whyLatticeCards} />
       </div>
       <div id="services">
         <ServicesSection
@@ -194,9 +217,6 @@ const DigitalShowroomPage = () => {
           subtitle="Learn how a digital showroom transforms your sales process"
           schemaOrg={true}
         />
-      </div>
-      <div id="why-lattice">
-        {/* Why Lattice section - can add content here later */}
       </div>
       <div id="contact">
         <LeadChange text="Launch Your Digital Showroom"/>

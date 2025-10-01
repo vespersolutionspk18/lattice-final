@@ -11,6 +11,8 @@ import Testimonials, { Testimonial } from '@/app/components/Testimonials'
 import FAQ from '@/app/components/FAQ'
 import StickyNavigation from '@/app/components/StickyNavigation'
 import KeyFeatures from '@/app/components/KeyFeatures'
+import WhyLattice from '@/app/components/WhyLattice'
+import { Globe, Search, TrendingUp } from 'lucide-react'
 
 const webSeoTestimonials: Testimonial[] = [
   {
@@ -129,10 +131,10 @@ const WebDesignSEOPage = () => {
 
   const navigationItems = [
     { id: 'key-features', label: 'Key Features' },
+    { id: 'why-lattice', label: 'Why Lattice' },
     { id: 'services', label: 'Services' },
     { id: 'testimonials', label: 'Success Stories' },
     { id: 'faq', label: 'FAQs' },
-    { id: 'why-lattice', label: 'Why Lattice' },
     { id: 'contact', label: 'Get Started' }
   ]
 
@@ -159,6 +161,24 @@ const WebDesignSEOPage = () => {
     }
   ]
 
+  const whyLatticeCards = [
+    {
+      title: 'All-in-One Platform Eliminates Integration Headaches',
+      description: 'Most contractors cobble together multiple tools from different vendors, creating endless frustration with data syncing and duplicate entry. Lattice provides a unified platform where everything works seamlessly. Website forms automatically create CRM leads. Portfolio projects update everywhere simultaneously. This integration saves hours weekly on manual data entry.',
+      icon: Globe
+    },
+    {
+      title: 'Contractor-Specific SEO That Actually Generates Leads',
+      description: 'Generic SEO services optimize for traffic, not qualified leads. Lattice SEO targets exact searches your ideal clients use when ready to hire—like "kitchen remodeling contractor near me." Location-specific landing pages capture searches in every neighborhood you serve. The result: 3-5x higher conversion rates compared to generic SEO approaches.',
+      icon: Search
+    },
+    {
+      title: 'Conversion-Optimized Design Backed by Contractor Data',
+      description: 'Most designers focus on aesthetics over results. Lattice websites are engineered for conversion based on thousands of contractor sites. Every element serves a purpose: before/after galleries, instant quote calculators, strategically placed CTAs, and mobile-first design. Lattice websites convert 8-12% of visitors versus 2-4% for typical contractor sites.',
+      icon: TrendingUp
+    }
+  ]
+
   return (
     <div className="pt-5">
       <Header />
@@ -168,6 +188,9 @@ const WebDesignSEOPage = () => {
       <StickyNavigation items={navigationItems} />
       <div id="key-features">
         <KeyFeatures features={keyFeatures} />
+      </div>
+      <div id="why-lattice">
+        <WhyLattice cards={whyLatticeCards} />
       </div>
       <div id="services">
         <ServicesSection
@@ -194,9 +217,6 @@ const WebDesignSEOPage = () => {
           subtitle="Everything about your online presence with Lattice"
           schemaOrg={true}
         />
-      </div>
-      <div id="why-lattice">
-        {/* Why Lattice section - can add content here later */}
       </div>
       <div id="contact">
         <LeadChange text="Get Your Free Website Today"/>

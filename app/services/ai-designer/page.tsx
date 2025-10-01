@@ -11,6 +11,8 @@ import Testimonials, { Testimonial } from '@/app/components/Testimonials'
 import FAQ from '@/app/components/FAQ'
 import StickyNavigation from '@/app/components/StickyNavigation'
 import KeyFeatures from '@/app/components/KeyFeatures'
+import WhyLattice from '@/app/components/WhyLattice'
+import { Sparkles, Zap, Palette } from 'lucide-react'
 
 const aiDesignerTestimonials: Testimonial[] = [
   {
@@ -129,10 +131,10 @@ const AIDesignerPage = () => {
 
   const navigationItems = [
     { id: 'key-features', label: 'Key Features' },
+    { id: 'why-lattice', label: 'Why Lattice' },
     { id: 'services', label: 'Services' },
     { id: 'testimonials', label: 'Success Stories' },
     { id: 'faq', label: 'FAQs' },
-    { id: 'why-lattice', label: 'Why Lattice' },
     { id: 'contact', label: 'Get Started' }
   ]
 
@@ -159,6 +161,24 @@ const AIDesignerPage = () => {
     }
   ]
 
+  const whyLatticeCards = [
+    {
+      title: 'AI That Understands Construction',
+      description: 'Our AI isn\'t just pretty pictures—it understands how homes are actually built. Trained on thousands of real projects, it knows load-bearing walls, plumbing constraints, and building codes. Every design is practical and buildable. The AI thinks like a contractor, suggesting realistic layouts that maximize space while respecting structural limitations.',
+      icon: Sparkles
+    },
+    {
+      title: 'Real-Time Design Power',
+      description: '10-30 second generation time means you design with clients in real-time, not days later. Show 5 different kitchen layouts during your consultation. Try modern, farmhouse, and contemporary styles instantly. No "let me get back to you" delays—close deals on the spot with immediate visual results.',
+      icon: Zap
+    },
+    {
+      title: 'Unlimited Creative Freedom',
+      description: 'Traditional designers charge per revision. Our AI gives you unlimited variations at no extra cost. Try every color, every material, every layout possibility without worrying about fees. When clients can explore freely, they discover upgrades they never knew they wanted, naturally increasing project values.',
+      icon: Palette
+    }
+  ]
+
   return (
     <div className="pt-5">
       <Header />
@@ -168,6 +188,9 @@ const AIDesignerPage = () => {
       <StickyNavigation items={navigationItems} />
       <div id="key-features">
         <KeyFeatures features={keyFeatures} />
+      </div>
+      <div id="why-lattice">
+        <WhyLattice cards={whyLatticeCards} />
       </div>
       <div id="services">
         <ServicesSection
@@ -194,9 +217,6 @@ const AIDesignerPage = () => {
           subtitle="Learn how AI transforms your design process"
           schemaOrg={true}
         />
-      </div>
-      <div id="why-lattice">
-        {/* Why Lattice section - can add content here later */}
       </div>
       <div id="contact">
         <LeadChange text="Start Designing with AI Today"/>

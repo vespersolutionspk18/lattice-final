@@ -11,6 +11,8 @@ import Testimonials, { Testimonial } from '@/app/components/Testimonials'
 import FAQ from '@/app/components/FAQ'
 import StickyNavigation from '@/app/components/StickyNavigation'
 import KeyFeatures from '@/app/components/KeyFeatures'
+import WhyLattice from '@/app/components/WhyLattice'
+import { Eye, Zap, Award } from 'lucide-react'
 
 const renderingTestimonials: Testimonial[] = [
   {
@@ -129,10 +131,10 @@ const ThreeDRenderingPage = () => {
 
   const navigationItems = [
     { id: 'key-features', label: 'Key Features' },
+    { id: 'why-lattice', label: 'Why Lattice' },
     { id: 'services', label: 'Services' },
     { id: 'testimonials', label: 'Success Stories' },
     { id: 'faq', label: 'FAQs' },
-    { id: 'why-lattice', label: 'Why Lattice' },
     { id: 'contact', label: 'Get Started' }
   ]
 
@@ -159,6 +161,24 @@ const ThreeDRenderingPage = () => {
     }
   ]
 
+  const whyLatticeCards = [
+    {
+      title: 'Photorealistic Quality',
+      description: 'Our 3D renderings are indistinguishable from professional photography. Every texture, shadow, and reflection is crafted to perfection. Clients see their exact project in stunning detail, eliminating guesswork and building confidence. Show clients exactly what they\'re getting—photorealistic visualizations that sell themselves.',
+      icon: Eye
+    },
+    {
+      title: 'Lightning-Fast Delivery',
+      description: '24-48 hour turnaround means you strike while interest is hot. No waiting weeks for renderings—get them while clients are excited. Rush delivery available for same-day presentations. Present stunning visuals at your second meeting and close deals before competitors send quotes.',
+      icon: Zap
+    },
+    {
+      title: 'Professional Marketing Assets',
+      description: 'Every rendering includes a FREE professional 4K cinematic video—a $2,000+ value. Use these videos for Instagram, Facebook, YouTube, and your website to attract premium clients. Build a portfolio of stunning visuals that establish you as the premium choice.',
+      icon: Award
+    }
+  ]
+
   return (
     <div className="pt-5">
       <Header />
@@ -168,6 +188,9 @@ const ThreeDRenderingPage = () => {
       <StickyNavigation items={navigationItems} />
       <div id="key-features">
         <KeyFeatures features={keyFeatures} />
+      </div>
+      <div id="why-lattice">
+        <WhyLattice cards={whyLatticeCards} />
       </div>
       <div id="services">
         <ServicesSection
@@ -194,9 +217,6 @@ const ThreeDRenderingPage = () => {
           subtitle="Everything you need to know about our 3D visualization services"
           schemaOrg={true}
         />
-      </div>
-      <div id="why-lattice">
-        {/* Why Lattice section - can add content here later */}
       </div>
       <div id="contact">
         <LeadChange text="Start Closing More Deals Today"/>

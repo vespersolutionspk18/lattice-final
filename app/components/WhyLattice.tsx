@@ -64,25 +64,13 @@ const WhyLattice = ({ cards }: WhyLatticeProps) => {
           </p>
         </div>
 
-        {/* Cards Grid - Offset positioning */}
+        {/* Cards Grid */}
         <div className="relative mb-12">
-          {/* Hidden grid for alignment reference */}
-          <div className="grid grid-cols-4 gap-6 opacity-0 pointer-events-none">
-            <div className="h-0"></div>
-            <div className="h-0"></div>
-            <div className="h-0"></div>
-            <div className="h-0"></div>
-          </div>
-
-          {/* Actual cards positioned absolutely */}
-          <div className="grid grid-cols-3 gap-8 -mt-0">
+          <div className="grid grid-cols-3 gap-8">
             {cards.map((card, index) => (
               <div
                 key={index}
                 className="relative group"
-                style={{
-                  marginLeft: index === 0 ? 'calc((100% / 6))' : '0',
-                }}
               >
                 {/* Animated gradient border wrapper */}
                 <div className="relative p-[3px] rounded-2xl animated-gradient shadow-xl hover:shadow-2xl transition-shadow duration-300">

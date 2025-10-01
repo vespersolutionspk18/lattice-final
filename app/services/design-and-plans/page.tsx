@@ -11,6 +11,8 @@ import Testimonials, { Testimonial } from '@/app/components/Testimonials'
 import FAQ from '@/app/components/FAQ'
 import StickyNavigation from '@/app/components/StickyNavigation'
 import KeyFeatures from '@/app/components/KeyFeatures'
+import WhyLattice from '@/app/components/WhyLattice'
+import { Ruler, PenTool, Building } from 'lucide-react'
 
 // Note: For SEO metadata in Next.js App Router with Client Components,
 // create a separate metadata.ts or layout.tsx file in this directory
@@ -132,10 +134,10 @@ const DesignAndPlansPage = () => {
 
   const navigationItems = [
     { id: 'key-features', label: 'Key Features' },
+    { id: 'why-lattice', label: 'Why Lattice' },
     { id: 'services', label: 'Services' },
     { id: 'testimonials', label: 'Success Stories' },
     { id: 'faq', label: 'FAQs' },
-    { id: 'why-lattice', label: 'Why Lattice' },
     { id: 'contact', label: 'Get Started' }
   ]
 
@@ -162,6 +164,24 @@ const DesignAndPlansPage = () => {
     }
   ]
 
+  const whyLatticeCards = [
+    {
+      title: 'Design as a Profit Center, Not an Expense',
+      description: 'Most contractors outsource design at $3,000-$10,000 per project, cutting into margins. Lattice transforms design into a revenue generator. With unlimited design services included, charge clients $2,500-$7,500 while your cost remains fixed. Contractors report adding $50,000-$150,000 in annual design revenue alone.',
+      icon: Ruler
+    },
+    {
+      title: 'Close Deals Faster with Visual Certainty',
+      description: 'Client uncertainty is the biggest obstacle in closing projects. Lattice eliminates this with photorealistic 3D renderings and cinematic videos. When clients can see exactly how their kitchen will look, objections evaporate. Contractors report 70% higher close rates and 40% shorter sales cycles with Lattice visualizations.',
+      icon: PenTool
+    },
+    {
+      title: 'Permit Approvals Without the Headaches',
+      description: 'Permit rejections derail timelines and strain client relationships. Lattice provides code-compliant, permit-ready plans created by licensed professionals. Our detailed construction documents meet municipal standards. Contractors report 90%+ first-submission approval rates and save 2-4 weeks per project.',
+      icon: Building
+    }
+  ]
+
   return (
     <div className="pt-5">
       <Header />
@@ -171,6 +191,9 @@ const DesignAndPlansPage = () => {
       <StickyNavigation items={navigationItems} />
       <div id="key-features">
         <KeyFeatures features={keyFeatures} />
+      </div>
+      <div id="why-lattice">
+        <WhyLattice cards={whyLatticeCards} />
       </div>
       <div id="services">
         <ServicesSection
@@ -197,9 +220,6 @@ const DesignAndPlansPage = () => {
           subtitle="Everything contractors need to know about Lattice design and planning tools"
           schemaOrg={true}
         />
-      </div>
-      <div id="why-lattice">
-        {/* Why Lattice section - can add content here later */}
       </div>
       <div id="contact">
         <LeadChange text="Start Winning More Projects Today"/>
