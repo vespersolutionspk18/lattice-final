@@ -18,10 +18,16 @@ const LogoTestInverted: React.FC = () => {
   const centerX = 21
   const centerY = 21
 
-  // Clean styling
+  // Clean styling - matching header structure with footer-optimized colors
   const edgeWidth = 2
   const sphereRadius = 2.5
   const sphereBorder = 1
+
+  // Color scheme optimized for blue footer background (#3b82f6)
+  const borderColor = '#1e40af'  // Darker blue for depth and borders
+  const edgeColor = '#bfdbfe'     // Light blue for strong contrast against footer blue
+  const vertexFill = 'white'      // White for maximum visibility
+  const vertexStroke = '#1e40af'  // Darker blue to tie with borders
 
   // Function to calculate isometric cube vertices based on rotation angle
   const calculateVertices = (angle: number) => {
@@ -76,64 +82,121 @@ const LogoTestInverted: React.FC = () => {
       const svg = svgRef.current
       if (!svg) return
 
-      // Bottom edges
+      // Bottom front edge - border + edge
+      svg.querySelector('#border-bottom-front')?.setAttribute('x1', verts.bottomFrontLeft.x.toString())
+      svg.querySelector('#border-bottom-front')?.setAttribute('y1', verts.bottomFrontLeft.y.toString())
+      svg.querySelector('#border-bottom-front')?.setAttribute('x2', verts.bottomFrontRight.x.toString())
+      svg.querySelector('#border-bottom-front')?.setAttribute('y2', verts.bottomFrontRight.y.toString())
       svg.querySelector('#edge-bottom-front')?.setAttribute('x1', verts.bottomFrontLeft.x.toString())
       svg.querySelector('#edge-bottom-front')?.setAttribute('y1', verts.bottomFrontLeft.y.toString())
       svg.querySelector('#edge-bottom-front')?.setAttribute('x2', verts.bottomFrontRight.x.toString())
       svg.querySelector('#edge-bottom-front')?.setAttribute('y2', verts.bottomFrontRight.y.toString())
 
+      // Bottom right
+      svg.querySelector('#border-bottom-right')?.setAttribute('x1', verts.bottomFrontRight.x.toString())
+      svg.querySelector('#border-bottom-right')?.setAttribute('y1', verts.bottomFrontRight.y.toString())
+      svg.querySelector('#border-bottom-right')?.setAttribute('x2', verts.bottomBackRight.x.toString())
+      svg.querySelector('#border-bottom-right')?.setAttribute('y2', verts.bottomBackRight.y.toString())
       svg.querySelector('#edge-bottom-right')?.setAttribute('x1', verts.bottomFrontRight.x.toString())
       svg.querySelector('#edge-bottom-right')?.setAttribute('y1', verts.bottomFrontRight.y.toString())
       svg.querySelector('#edge-bottom-right')?.setAttribute('x2', verts.bottomBackRight.x.toString())
       svg.querySelector('#edge-bottom-right')?.setAttribute('y2', verts.bottomBackRight.y.toString())
 
+      // Bottom back
+      svg.querySelector('#border-bottom-back')?.setAttribute('x1', verts.bottomBackRight.x.toString())
+      svg.querySelector('#border-bottom-back')?.setAttribute('y1', verts.bottomBackRight.y.toString())
+      svg.querySelector('#border-bottom-back')?.setAttribute('x2', verts.bottomBackLeft.x.toString())
+      svg.querySelector('#border-bottom-back')?.setAttribute('y2', verts.bottomBackLeft.y.toString())
       svg.querySelector('#edge-bottom-back')?.setAttribute('x1', verts.bottomBackRight.x.toString())
       svg.querySelector('#edge-bottom-back')?.setAttribute('y1', verts.bottomBackRight.y.toString())
       svg.querySelector('#edge-bottom-back')?.setAttribute('x2', verts.bottomBackLeft.x.toString())
       svg.querySelector('#edge-bottom-back')?.setAttribute('y2', verts.bottomBackLeft.y.toString())
 
+      // Bottom left
+      svg.querySelector('#border-bottom-left')?.setAttribute('x1', verts.bottomBackLeft.x.toString())
+      svg.querySelector('#border-bottom-left')?.setAttribute('y1', verts.bottomBackLeft.y.toString())
+      svg.querySelector('#border-bottom-left')?.setAttribute('x2', verts.bottomFrontLeft.x.toString())
+      svg.querySelector('#border-bottom-left')?.setAttribute('y2', verts.bottomFrontLeft.y.toString())
       svg.querySelector('#edge-bottom-left')?.setAttribute('x1', verts.bottomBackLeft.x.toString())
       svg.querySelector('#edge-bottom-left')?.setAttribute('y1', verts.bottomBackLeft.y.toString())
       svg.querySelector('#edge-bottom-left')?.setAttribute('x2', verts.bottomFrontLeft.x.toString())
       svg.querySelector('#edge-bottom-left')?.setAttribute('y2', verts.bottomFrontLeft.y.toString())
 
-      // Vertical edges
+      // Vertical front left
+      svg.querySelector('#border-vertical-front-left')?.setAttribute('x1', verts.bottomFrontLeft.x.toString())
+      svg.querySelector('#border-vertical-front-left')?.setAttribute('y1', verts.bottomFrontLeft.y.toString())
+      svg.querySelector('#border-vertical-front-left')?.setAttribute('x2', verts.topFrontLeft.x.toString())
+      svg.querySelector('#border-vertical-front-left')?.setAttribute('y2', verts.topFrontLeft.y.toString())
       svg.querySelector('#edge-vertical-front-left')?.setAttribute('x1', verts.bottomFrontLeft.x.toString())
       svg.querySelector('#edge-vertical-front-left')?.setAttribute('y1', verts.bottomFrontLeft.y.toString())
       svg.querySelector('#edge-vertical-front-left')?.setAttribute('x2', verts.topFrontLeft.x.toString())
       svg.querySelector('#edge-vertical-front-left')?.setAttribute('y2', verts.topFrontLeft.y.toString())
 
+      // Vertical front right
+      svg.querySelector('#border-vertical-front-right')?.setAttribute('x1', verts.bottomFrontRight.x.toString())
+      svg.querySelector('#border-vertical-front-right')?.setAttribute('y1', verts.bottomFrontRight.y.toString())
+      svg.querySelector('#border-vertical-front-right')?.setAttribute('x2', verts.topFrontRight.x.toString())
+      svg.querySelector('#border-vertical-front-right')?.setAttribute('y2', verts.topFrontRight.y.toString())
       svg.querySelector('#edge-vertical-front-right')?.setAttribute('x1', verts.bottomFrontRight.x.toString())
       svg.querySelector('#edge-vertical-front-right')?.setAttribute('y1', verts.bottomFrontRight.y.toString())
       svg.querySelector('#edge-vertical-front-right')?.setAttribute('x2', verts.topFrontRight.x.toString())
       svg.querySelector('#edge-vertical-front-right')?.setAttribute('y2', verts.topFrontRight.y.toString())
 
+      // Vertical back left
+      svg.querySelector('#border-vertical-back-left')?.setAttribute('x1', verts.bottomBackLeft.x.toString())
+      svg.querySelector('#border-vertical-back-left')?.setAttribute('y1', verts.bottomBackLeft.y.toString())
+      svg.querySelector('#border-vertical-back-left')?.setAttribute('x2', verts.topBackLeft.x.toString())
+      svg.querySelector('#border-vertical-back-left')?.setAttribute('y2', verts.topBackLeft.y.toString())
       svg.querySelector('#edge-vertical-back-left')?.setAttribute('x1', verts.bottomBackLeft.x.toString())
       svg.querySelector('#edge-vertical-back-left')?.setAttribute('y1', verts.bottomBackLeft.y.toString())
       svg.querySelector('#edge-vertical-back-left')?.setAttribute('x2', verts.topBackLeft.x.toString())
       svg.querySelector('#edge-vertical-back-left')?.setAttribute('y2', verts.topBackLeft.y.toString())
 
+      // Vertical back right
+      svg.querySelector('#border-vertical-back-right')?.setAttribute('x1', verts.bottomBackRight.x.toString())
+      svg.querySelector('#border-vertical-back-right')?.setAttribute('y1', verts.bottomBackRight.y.toString())
+      svg.querySelector('#border-vertical-back-right')?.setAttribute('x2', verts.topBackRight.x.toString())
+      svg.querySelector('#border-vertical-back-right')?.setAttribute('y2', verts.topBackRight.y.toString())
       svg.querySelector('#edge-vertical-back-right')?.setAttribute('x1', verts.bottomBackRight.x.toString())
       svg.querySelector('#edge-vertical-back-right')?.setAttribute('y1', verts.bottomBackRight.y.toString())
       svg.querySelector('#edge-vertical-back-right')?.setAttribute('x2', verts.topBackRight.x.toString())
       svg.querySelector('#edge-vertical-back-right')?.setAttribute('y2', verts.topBackRight.y.toString())
 
-      // Top edges
+      // Top front
+      svg.querySelector('#border-top-front')?.setAttribute('x1', verts.topFrontLeft.x.toString())
+      svg.querySelector('#border-top-front')?.setAttribute('y1', verts.topFrontLeft.y.toString())
+      svg.querySelector('#border-top-front')?.setAttribute('x2', verts.topFrontRight.x.toString())
+      svg.querySelector('#border-top-front')?.setAttribute('y2', verts.topFrontRight.y.toString())
       svg.querySelector('#edge-top-front')?.setAttribute('x1', verts.topFrontLeft.x.toString())
       svg.querySelector('#edge-top-front')?.setAttribute('y1', verts.topFrontLeft.y.toString())
       svg.querySelector('#edge-top-front')?.setAttribute('x2', verts.topFrontRight.x.toString())
       svg.querySelector('#edge-top-front')?.setAttribute('y2', verts.topFrontRight.y.toString())
 
+      // Top right
+      svg.querySelector('#border-top-right')?.setAttribute('x1', verts.topFrontRight.x.toString())
+      svg.querySelector('#border-top-right')?.setAttribute('y1', verts.topFrontRight.y.toString())
+      svg.querySelector('#border-top-right')?.setAttribute('x2', verts.topBackRight.x.toString())
+      svg.querySelector('#border-top-right')?.setAttribute('y2', verts.topBackRight.y.toString())
       svg.querySelector('#edge-top-right')?.setAttribute('x1', verts.topFrontRight.x.toString())
       svg.querySelector('#edge-top-right')?.setAttribute('y1', verts.topFrontRight.y.toString())
       svg.querySelector('#edge-top-right')?.setAttribute('x2', verts.topBackRight.x.toString())
       svg.querySelector('#edge-top-right')?.setAttribute('y2', verts.topBackRight.y.toString())
 
+      // Top back
+      svg.querySelector('#border-top-back')?.setAttribute('x1', verts.topBackRight.x.toString())
+      svg.querySelector('#border-top-back')?.setAttribute('y1', verts.topBackRight.y.toString())
+      svg.querySelector('#border-top-back')?.setAttribute('x2', verts.topBackLeft.x.toString())
+      svg.querySelector('#border-top-back')?.setAttribute('y2', verts.topBackLeft.y.toString())
       svg.querySelector('#edge-top-back')?.setAttribute('x1', verts.topBackRight.x.toString())
       svg.querySelector('#edge-top-back')?.setAttribute('y1', verts.topBackRight.y.toString())
       svg.querySelector('#edge-top-back')?.setAttribute('x2', verts.topBackLeft.x.toString())
       svg.querySelector('#edge-top-back')?.setAttribute('y2', verts.topBackLeft.y.toString())
 
+      // Top left
+      svg.querySelector('#border-top-left')?.setAttribute('x1', verts.topBackLeft.x.toString())
+      svg.querySelector('#border-top-left')?.setAttribute('y1', verts.topBackLeft.y.toString())
+      svg.querySelector('#border-top-left')?.setAttribute('x2', verts.topFrontLeft.x.toString())
+      svg.querySelector('#border-top-left')?.setAttribute('y2', verts.topFrontLeft.y.toString())
       svg.querySelector('#edge-top-left')?.setAttribute('x1', verts.topBackLeft.x.toString())
       svg.querySelector('#edge-top-left')?.setAttribute('y1', verts.topBackLeft.y.toString())
       svg.querySelector('#edge-top-left')?.setAttribute('x2', verts.topFrontLeft.x.toString())
@@ -223,136 +286,35 @@ const LogoTestInverted: React.FC = () => {
         className="isometric-cube-logo"
       >
         <g id="cube-container">
-          {/* Bottom face edges */}
-          <g id="bottom-edges">
-            <line
-              id="edge-bottom-front"
-              x1={vertices.bottomFrontLeft.x}
-              y1={vertices.bottomFrontLeft.y}
-              x2={vertices.bottomFrontRight.x}
-              y2={vertices.bottomFrontRight.y}
-              stroke="white"
-              strokeWidth={edgeWidth}
-              strokeLinecap="round"
-            />
-            <line
-              id="edge-bottom-right"
-              x1={vertices.bottomFrontRight.x}
-              y1={vertices.bottomFrontRight.y}
-              x2={vertices.bottomBackRight.x}
-              y2={vertices.bottomBackRight.y}
-              stroke="white"
-              strokeWidth={edgeWidth}
-              strokeLinecap="round"
-            />
-            <line
-              id="edge-bottom-back"
-              x1={vertices.bottomBackRight.x}
-              y1={vertices.bottomBackRight.y}
-              x2={vertices.bottomBackLeft.x}
-              y2={vertices.bottomBackLeft.y}
-              stroke="white"
-              strokeWidth={edgeWidth}
-              strokeLinecap="round"
-            />
-            <line
-              id="edge-bottom-left"
-              x1={vertices.bottomBackLeft.x}
-              y1={vertices.bottomBackLeft.y}
-              x2={vertices.bottomFrontLeft.x}
-              y2={vertices.bottomFrontLeft.y}
-              stroke="white"
-              strokeWidth={edgeWidth}
-              strokeLinecap="round"
-            />
+          {/* Border lines (background layer for depth) */}
+          <g id="edge-borders">
+            <line id="border-bottom-front" stroke={borderColor} strokeWidth={edgeWidth + (sphereBorder * 2)} strokeLinecap="round" x1={vertices.bottomFrontLeft.x} y1={vertices.bottomFrontLeft.y} x2={vertices.bottomFrontRight.x} y2={vertices.bottomFrontRight.y} />
+            <line id="border-bottom-right" stroke={borderColor} strokeWidth={edgeWidth + (sphereBorder * 2)} strokeLinecap="round" x1={vertices.bottomFrontRight.x} y1={vertices.bottomFrontRight.y} x2={vertices.bottomBackRight.x} y2={vertices.bottomBackRight.y} />
+            <line id="border-bottom-back" stroke={borderColor} strokeWidth={edgeWidth + (sphereBorder * 2)} strokeLinecap="round" x1={vertices.bottomBackRight.x} y1={vertices.bottomBackRight.y} x2={vertices.bottomBackLeft.x} y2={vertices.bottomBackLeft.y} />
+            <line id="border-bottom-left" stroke={borderColor} strokeWidth={edgeWidth + (sphereBorder * 2)} strokeLinecap="round" x1={vertices.bottomBackLeft.x} y1={vertices.bottomBackLeft.y} x2={vertices.bottomFrontLeft.x} y2={vertices.bottomFrontLeft.y} />
+            <line id="border-vertical-front-left" stroke={borderColor} strokeWidth={edgeWidth + (sphereBorder * 2)} strokeLinecap="round" x1={vertices.bottomFrontLeft.x} y1={vertices.bottomFrontLeft.y} x2={vertices.topFrontLeft.x} y2={vertices.topFrontLeft.y} />
+            <line id="border-vertical-front-right" stroke={borderColor} strokeWidth={edgeWidth + (sphereBorder * 2)} strokeLinecap="round" x1={vertices.bottomFrontRight.x} y1={vertices.bottomFrontRight.y} x2={vertices.topFrontRight.x} y2={vertices.topFrontRight.y} />
+            <line id="border-vertical-back-left" stroke={borderColor} strokeWidth={edgeWidth + (sphereBorder * 2)} strokeLinecap="round" x1={vertices.bottomBackLeft.x} y1={vertices.bottomBackLeft.y} x2={vertices.topBackLeft.x} y2={vertices.topBackLeft.y} />
+            <line id="border-vertical-back-right" stroke={borderColor} strokeWidth={edgeWidth + (sphereBorder * 2)} strokeLinecap="round" x1={vertices.bottomBackRight.x} y1={vertices.bottomBackRight.y} x2={vertices.topBackRight.x} y2={vertices.topBackRight.y} />
+            <line id="border-top-front" stroke={borderColor} strokeWidth={edgeWidth + (sphereBorder * 2)} strokeLinecap="round" x1={vertices.topFrontLeft.x} y1={vertices.topFrontLeft.y} x2={vertices.topFrontRight.x} y2={vertices.topFrontRight.y} />
+            <line id="border-top-right" stroke={borderColor} strokeWidth={edgeWidth + (sphereBorder * 2)} strokeLinecap="round" x1={vertices.topFrontRight.x} y1={vertices.topFrontRight.y} x2={vertices.topBackRight.x} y2={vertices.topBackRight.y} />
+            <line id="border-top-back" stroke={borderColor} strokeWidth={edgeWidth + (sphereBorder * 2)} strokeLinecap="round" x1={vertices.topBackRight.x} y1={vertices.topBackRight.y} x2={vertices.topBackLeft.x} y2={vertices.topBackLeft.y} />
+            <line id="border-top-left" stroke={borderColor} strokeWidth={edgeWidth + (sphereBorder * 2)} strokeLinecap="round" x1={vertices.topBackLeft.x} y1={vertices.topBackLeft.y} x2={vertices.topFrontLeft.x} y2={vertices.topFrontLeft.y} />
           </g>
-
-          {/* Vertical edges */}
-          <g id="vertical-edges">
-            <line
-              id="edge-vertical-front-left"
-              x1={vertices.bottomFrontLeft.x}
-              y1={vertices.bottomFrontLeft.y}
-              x2={vertices.topFrontLeft.x}
-              y2={vertices.topFrontLeft.y}
-              stroke="white"
-              strokeWidth={edgeWidth}
-              strokeLinecap="round"
-            />
-            <line
-              id="edge-vertical-front-right"
-              x1={vertices.bottomFrontRight.x}
-              y1={vertices.bottomFrontRight.y}
-              x2={vertices.topFrontRight.x}
-              y2={vertices.topFrontRight.y}
-              stroke="white"
-              strokeWidth={edgeWidth}
-              strokeLinecap="round"
-            />
-            <line
-              id="edge-vertical-back-left"
-              x1={vertices.bottomBackLeft.x}
-              y1={vertices.bottomBackLeft.y}
-              x2={vertices.topBackLeft.x}
-              y2={vertices.topBackLeft.y}
-              stroke="white"
-              strokeWidth={edgeWidth}
-              strokeLinecap="round"
-            />
-            <line
-              id="edge-vertical-back-right"
-              x1={vertices.bottomBackRight.x}
-              y1={vertices.bottomBackRight.y}
-              x2={vertices.topBackRight.x}
-              y2={vertices.topBackRight.y}
-              stroke="white"
-              strokeWidth={edgeWidth}
-              strokeLinecap="round"
-            />
-          </g>
-
-          {/* Top face edges */}
-          <g id="top-edges">
-            <line
-              id="edge-top-front"
-              x1={vertices.topFrontLeft.x}
-              y1={vertices.topFrontLeft.y}
-              x2={vertices.topFrontRight.x}
-              y2={vertices.topFrontRight.y}
-              stroke="white"
-              strokeWidth={edgeWidth}
-              strokeLinecap="round"
-            />
-            <line
-              id="edge-top-right"
-              x1={vertices.topFrontRight.x}
-              y1={vertices.topFrontRight.y}
-              x2={vertices.topBackRight.x}
-              y2={vertices.topBackRight.y}
-              stroke="white"
-              strokeWidth={edgeWidth}
-              strokeLinecap="round"
-            />
-            <line
-              id="edge-top-back"
-              x1={vertices.topBackRight.x}
-              y1={vertices.topBackRight.y}
-              x2={vertices.topBackLeft.x}
-              y2={vertices.topBackLeft.y}
-              stroke="white"
-              strokeWidth={edgeWidth}
-              strokeLinecap="round"
-            />
-            <line
-              id="edge-top-left"
-              x1={vertices.topBackLeft.x}
-              y1={vertices.topBackLeft.y}
-              x2={vertices.topFrontLeft.x}
-              y2={vertices.topFrontLeft.y}
-              stroke="white"
-              strokeWidth={edgeWidth}
-              strokeLinecap="round"
-            />
+          {/* Light blue edges (foreground layer) */}
+          <g id="edges">
+            <line id="edge-bottom-front" stroke={edgeColor} strokeWidth={edgeWidth} strokeLinecap="round" x1={vertices.bottomFrontLeft.x} y1={vertices.bottomFrontLeft.y} x2={vertices.bottomFrontRight.x} y2={vertices.bottomFrontRight.y} />
+            <line id="edge-bottom-right" stroke={edgeColor} strokeWidth={edgeWidth} strokeLinecap="round" x1={vertices.bottomFrontRight.x} y1={vertices.bottomFrontRight.y} x2={vertices.bottomBackRight.x} y2={vertices.bottomBackRight.y} />
+            <line id="edge-bottom-back" stroke={edgeColor} strokeWidth={edgeWidth} strokeLinecap="round" x1={vertices.bottomBackRight.x} y1={vertices.bottomBackRight.y} x2={vertices.bottomBackLeft.x} y2={vertices.bottomBackLeft.y} />
+            <line id="edge-bottom-left" stroke={edgeColor} strokeWidth={edgeWidth} strokeLinecap="round" x1={vertices.bottomBackLeft.x} y1={vertices.bottomBackLeft.y} x2={vertices.bottomFrontLeft.x} y2={vertices.bottomFrontLeft.y} />
+            <line id="edge-vertical-front-left" stroke={edgeColor} strokeWidth={edgeWidth} strokeLinecap="round" x1={vertices.bottomFrontLeft.x} y1={vertices.bottomFrontLeft.y} x2={vertices.topFrontLeft.x} y2={vertices.topFrontLeft.y} />
+            <line id="edge-vertical-front-right" stroke={edgeColor} strokeWidth={edgeWidth} strokeLinecap="round" x1={vertices.bottomFrontRight.x} y1={vertices.bottomFrontRight.y} x2={vertices.topFrontRight.x} y2={vertices.topFrontRight.y} />
+            <line id="edge-vertical-back-left" stroke={edgeColor} strokeWidth={edgeWidth} strokeLinecap="round" x1={vertices.bottomBackLeft.x} y1={vertices.bottomBackLeft.y} x2={vertices.topBackLeft.x} y2={vertices.topBackLeft.y} />
+            <line id="edge-vertical-back-right" stroke={edgeColor} strokeWidth={edgeWidth} strokeLinecap="round" x1={vertices.bottomBackRight.x} y1={vertices.bottomBackRight.y} x2={vertices.topBackRight.x} y2={vertices.topBackRight.y} />
+            <line id="edge-top-front" stroke={edgeColor} strokeWidth={edgeWidth} strokeLinecap="round" x1={vertices.topFrontLeft.x} y1={vertices.topFrontLeft.y} x2={vertices.topFrontRight.x} y2={vertices.topFrontRight.y} />
+            <line id="edge-top-right" stroke={edgeColor} strokeWidth={edgeWidth} strokeLinecap="round" x1={vertices.topFrontRight.x} y1={vertices.topFrontRight.y} x2={vertices.topBackRight.x} y2={vertices.topBackRight.y} />
+            <line id="edge-top-back" stroke={edgeColor} strokeWidth={edgeWidth} strokeLinecap="round" x1={vertices.topBackRight.x} y1={vertices.topBackRight.y} x2={vertices.topBackLeft.x} y2={vertices.topBackLeft.y} />
+            <line id="edge-top-left" stroke={edgeColor} strokeWidth={edgeWidth} strokeLinecap="round" x1={vertices.topBackLeft.x} y1={vertices.topBackLeft.y} x2={vertices.topFrontLeft.x} y2={vertices.topFrontLeft.y} />
           </g>
 
 {/* Vertices */}
@@ -362,8 +324,8 @@ const LogoTestInverted: React.FC = () => {
               cx={vertices.bottomFrontLeft.x}
               cy={vertices.bottomFrontLeft.y}
               r={sphereRadius}
-              fill="black"
-              stroke="white"
+              fill={vertexFill}
+              stroke={vertexStroke}
               strokeWidth={sphereBorder}
             />
             <circle
@@ -371,8 +333,8 @@ const LogoTestInverted: React.FC = () => {
               cx={vertices.bottomFrontRight.x}
               cy={vertices.bottomFrontRight.y}
               r={sphereRadius}
-              fill="black"
-              stroke="white"
+              fill={vertexFill}
+              stroke={vertexStroke}
               strokeWidth={sphereBorder}
             />
             <circle
@@ -380,8 +342,8 @@ const LogoTestInverted: React.FC = () => {
               cx={vertices.bottomBackLeft.x}
               cy={vertices.bottomBackLeft.y}
               r={sphereRadius}
-              fill="black"
-              stroke="white"
+              fill={vertexFill}
+              stroke={vertexStroke}
               strokeWidth={sphereBorder}
             />
             <circle
@@ -389,8 +351,8 @@ const LogoTestInverted: React.FC = () => {
               cx={vertices.bottomBackRight.x}
               cy={vertices.bottomBackRight.y}
               r={sphereRadius}
-              fill="black"
-              stroke="white"
+              fill={vertexFill}
+              stroke={vertexStroke}
               strokeWidth={sphereBorder}
             />
             <circle
@@ -398,8 +360,8 @@ const LogoTestInverted: React.FC = () => {
               cx={vertices.topFrontLeft.x}
               cy={vertices.topFrontLeft.y}
               r={sphereRadius}
-              fill="black"
-              stroke="white"
+              fill={vertexFill}
+              stroke={vertexStroke}
               strokeWidth={sphereBorder}
             />
             <circle
@@ -407,8 +369,8 @@ const LogoTestInverted: React.FC = () => {
               cx={vertices.topFrontRight.x}
               cy={vertices.topFrontRight.y}
               r={sphereRadius}
-              fill="black"
-              stroke="white"
+              fill={vertexFill}
+              stroke={vertexStroke}
               strokeWidth={sphereBorder}
             />
             <circle
@@ -416,8 +378,8 @@ const LogoTestInverted: React.FC = () => {
               cx={vertices.topBackLeft.x}
               cy={vertices.topBackLeft.y}
               r={sphereRadius}
-              fill="black"
-              stroke="white"
+              fill={vertexFill}
+              stroke={vertexStroke}
               strokeWidth={sphereBorder}
             />
             <circle
@@ -425,8 +387,8 @@ const LogoTestInverted: React.FC = () => {
               cx={vertices.topBackRight.x}
               cy={vertices.topBackRight.y}
               r={sphereRadius}
-              fill="black"
-              stroke="white"
+              fill={vertexFill}
+              stroke={vertexStroke}
               strokeWidth={sphereBorder}
             />
           </g>
