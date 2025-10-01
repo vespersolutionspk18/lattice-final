@@ -128,10 +128,10 @@ const OurMissionPage = () => {
               We envision a world where every contractor—from solo operators to growing teams—has access to the same powerful technology that was once reserved for large enterprises.
             </p>
             <p>
-              Through innovation, partnership, and unwavering commitment to contractor success, we're transforming the home remodeling industry one business at a time.
+              Through innovation, partnership, and unwavering commitment to contractor success, we&apos;re transforming the home remodeling industry one business at a time.
             </p>
             <p>
-              Our mission isn't just about building software. It's about empowering the people who build America's homes.
+              Our mission isn&apos;t just about building software. It&apos;s about empowering the people who build America&apos;s homes.
             </p>
           </div>
         </div>
