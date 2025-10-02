@@ -24,6 +24,17 @@ const Guarantees = () => {
 
   return (
     <div className="py-16 px-10 bg-white">
+      {/* SVG Gradient Definition */}
+      <svg width="0" height="0" style={{ position: 'absolute' }}>
+        <defs>
+          <linearGradient id="gold-gradient-border" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#FFD700" />
+            <stop offset="50%" stopColor="#FFA500" />
+            <stop offset="100%" stopColor="#FFD700" />
+          </linearGradient>
+        </defs>
+      </svg>
+
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
@@ -37,18 +48,47 @@ const Guarantees = () => {
 
         {/* Guarantee Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {guarantees.map((guarantee, index) => {
-            const IconComponent = guarantee.icon
-            return (
-              <div key={index} className="bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-xl transition-shadow">
-                <div className="mb-6">
-                  <IconComponent className="w-12 h-12 text-[#3b82f6]" />
+          {guarantees.map((guarantee, index) => (
+            <div
+              key={index}
+              className="bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-xl transition-shadow"
+            >
+              {/* Circle with Gold Gradient Border and Blue Icon */}
+              <div className="flex justify-center mb-6">
+                <div className="relative w-20 h-20">
+                  {/* Gold gradient border circle */}
+                  <svg className="w-20 h-20" viewBox="0 0 80 80">
+                    <circle
+                      cx="40"
+                      cy="40"
+                      r="37"
+                      fill="white"
+                      stroke="url(#gold-gradient-border)"
+                      strokeWidth="3"
+                    />
+                  </svg>
+                  {/* Icon centered inside */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <guarantee.icon
+                      className="w-10 h-10 text-[#3b82f6]"
+                      strokeWidth={2}
+                      fill="none"
+                    />
+                  </div>
                 </div>
-                <h3 className="text-2xl font-bold mb-4">{guarantee.title}</h3>
-                <p className="text-lg leading-relaxed">{guarantee.description}</p>
               </div>
-            )
-          })}
+
+              {/* Title */}
+              <h3 className="text-xl font-semibold text-gray-900 mb-4 text-center">
+                {guarantee.title}
+              </h3>
+
+              {/* Description */}
+              <p className="text-gray-600 leading-relaxed text-center">
+                {guarantee.description}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
     </div>
