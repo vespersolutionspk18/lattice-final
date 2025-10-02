@@ -76,7 +76,7 @@ const Hero = () => {
             </div>
 
             {/* Rating Section */}
-            <div className="flex items-center gap-3 mt-2 px-4 py-2 backdrop-blur-md bg-white/30 rounded-full w-fit">
+            <div className="flex items-center gap-3 mt-2 px-4 py-2 backdrop-blur-md bg-white/30 border-[1.5px] border-stone-300 rounded-full w-fit">
               <div className="flex items-center justify-center h-6 flex-shrink-0">
                 <Image
                   src="/capterra-icon.png"

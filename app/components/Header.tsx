@@ -1,9 +1,8 @@
 'use client'
 
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { Globe, LogIn, Check,  } from 'lucide-react'
-import { gsap } from 'gsap'
 import LogoTest from './LogoTest'
 import MegaMenu from './MegaMenu'
 import Button from './Button'
@@ -16,7 +15,6 @@ const Header = ({ enableScrollEffects = false }: HeaderProps) => {
   const [isScrolled, setIsScrolled] = useState(false)
   const [languageOpen, setLanguageOpen] = useState(false)
   const [selectedLanguage, setSelectedLanguage] = useState('EN US')
-  const ctaButtonRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     if (!enableScrollEffects) return
@@ -45,19 +43,6 @@ const Header = ({ enableScrollEffects = false }: HeaderProps) => {
       document.removeEventListener('click', handleClickOutside)
     }
   }, [languageOpen])
-
-  // GSAP pulse animation for CTA button
-  useEffect(() => {
-    if (ctaButtonRef.current) {
-      gsap.to(ctaButtonRef.current, {
-        scale: 1.08,
-        duration: 0.8,
-        ease: 'power1.inOut',
-        repeat: -1,
-        yoyo: true,
-      })
-    }
-  }, [])
 
   return (
     <>
@@ -160,7 +145,7 @@ const Header = ({ enableScrollEffects = false }: HeaderProps) => {
             </div>
 
             {/* CTA Button */}
-            <div ref={ctaButtonRef} style={{ willChange: 'transform' }}>
+            <div>
               <Button variant="blue">Schedule a Meeting</Button>
             </div>
           </div>

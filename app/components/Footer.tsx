@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, { useState } from 'react'
 import { useRouter } from 'next/navigation'
 
 import LogoTestInverted from './LogoTestInverted'
@@ -8,6 +8,7 @@ import { Phone, Mail, MapPin, ArrowUpRight } from 'lucide-react'
 
 const Footer = () => {
   const router = useRouter();
+  const [isArrowHovered, setIsArrowHovered] = useState(false);
   return (
     <div className="p-5">
         <div className="bg-[#3b82f6] tracking-tighter text-white px-16 pt-16 pb-4 rounded-3xl flex flex-col gap-10">
@@ -23,8 +24,16 @@ const Footer = () => {
                     <button
                         className="absolute right-2 top-1/2 -translate-y-1/2 bg-white hover:bg-white/90 text-black p-3 rounded-full transition-all"
                         onClick={() => router.push('/contact')}
+                        onMouseEnter={() => setIsArrowHovered(true)}
+                        onMouseLeave={() => setIsArrowHovered(false)}
                     >
-                        <ArrowUpRight size={24} />
+                        <ArrowUpRight
+                            size={24}
+                            style={{
+                                transform: isArrowHovered ? 'scaleY(-1)' : 'scaleY(1)',
+                                transition: 'transform 0.3s ease-in-out'
+                            }}
+                        />
                     </button>
                 </div>
             </div>
