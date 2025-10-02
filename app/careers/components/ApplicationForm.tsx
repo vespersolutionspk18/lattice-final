@@ -1,15 +1,19 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
+import { useSearchParams } from 'next/navigation'
 import Button from '@/app/components/Button'
 
 const ApplicationForm = () => {
+  const searchParams = useSearchParams()
+  const positionFromUrl = searchParams.get('position') || ''
+
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
     email: '',
     phone: '',
-    position: '',
+    position: positionFromUrl,
     location: '',
     experience: '',
     portfolio: '',
@@ -45,30 +49,20 @@ const ApplicationForm = () => {
 
   const positions = [
     'Senior Full Stack Developer',
-    'Product Designer', 
+    'Product Designer',
     'Customer Success Manager',
     'Sales Development Representative',
     'AI/ML Engineer'
   ]
 
   useEffect(() => {
-    const handlePositionUpdate = (e: Event) => {
-      const target = e.target as HTMLSelectElement
-      if (target.id === 'position-field') {
-        setFormData(prev => ({
-          ...prev,
-          position: target.value
-        }))
-      }
+    if (positionFromUrl) {
+      setFormData(prev => ({
+        ...prev,
+        position: positionFromUrl
+      }))
     }
-
-    const positionField = document.getElementById('position-field')
-    positionField?.addEventListener('change', handlePositionUpdate)
-    
-    return () => {
-      positionField?.removeEventListener('change', handlePositionUpdate)
-    }
-  }, [])
+  }, [positionFromUrl])
 
   return (
     <div id="application-form" className="p-5">

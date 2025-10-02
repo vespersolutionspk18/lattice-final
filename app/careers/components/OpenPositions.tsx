@@ -1,6 +1,8 @@
 'use client'
 
 import React, { useState } from 'react'
+import { useRouter } from 'next/navigation'
+import { motion } from 'framer-motion'
 import Button from '../../components/Button'
 import { HiArrowUpRight } from 'react-icons/hi2'
 
@@ -57,24 +59,27 @@ const positions: Position[] = [
 ]
 
 const OpenPositions = () => {
+  const router = useRouter()
   const [selectedDepartment, setSelectedDepartment] = useState('All')
-  
+  const [hoveredButton, setHoveredButton] = useState<number | null>(null)
+
   const departments = ['All', ...new Set(positions.map(p => p.department))]
-  const filteredPositions = selectedDepartment === 'All' 
-    ? positions 
+  const filteredPositions = selectedDepartment === 'All'
+    ? positions
     : positions.filter(p => p.department === selectedDepartment)
 
-  const scrollToForm = (positionTitle: string) => {
-    const formElement = document.getElementById('application-form')
-    const positionField = document.getElementById('position-field') as HTMLSelectElement
-    
-    if (positionField) {
-      positionField.value = positionTitle
-      const event = new Event('change', { bubbles: true })
-      positionField.dispatchEvent(event)
-    }
-    
-    formElement?.scrollIntoView({ behavior: 'smooth' })
+  const navigateToApply = (positionTitle: string) => {
+    router.push(`/applynow?position=${encodeURIComponent(positionTitle)}`)
+  }
+
+  const textVariants = {
+    initial: { y: 0 },
+    hover: { y: '-150%' }
+  }
+
+  const textVariantsHover = {
+    initial: { y: '150%' },
+    hover: { y: 0 }
   }
 
   return (
@@ -127,13 +132,38 @@ const OpenPositions = () => {
                     {position.description}
                   </p>
                 </div>
-                <button
-                  onClick={() => scrollToForm(position.title)}
-                  className="flex items-center gap-2 px-4 py-2 bg-black text-white rounded-full text-sm font-medium hover:bg-black/90 transition-all"
+                <motion.button
+                  onClick={() => navigateToApply(position.title)}
+                  initial={{ borderRadius: 40 }}
+                  whileHover={{ borderRadius: 12 }}
+                  transition={{ duration: 0.15, ease: 'easeOut' }}
+                  onHoverStart={() => setHoveredButton(position.id)}
+                  onHoverEnd={() => setHoveredButton(null)}
+                  className="flex items-center gap-2 px-4 py-2 bg-black text-white text-sm font-medium overflow-hidden relative cursor-pointer"
                 >
-                  Apply Now
-                  <HiArrowUpRight className="text-xs stroke-2" />
-                </button>
+                  <div className="relative inline-flex items-center">
+                    <motion.span
+                      className="inline-flex items-center gap-2"
+                      initial="initial"
+                      animate={hoveredButton === position.id ? 'hover' : 'initial'}
+                      variants={textVariants}
+                      transition={{ duration: 0.12, ease: 'easeInOut' }}
+                    >
+                      <span>Apply Now</span>
+                      <HiArrowUpRight className="text-xs stroke-2" />
+                    </motion.span>
+                    <motion.span
+                      className="absolute inset-0 inline-flex items-center gap-2"
+                      initial="initial"
+                      animate={hoveredButton === position.id ? 'hover' : 'initial'}
+                      variants={textVariantsHover}
+                      transition={{ duration: 0.18, ease: 'easeInOut' }}
+                    >
+                      <span>Apply Now</span>
+                      <HiArrowUpRight className="text-xs stroke-2" />
+                    </motion.span>
+                  </div>
+                </motion.button>
               </div>
             </div>
           ))}

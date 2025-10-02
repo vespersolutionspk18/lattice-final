@@ -3,7 +3,6 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import Hero from './components/Hero'
 import OpenPositions from './components/OpenPositions'
-import ApplicationForm from './components/ApplicationForm'
 
 const CareersPage = () => {
   return (
@@ -15,7 +14,6 @@ const CareersPage = () => {
         </div>
       </div>
       <OpenPositions />
-      <ApplicationForm />
       <Footer />
     </div>
   )
