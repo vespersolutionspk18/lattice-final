@@ -13,9 +13,9 @@ Get found online and convert visitors into customers. Professional websites buil
         </h5>
       </div>
       <div className="rounded-3xl overflow-hidden relative w-full h-[600px]">
-        <img 
-          src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?q=80&w=2669&auto=format&fit=crop"
-          alt="Modern website design on multiple devices"
+        <img
+          src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2669&auto=format&fit=crop"
+          alt="Web design and coding on laptop"
           className="absolute inset-0 w-full h-full object-cover"
         />
       </div>

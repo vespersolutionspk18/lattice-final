@@ -14,9 +14,9 @@ const OurStory = () => {
         </p>
       </div>
       <div className="w-1/2 rounded-3xl overflow-hidden">
-        <img 
-          src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80"
-          alt="Modern home architecture"
+        <img
+          src="https://images.unsplash.com/photo-1484154218962-a197022b5858?w=800&q=80"
+          alt="Modern home interior remodeling"
           className="w-full h-full object-cover"
         />
       </div>
