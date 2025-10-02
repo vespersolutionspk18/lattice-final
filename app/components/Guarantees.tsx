@@ -42,7 +42,7 @@ const Guarantees = () => {
             return (
               <div key={index} className="bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-xl transition-shadow">
                 <div className="mb-6">
-                  <IconComponent className="w-12 h-12 text-blue-600" />
+                  <IconComponent className="w-12 h-12 text-[#3b82f6]" />
                 </div>
                 <h3 className="text-2xl font-bold mb-4">{guarantee.title}</h3>
                 <p className="text-lg leading-relaxed">{guarantee.description}</p>

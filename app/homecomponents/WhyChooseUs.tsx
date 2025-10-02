@@ -135,7 +135,7 @@ const WhyChooseUs = () => {
           <div className="grid grid-cols-[2fr_1fr_1fr] bg-stone-200/40 border-b border-gray-200">
             <div className="p-5"></div>
             <div className="p-5 text-center border-l border-gray-200">
-              <h3 className="text-3xl font-bold text-[#3b82f6] tracking-tight">Lattice</h3>
+              <h3 className="text-3xl font-medium text-[#3b82f6] tracking-tighter">Lattice</h3>
             </div>
             <div className="p-5 text-center border-l border-gray-200">
               <h3 className="text-3xl font-semibold text-gray-500 tracking-tight">Others</h3>
