@@ -380,10 +380,10 @@ const ComparisonPage = () => {
           {/* Venn Diagram Section */}
           <div className="text-center mt-16 mb-4">
             <h2 className="text-5xl tracking-tighter font-medium mb-4" style={{ fontFamily: 'var(--font-figtree)', color: 'rgba(0, 0, 0, 0.8)' }}>
-              Not Convinced? Let's Try Again
+              Not Convinced? Let&apos;s Try Again
             </h2>
             <p className="text-2xl tracking-tighter" style={{ fontFamily: 'var(--font-figtree)', color: 'rgba(0, 0, 0, 0.75)' }}>
-              The intersection of innovation, reliability, and results—that's where you'll find Lattice
+              The intersection of innovation, reliability, and results—that&apos;s where you&apos;ll find Lattice
             </p>
           </div>
 
@@ -462,7 +462,7 @@ const ComparisonPage = () => {
           {/* Comparison Chart Section */}
           <div className="text-center mt-16 mb-4">
             <h2 className="text-5xl tracking-tighter font-medium mb-4" style={{ fontFamily: 'var(--font-figtree)', color: 'rgba(0, 0, 0, 0.8)' }}>
-              There's No Point in Comparing
+              There&apos;s No Point in Comparing
             </h2>
             <p className="text-2xl tracking-tighter" style={{ fontFamily: 'var(--font-figtree)', color: 'rgba(0, 0, 0, 0.75)' }}>
               The numbers speak for themselves—Lattice outperforms on every metric

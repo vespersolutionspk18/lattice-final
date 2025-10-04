@@ -118,27 +118,27 @@ const WhyChooseUs = () => {
   const visibleNotifications = notifications.slice(0, visibleCount).reverse()
 
   return (
-    <div className="p-5" id="whycooseus">
-      <div className="p-5 rounded-4xl  flex flex-col gap-24 tracking-tighter">
-        <div className="flex flex-row gap-16">
-          <h5 className="text-4xl text-black/80 font-medium tracking-tighter w-[28%]">
+    <div className="p-3 sm:p-5" id="whycooseus">
+      <div className="p-3 sm:p-5 rounded-2xl sm:rounded-3xl lg:rounded-4xl flex flex-col gap-12 sm:gap-16 md:gap-20 lg:gap-24 tracking-tighter">
+        <div className="flex flex-col lg:flex-row gap-6 sm:gap-8 lg:gap-16">
+          <h5 className="text-2xl sm:text-3xl md:text-4xl text-black/80 font-medium tracking-tighter w-full lg:w-[28%]">
             Why Choose Us
           </h5>
-          <p className="text-black/75 text-2xl tracking-tighter w-[68%]">
+          <p className="text-black/75 text-lg sm:text-xl md:text-2xl tracking-tighter w-full lg:w-[68%]">
             While we&apos;re unmatched in our dedication to excellence and setting the industry standard, we get it, sometimes you need to explore other options. But frankly, if you&apos;re comparing, choosing elsewhere just doesn&apos;t add up.
           </p>
         </div>
 
         {/* Comparison Table */}
-        <div className="bg-white rounded-3xl overflow-hidden border border-gray-200">
+        <div className="bg-white rounded-2xl sm:rounded-3xl overflow-hidden border border-gray-200">
           {/* Table Header */}
-          <div className="grid grid-cols-[2fr_1fr_1fr] bg-stone-200/40 border-b border-gray-200">
-            <div className="p-5"></div>
-            <div className="p-5 text-center border-l border-gray-200">
-              <h3 className="text-3xl font-medium text-[#3b82f6] tracking-tighter">Lattice</h3>
+          <div className="grid grid-cols-[1.5fr_1fr_1fr] md:grid-cols-[2fr_1fr_1fr] bg-stone-200/40 border-b border-gray-200">
+            <div className="p-3 sm:p-4 md:p-5"></div>
+            <div className="p-3 sm:p-4 md:p-5 text-center border-l border-gray-200">
+              <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-medium text-[#3b82f6] tracking-tighter">Lattice</h3>
             </div>
-            <div className="p-5 text-center border-l border-gray-200">
-              <h3 className="text-3xl font-semibold text-gray-500 tracking-tight">Others</h3>
+            <div className="p-3 sm:p-4 md:p-5 text-center border-l border-gray-200">
+              <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-gray-500 tracking-tight">Others</h3>
             </div>
           </div>
 
@@ -148,66 +148,68 @@ const WhyChooseUs = () => {
             return (
               <div
                 key={index}
-                className={`grid grid-cols-[2fr_1fr_1fr] ${
+                className={`grid grid-cols-[1.5fr_1fr_1fr] md:grid-cols-[2fr_1fr_1fr] ${
                   index !== comparisonFeatures.length - 1 ? "border-b border-gray-200" : ""
                 }`}
               >
                 {/* Feature Info Column */}
-                <div className="p-5 flex items-start gap-4">
+                <div className="p-3 sm:p-4 md:p-5 flex items-start gap-2 sm:gap-3 md:gap-4">
                   <div className="flex-shrink-0">
-                    <div className="w-12 h-12 rounded-lg bg-[#3b82f6]/10 flex items-center justify-center">
-                      <Icon className="w-6 h-6 text-[#3b82f6]" />
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-lg bg-[#3b82f6]/10 flex items-center justify-center">
+                      <Icon className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-[#3b82f6]" />
                     </div>
                   </div>
-                  <div className="flex flex-col gap-1">
-                    <h4 className="text-lg font-semibold text-black tracking-tight">
+                  <div className="flex flex-col gap-0.5 sm:gap-1">
+                    <h4 className="text-sm sm:text-base md:text-lg font-semibold text-black tracking-tight">
                       {feature.title}
                     </h4>
-                    <p className="text-base text-gray-600 tracking-tight" style={{ fontFamily: 'var(--font-figtree)', fontWeight: 400 }}>
+                    <p className="text-xs sm:text-sm md:text-base text-gray-600 tracking-tight hidden sm:block" style={{ fontFamily: 'var(--font-figtree)', fontWeight: 400 }}>
                       {feature.description}
                     </p>
                   </div>
                 </div>
 
                 {/* Lattice Status Column */}
-                <div className="p-5 flex items-center justify-center border-l border-gray-200">
+                <div className="p-3 sm:p-4 md:p-5 flex items-center justify-center border-l border-gray-200">
                   {feature.lattice === true && (
                     index < 3 ? (
-                      <LogoTestSmall />
+                      <div className="scale-75 sm:scale-90 md:scale-100">
+                        <LogoTestSmall />
+                      </div>
                     ) : (
-                      <Check className="w-6 h-6 text-green-700 stroke-[4] scale-[0.98]" />
+                      <Check className="w-5 h-5 sm:w-6 sm:h-6 text-green-700 stroke-[4] scale-[0.98]" />
                     )
                   )}
                   {feature.lattice === "partial" && (
-                    <div className="flex items-center gap-2 group relative">
-                      <span className="text-base font-medium text-gray-600">Partial</span>
-                      <Info className="w-4 h-4 text-gray-400 cursor-help" />
+                    <div className="flex items-center gap-1 sm:gap-2 group relative">
+                      <span className="text-xs sm:text-sm md:text-base font-medium text-gray-600">Partial</span>
+                      <Info className="w-3 h-3 sm:w-4 sm:h-4 text-gray-400 cursor-help" />
                       <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-2 bg-black/90 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-10">
                         Limited functionality compared to full implementation
                       </div>
                     </div>
                   )}
                   {feature.lattice === false && (
-                    <X className="w-6 h-6 text-gray-400 stroke-[4] scale-[0.98]" />
+                    <X className="w-5 h-5 sm:w-6 sm:h-6 text-gray-400 stroke-[4] scale-[0.98]" />
                   )}
                 </div>
 
                 {/* Competitors Status Column */}
-                <div className="p-5 flex items-center justify-center border-l border-gray-200">
+                <div className="p-3 sm:p-4 md:p-5 flex items-center justify-center border-l border-gray-200">
                   {feature.competitors === true && (
-                    <Check className="w-6 h-6 text-green-700 stroke-[4] scale-[0.98]" />
+                    <Check className="w-5 h-5 sm:w-6 sm:h-6 text-green-700 stroke-[4] scale-[0.98]" />
                   )}
                   {feature.competitors === "partial" && (
-                    <div className="flex items-center gap-2 group relative">
-                      <span className="text-base font-medium text-gray-600">Partial</span>
-                      <Info className="w-4 h-4 text-gray-400 cursor-help" />
+                    <div className="flex items-center gap-1 sm:gap-2 group relative">
+                      <span className="text-xs sm:text-sm md:text-base font-medium text-gray-600">Partial</span>
+                      <Info className="w-3 h-3 sm:w-4 sm:h-4 text-gray-400 cursor-help" />
                       <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-2 bg-black/90 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-10">
                         Limited functionality compared to full implementation
                       </div>
                     </div>
                   )}
                   {feature.competitors === false && (
-                    <X className="w-6 h-6 text-gray-400 stroke-[4] scale-[0.98]" />
+                    <X className="w-5 h-5 sm:w-6 sm:h-6 text-gray-400 stroke-[4] scale-[0.98]" />
                   )}
                 </div>
               </div>
@@ -216,45 +218,45 @@ const WhyChooseUs = () => {
         </div>
 
         {/* Features Introduction */}
-        <div className="flex flex-row gap-16">
-          <h5 className="text-4xl text-black/80 font-medium tracking-tighter w-[28%]">
+        <div className="flex flex-col lg:flex-row gap-6 sm:gap-8 lg:gap-16">
+          <h5 className="text-2xl sm:text-3xl md:text-4xl text-black/80 font-medium tracking-tighter w-full lg:w-[28%]">
             Our Features
           </h5>
-          <p className="text-black/75 text-2xl tracking-tighter w-[68%]">
+          <p className="text-black/75 text-lg sm:text-xl md:text-2xl tracking-tighter w-full lg:w-[68%]">
             Beyond the basics, we&apos;ve built a comprehensive suite of tools designed to transform how you work. Each feature is crafted to deliver measurable results and drive your business forward.
           </p>
         </div>
 
-        <div className="grid grid-cols-3 grid-rows-3 gap-3 auto-rows-[280px]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 auto-rows-auto md:auto-rows-[280px]">
           {/* Card 1: Large stats showcase - 2 cols */}
-          <div ref={statsCardRef} className="col-span-2 row-span-1 bg-stone-200/40 rounded-3xl p-8 flex flex-col justify-between">
+          <div ref={statsCardRef} className="col-span-1 md:col-span-2 row-span-1 bg-stone-200/40 rounded-2xl sm:rounded-3xl p-5 sm:p-6 md:p-8 flex flex-col justify-between">
             <div>
-              <h3 className="text-2xl font-medium tracking-tighter text-black/80 mb-3">
+              <h3 className="text-xl sm:text-2xl font-medium tracking-tighter text-black/80 mb-2 sm:mb-3">
                 Proven Results
               </h3>
-              <p className="text-xl text-black/60 tracking-tighter">
+              <p className="text-lg sm:text-xl text-black/60 tracking-tighter">
                 Empowering contractors nationwide
               </p>
             </div>
-            <div className="grid grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-5 md:gap-6">
               <div>
-                <div className="text-5xl font-medium text-black/85 tracking-tighter">850+</div>
-                <div className="text-lg text-black/50 tracking-tighter mt-1">Contractors</div>
+                <div className="text-3xl sm:text-4xl md:text-5xl font-medium text-black/85 tracking-tighter">850+</div>
+                <div className="text-sm sm:text-base md:text-lg text-black/50 tracking-tighter mt-1">Contractors</div>
               </div>
               <div>
-                <div className="text-5xl font-medium text-black/85 tracking-tighter">98%</div>
-                <div className="text-lg text-black/50 tracking-tighter mt-1">Satisfaction</div>
+                <div className="text-3xl sm:text-4xl md:text-5xl font-medium text-black/85 tracking-tighter">98%</div>
+                <div className="text-sm sm:text-base md:text-lg text-black/50 tracking-tighter mt-1">Satisfaction</div>
               </div>
               <div>
-                <div className="text-5xl font-medium text-black/85 tracking-tighter">3.2M</div>
-                <div className="text-lg text-black/50 tracking-tighter mt-1">Revenue Generated</div>
+                <div className="text-3xl sm:text-4xl md:text-5xl font-medium text-black/85 tracking-tighter">3.2M</div>
+                <div className="text-sm sm:text-base md:text-lg text-black/50 tracking-tighter mt-1">Revenue Generated</div>
               </div>
               <div>
-                <div className="text-5xl font-medium text-black/85 tracking-tighter">48</div>
-                <div className="text-lg text-black/50 tracking-tighter mt-1">States Served</div>
+                <div className="text-3xl sm:text-4xl md:text-5xl font-medium text-black/85 tracking-tighter">48</div>
+                <div className="text-sm sm:text-base md:text-lg text-black/50 tracking-tighter mt-1">States Served</div>
               </div>
             </div>
-            <div className="flex gap-3 mt-6">
+            <div className="flex gap-2 sm:gap-3 mt-4 sm:mt-6">
               {[0, 1, 2, 3].map((index) => (
                 <motion.div
                   key={index}
@@ -280,22 +282,22 @@ const WhyChooseUs = () => {
           </div>
 
           {/* Card 2: Budget transparency - 1 col */}
-          <div className="col-span-1 row-span-1 bg-stone-200/40 rounded-3xl p-8 flex flex-col justify-between">
+          <div className="col-span-1 row-span-1 bg-stone-200/40 rounded-2xl sm:rounded-3xl p-5 sm:p-6 md:p-8 flex flex-col justify-between min-h-[250px] md:min-h-0">
             <div>
-              <h3 className="text-2xl font-medium tracking-tighter text-black/80 mb-3">
+              <h3 className="text-xl sm:text-2xl font-medium tracking-tighter text-black/80 mb-2 sm:mb-3">
                 All-in-One Platform
               </h3>
-              <p className="text-xl text-black/60 tracking-tighter mb-6">
+              <p className="text-lg sm:text-xl text-black/60 tracking-tighter mb-4 sm:mb-6">
                 Everything you need
               </p>
             </div>
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-3 sm:gap-4">
               <div className="flex justify-between items-baseline">
-                <span className="text-lg text-black/60">Time saved weekly</span>
-                <span className="text-3xl font-medium text-black/80">15hrs</span>
+                <span className="text-base sm:text-lg text-black/60">Time saved weekly</span>
+                <span className="text-2xl sm:text-3xl font-medium text-black/80">15hrs</span>
               </div>
-              <div className="space-y-2">
-                <div className="flex justify-between text-lg items-center">
+              <div className="space-y-1.5 sm:space-y-2">
+                <div className="flex justify-between text-sm sm:text-base md:text-lg items-center">
                   <span className="text-black/70">CRM included</span>
                   <motion.div
                     className="w-2 h-2 rounded-full"
@@ -320,7 +322,7 @@ const WhyChooseUs = () => {
                     }}
                   />
                 </div>
-                <div className="flex justify-between text-lg items-center">
+                <div className="flex justify-between text-sm sm:text-base md:text-lg items-center">
                   <span className="text-black/70">Design tools</span>
                   <motion.div
                     className="w-2 h-2 rounded-full"
@@ -345,7 +347,7 @@ const WhyChooseUs = () => {
                     }}
                   />
                 </div>
-                <div className="flex justify-between text-lg items-center">
+                <div className="flex justify-between text-sm sm:text-base md:text-lg items-center">
                   <span className="text-black/70">Free website</span>
                   <motion.div
                     className="w-2 h-2 rounded-full"

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import ApplicationForm from '../careers/components/ApplicationForm'
@@ -8,7 +8,9 @@ const ApplyNowPage = () => {
     <div className="min-h-screen">
       <Header />
       <div className="pt-24">
-        <ApplicationForm />
+        <Suspense fallback={<div className="flex justify-center items-center min-h-[400px]">Loading...</div>}>
+          <ApplicationForm />
+        </Suspense>
       </div>
       <Footer />
     </div>
