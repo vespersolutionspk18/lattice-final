@@ -227,7 +227,7 @@ const WhyChooseUs = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 auto-rows-auto md:auto-rows-[280px]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 auto-rows-auto">
           {/* Card 1: Large stats showcase - 2 cols */}
           <div ref={statsCardRef} className="col-span-1 md:col-span-2 row-span-1 bg-stone-200/40 rounded-2xl sm:rounded-3xl p-5 sm:p-6 md:p-8 flex flex-col justify-between">
             <div>
