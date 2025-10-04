@@ -145,14 +145,22 @@ const PurpleBoxSection = () => {
           {/* Right Column - Visuals Section */}
           <div className="relative pr-0 md:pr-12 flex justify-center md:justify-end order-first md:order-last">
             <div className="relative w-full max-w-md md:max-w-none">
-              {/* Main Application UI Screenshot Placeholder */}
-              <div className="w-full md:w-[500px] h-[250px] sm:h-[300px] md:h-[336px] bg-gray-200 rounded-xl md:rounded-2xl flex items-center justify-center">
-                <p className="text-gray-500 text-sm md:text-base font-medium">Main UI Screenshot</p>
+              {/* Main Application UI Screenshot */}
+              <div className="w-full md:w-[500px] h-[250px] sm:h-[300px] md:h-[336px] bg-gray-200 rounded-xl md:rounded-2xl overflow-hidden shadow-lg">
+                <img
+                  src="/assets/magicai.png"
+                  alt="AI Designer Interface"
+                  className="w-full h-full object-cover"
+                />
               </div>
 
               {/* Revenue Widget - Bottom Right overlapping */}
-              <div className="absolute bottom-0 -right-4 sm:-right-8 md:-right-20 h-[120px] sm:h-[130px] md:h-[150px] w-[200px] sm:w-[225px] md:w-[250px] bg-white border-2 border-gray-300 rounded-lg md:rounded-xl flex items-center justify-center shadow-lg">
-                <p className="text-gray-500 text-xs md:text-sm font-medium">Revenue</p>
+              <div className="absolute bottom-0 -right-4 sm:-right-8 md:-right-20 h-[120px] sm:h-[130px] md:h-[150px] w-[200px] sm:w-[225px] md:w-[250px] bg-white border-2 border-gray-300 rounded-lg md:rounded-xl overflow-hidden shadow-lg">
+                <img
+                  src="/assets/meeting.png"
+                  alt="Video Meeting Interface"
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
           </div>
@@ -165,19 +173,31 @@ const PurpleBoxSection = () => {
           {/* Left Column - Visuals Section */}
           <div className="relative pl-0 md:pl-12 flex justify-center md:justify-start">
             <div className="relative w-full max-w-md md:max-w-none">
-              {/* Main Application UI Screenshot Placeholder */}
-              <div className="w-full md:w-[500px] h-[250px] sm:h-[300px] md:h-[336px] bg-gray-200 rounded-xl md:rounded-2xl flex items-center justify-center">
-                <p className="text-gray-500 text-sm md:text-base font-medium">Main UI Screenshot</p>
+              {/* Main Application UI Screenshot */}
+              <div className="w-full md:w-[500px] h-[250px] sm:h-[300px] md:h-[336px] bg-gray-200 rounded-xl md:rounded-2xl overflow-hidden shadow-lg">
+                <img
+                  src="/assets/showroom.png"
+                  alt="Digital Showroom Interface"
+                  className="w-full h-full object-cover"
+                />
               </div>
 
               {/* Mobile Placeholder - Behind revenue, above main UI */}
-              <div className="absolute top-4 sm:top-6 md:top-8 -left-8 sm:-left-12 md:-left-16 h-[200px] sm:h-[240px] md:h-[280px] w-[120px] sm:w-[140px] md:w-[160px] bg-white border-2 border-gray-300 rounded-xl md:rounded-2xl flex items-center justify-center shadow-lg z-0">
-                <p className="text-gray-500 text-xs font-medium">Mobile</p>
+              <div className="absolute top-4 sm:top-6 md:top-8 -left-8 sm:-left-12 md:-left-16 h-[200px] sm:h-[240px] md:h-[280px] w-[120px] sm:w-[140px] md:w-[160px] bg-white border-2 border-gray-300 rounded-xl md:rounded-2xl overflow-hidden shadow-lg z-0">
+                <img
+                  src="/assets/cad1.png"
+                  alt="Floor Plan Design"
+                  className="w-full h-full object-cover"
+                />
               </div>
 
-              {/* Revenue Widget - Bottom Right overlapping */}
-              <div className="absolute bottom-0 -left-4 sm:-left-8 md:-left-20 h-[120px] sm:h-[130px] md:h-[150px] w-[200px] sm:w-[225px] md:w-[250px] bg-white border-2 border-gray-300 rounded-lg md:rounded-xl flex items-center justify-center shadow-lg z-10">
-                <p className="text-gray-500 text-xs md:text-sm font-medium">Revenue</p>
+              {/* CAD Widget - Bottom Left overlapping */}
+              <div className="absolute bottom-0 -left-4 sm:-left-8 md:-left-20 h-[120px] sm:h-[130px] md:h-[150px] w-[200px] sm:w-[225px] md:w-[250px] bg-white border-2 border-gray-300 rounded-lg md:rounded-xl overflow-hidden shadow-lg z-10">
+                <img
+                  src="/assets/cad2.png"
+                  alt="3D Design View"
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
           </div>
