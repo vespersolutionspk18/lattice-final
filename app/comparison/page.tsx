@@ -3,7 +3,7 @@
 import Header from '@/app/components/Header'
 import Footer from '@/app/components/Footer'
 import React, { useEffect, useRef, useState } from 'react'
-import { Check, X, Zap, Shield, Palette, TrendingUp, Users, Globe, Info } from 'lucide-react'
+import { Check, X, Zap, Shield, Palette, TrendingUp, Users, Globe, Info, Box } from 'lucide-react'
 import LogoTestSmall from '../components/LogoTestSmall'
 import LogoTest from '../components/LogoTest'
 
@@ -150,44 +150,50 @@ const ComparisonChart = () => {
 const ComparisonPage = () => {
   const comparisonFeatures: ComparisonFeature[] = [
     {
-      icon: Zap,
-      title: "All-in-One Platform",
-      description: "CRM, design tools, and website in one unified system",
+      icon: Users,
+      title: "Contract-Based Remote Employees",
+      description: "Architects, Drawing Technicians and Designers all for one affordable price.",
       lattice: true,
       competitors: false
     },
     {
-      icon: Palette,
-      title: "AI-Powered Design Tools",
-      description: "Generate 3D renders and design concepts instantly",
+      icon: Box,
+      title: "Subscription Free 3-D Renderings",
+      description: "High quality 3D renders and design concepts without being charged extra, ever!",
       lattice: true,
       competitors: "partial"
     },
     {
       icon: Shield,
-      title: "Free Website Included",
-      description: "SEO-optimized website with CRM integration",
+      title: <span style={{
+        background: 'linear-gradient(135deg, #0066FF 0%, #1b2e9e 100%)',
+        WebkitBackgroundClip: 'text',
+        WebkitTextFillColor: 'transparent',
+        backgroundClip: 'text',
+        color: 'transparent'
+      }}>LatticeAI</span>,
+      description: "Unlimited photorealistic before-and-after renders with your preferred materials.",
       lattice: true,
       competitors: false
     },
     {
       icon: TrendingUp,
-      title: "Real-Time Analytics",
-      description: "Live dashboard tracking leads, projects, and revenue",
+      title: "AI Powered Marketing",
+      description: "Demolish the competition with our industry-leading AI marketing program.",
       lattice: true,
       competitors: "partial"
     },
     {
-      icon: Users,
-      title: "24/7 Support",
-      description: "Dedicated support team available anytime",
+      icon: Zap,
+      title: "All-in-One CRM Platform",
+      description: "Ultra-efficient CRM, design tools, and a complimentary website in one unified system.",
       lattice: true,
       competitors: false
     },
     {
       icon: Globe,
       title: "Digital Showroom",
-      description: "Interactive portfolio to showcase your work",
+      description: "Interactive project showcase, completely free of our branding.",
       lattice: true,
       competitors: false
     }

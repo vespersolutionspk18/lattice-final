@@ -26,7 +26,7 @@ interface HeroProps {
 
 const Hero = ({
   preHeader,
-  headline = "Home Remodeling for Home Remodelers, Revolutionized",
+  headline = "Revolutionising How Home Remodelers Work",
   subtitle = "Your complete B2B solution for design, CRM, and digital tools to grow your remodeling business.",
   backgroundStyle,
   height = "760px",
@@ -173,10 +173,10 @@ const Hero = ({
           <div className="w-full lg:w-1/2 h-full p-4 sm:p-5 md:p-6 lg:p-5 flex items-center justify-center relative z-10">
             <div className="bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 w-full max-w-md shadow-2xl">
               <h2 className="text-2xl sm:text-3xl font-normal text-gray-900 mb-2 sm:mb-3 tracking-tight">
-                Request a Professional Quote Today
+                Speak to a Team Member Today
               </h2>
               <p className="text-gray-600 mb-6 sm:mb-8 text-sm sm:text-base leading-relaxed">
-                Get your personalized estimate in just a few clicks, it&apos;s fast, easy, and completely free
+                Curious about what we do? Or, interested in our services? Reach out and let&apos;s chat!
               </p>
 
               <form onSubmit={handleSubmit} className="flex flex-col gap-2 sm:gap-3">
