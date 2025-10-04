@@ -23,7 +23,7 @@ const PurpleBoxSection = () => {
     <div className="p-4 sm:p-6 md:p-8 lg:p-10">
       {/* White Section */}
       <div className="rounded-2xl sm:rounded-3xl lg:rounded-4xl p-6 sm:p-8 md:p-10 lg:p-12 bg-white">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 md:gap-16 lg:gap-[67px] items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 md:gap-[67px] items-center">
           {/* Left Column - Content Section */}
           <div className="flex flex-col gap-4 sm:gap-5 md:gap-[19px]">
             {/* Header with Icon */}
@@ -143,16 +143,16 @@ const PurpleBoxSection = () => {
           </div>
 
           {/* Right Column - Visuals Section */}
-          <div className="relative pr-0 lg:pr-12 flex justify-center lg:justify-end order-first lg:order-last">
-            <div className="relative w-full max-w-md lg:max-w-none">
+          <div className="relative pr-0 md:pr-12 flex justify-center md:justify-end order-first md:order-last">
+            <div className="relative w-full max-w-md md:max-w-none">
               {/* Main Application UI Screenshot Placeholder */}
-              <div className="w-full lg:w-[500px] h-[250px] sm:h-[300px] lg:h-[336px] bg-gray-200 rounded-xl sm:rounded-2xl flex items-center justify-center">
-                <p className="text-gray-500 text-sm sm:text-base font-medium">Main UI Screenshot</p>
+              <div className="w-full md:w-[500px] h-[250px] sm:h-[300px] md:h-[336px] bg-gray-200 rounded-xl md:rounded-2xl flex items-center justify-center">
+                <p className="text-gray-500 text-sm md:text-base font-medium">Main UI Screenshot</p>
               </div>
 
               {/* Revenue Widget - Bottom Right overlapping */}
-              <div className="absolute bottom-0 -right-4 sm:-right-8 lg:-right-20 h-[120px] sm:h-[150px] w-[200px] sm:w-[250px] bg-white border-2 border-gray-300 rounded-lg sm:rounded-xl flex items-center justify-center shadow-lg">
-                <p className="text-gray-500 text-xs sm:text-sm font-medium">Revenue</p>
+              <div className="absolute bottom-0 -right-4 sm:-right-8 md:-right-20 h-[120px] sm:h-[130px] md:h-[150px] w-[200px] sm:w-[225px] md:w-[250px] bg-white border-2 border-gray-300 rounded-lg md:rounded-xl flex items-center justify-center shadow-lg">
+                <p className="text-gray-500 text-xs md:text-sm font-medium">Revenue</p>
               </div>
             </div>
           </div>
@@ -161,23 +161,23 @@ const PurpleBoxSection = () => {
 
       {/* Second Section - Inverted */}
       <div className="rounded-2xl sm:rounded-3xl lg:rounded-4xl p-6 sm:p-8 md:p-10 lg:p-12 bg-white mt-6 sm:mt-8 md:mt-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 md:gap-16 lg:gap-[67px] items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 md:gap-[67px] items-center">
           {/* Left Column - Visuals Section */}
-          <div className="relative pl-0 lg:pl-12 flex justify-center lg:justify-start">
-            <div className="relative w-full max-w-md lg:max-w-none">
+          <div className="relative pl-0 md:pl-12 flex justify-center md:justify-start">
+            <div className="relative w-full max-w-md md:max-w-none">
               {/* Main Application UI Screenshot Placeholder */}
-              <div className="w-full lg:w-[500px] h-[250px] sm:h-[300px] lg:h-[336px] bg-gray-200 rounded-xl sm:rounded-2xl flex items-center justify-center">
-                <p className="text-gray-500 text-sm sm:text-base font-medium">Main UI Screenshot</p>
+              <div className="w-full md:w-[500px] h-[250px] sm:h-[300px] md:h-[336px] bg-gray-200 rounded-xl md:rounded-2xl flex items-center justify-center">
+                <p className="text-gray-500 text-sm md:text-base font-medium">Main UI Screenshot</p>
               </div>
 
               {/* Mobile Placeholder - Behind revenue, above main UI */}
-              <div className="absolute top-4 sm:top-8 -left-8 sm:-left-12 lg:-left-16 h-[200px] sm:h-[240px] lg:h-[280px] w-[120px] sm:w-[140px] lg:w-[160px] bg-white border-2 border-gray-300 rounded-xl sm:rounded-2xl flex items-center justify-center shadow-lg z-0">
+              <div className="absolute top-4 sm:top-6 md:top-8 -left-8 sm:-left-12 md:-left-16 h-[200px] sm:h-[240px] md:h-[280px] w-[120px] sm:w-[140px] md:w-[160px] bg-white border-2 border-gray-300 rounded-xl md:rounded-2xl flex items-center justify-center shadow-lg z-0">
                 <p className="text-gray-500 text-xs font-medium">Mobile</p>
               </div>
 
               {/* Revenue Widget - Bottom Right overlapping */}
-              <div className="absolute bottom-0 -left-4 sm:-left-8 lg:-left-20 h-[120px] sm:h-[150px] w-[200px] sm:w-[250px] bg-white border-2 border-gray-300 rounded-lg sm:rounded-xl flex items-center justify-center shadow-lg z-10">
-                <p className="text-gray-500 text-xs sm:text-sm font-medium">Revenue</p>
+              <div className="absolute bottom-0 -left-4 sm:-left-8 md:-left-20 h-[120px] sm:h-[130px] md:h-[150px] w-[200px] sm:w-[225px] md:w-[250px] bg-white border-2 border-gray-300 rounded-lg md:rounded-xl flex items-center justify-center shadow-lg z-10">
+                <p className="text-gray-500 text-xs md:text-sm font-medium">Revenue</p>
               </div>
             </div>
           </div>
