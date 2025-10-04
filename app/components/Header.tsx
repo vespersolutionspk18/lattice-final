@@ -67,15 +67,6 @@ const Header = ({ enableScrollEffects = false, cubeColor, buttonText = 'Schedule
                 Partner With Us
               </Link>
               <Link
-                href="/customers"
-                className="text-gray-600 transition-colors"
-                style={{ fontFamily: 'var(--font-figtree)', fontWeight: 500 }}
-                onMouseEnter={(e) => e.currentTarget.style.color = hoverColor}
-                onMouseLeave={(e) => e.currentTarget.style.color = ''}
-              >
-                For Customers
-              </Link>
-              <Link
                 href="/login"
                 className="flex items-center gap-1.5 text-gray-600 transition-colors"
                 style={{ fontFamily: 'var(--font-figtree)', fontWeight: 500 }}
