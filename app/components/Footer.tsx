@@ -6,12 +6,16 @@ import { useRouter } from 'next/navigation'
 import LogoTestInverted from './LogoTestInverted'
 import { Phone, Mail, MapPin, ArrowUpRight } from 'lucide-react'
 
-const Footer = () => {
+interface FooterProps {
+  backgroundColor?: string;
+}
+
+const Footer = ({ backgroundColor = '#3b82f6' }: FooterProps) => {
   const router = useRouter();
   const [isArrowHovered, setIsArrowHovered] = useState(false);
   return (
     <div className="p-5">
-        <div className="bg-[#3b82f6] tracking-tighter text-white px-16 pt-16 pb-4 rounded-3xl flex flex-col gap-10">
+        <div className="tracking-tighter text-white px-16 pt-16 pb-4 rounded-3xl flex flex-col gap-10" style={{ backgroundColor }}>
         <div className="w-full flex flex-row gap-10 justify-between">
             <div className="flex flex-col gap-7 w-[40%]">
                 <h5 className="text-4xl w-[60%]">Ready to Scale Your Business?</h5>

@@ -9,9 +9,13 @@ import Button from './Button'
 
 interface HeaderProps {
   enableScrollEffects?: boolean
+  cubeColor?: string
+  buttonText?: string
+  buttonColor?: string
+  hoverColor?: string
 }
 
-const Header = ({ enableScrollEffects = false }: HeaderProps) => {
+const Header = ({ enableScrollEffects = false, cubeColor, buttonText = 'Schedule a Meeting', buttonColor, hoverColor = '#3b82f6' }: HeaderProps) => {
   const [isScrolled, setIsScrolled] = useState(false)
   const [languageOpen, setLanguageOpen] = useState(false)
   const [selectedLanguage, setSelectedLanguage] = useState('EN US')
@@ -55,22 +59,28 @@ const Header = ({ enableScrollEffects = false }: HeaderProps) => {
             <div className="flex items-center space-x-4">
               <Link
                 href="/partner"
-                className="text-gray-600 hover:text-[#3b82f6] transition-colors"
+                className="text-gray-600 transition-colors"
                 style={{ fontFamily: 'var(--font-figtree)', fontWeight: 500 }}
+                onMouseEnter={(e) => e.currentTarget.style.color = hoverColor}
+                onMouseLeave={(e) => e.currentTarget.style.color = ''}
               >
                 Partner With Us
               </Link>
               <Link
                 href="/customers"
-                className="text-gray-600 hover:text-[#3b82f6] transition-colors"
+                className="text-gray-600 transition-colors"
                 style={{ fontFamily: 'var(--font-figtree)', fontWeight: 500 }}
+                onMouseEnter={(e) => e.currentTarget.style.color = hoverColor}
+                onMouseLeave={(e) => e.currentTarget.style.color = ''}
               >
                 For Customers
               </Link>
               <Link
                 href="/login"
-                className="flex items-center gap-1.5 text-gray-600 hover:text-[#3b82f6] transition-colors"
+                className="flex items-center gap-1.5 text-gray-600 transition-colors"
                 style={{ fontFamily: 'var(--font-figtree)', fontWeight: 500 }}
+                onMouseEnter={(e) => e.currentTarget.style.color = hoverColor}
+                onMouseLeave={(e) => e.currentTarget.style.color = ''}
               >
                 <LogIn className="w-3 h-3" />
                 <span>Login</span>
@@ -78,8 +88,10 @@ const Header = ({ enableScrollEffects = false }: HeaderProps) => {
               <div className="relative language-dropdown">
                 <button
                   onClick={() => setLanguageOpen(!languageOpen)}
-                  className="flex items-center gap-1.5 text-gray-600 hover:text-[#3b82f6] transition-colors"
+                  className="flex items-center gap-1.5 text-gray-600 transition-colors"
                   style={{ fontFamily: 'var(--font-figtree)', fontWeight: 500 }}
+                  onMouseEnter={(e) => e.currentTarget.style.color = hoverColor}
+                  onMouseLeave={(e) => e.currentTarget.style.color = ''}
                 >
                   <Globe className="w-3 h-3" />
                   <span>{selectedLanguage}</span>
@@ -92,9 +104,19 @@ const Header = ({ enableScrollEffects = false }: HeaderProps) => {
                         setLanguageOpen(false)
                       }}
                       className={`w-full px-3 py-1.5 text-left text-xs transition-colors flex items-center justify-between ${
-                        selectedLanguage === 'EN US' ? 'bg-[#3b82f6]/10 text-[#3b82f6]' : 'text-gray-600 hover:bg-gray-100 hover:text-[#3b82f6]'
+                        selectedLanguage === 'EN US' ? 'bg-gray-100' : 'text-gray-600 hover:bg-gray-100'
                       }`}
-                      style={{ fontFamily: 'var(--font-figtree)', fontWeight: 500 }}
+                      style={{
+                        fontFamily: 'var(--font-figtree)',
+                        fontWeight: 500,
+                        color: selectedLanguage === 'EN US' ? hoverColor : undefined
+                      }}
+                      onMouseEnter={(e) => {
+                        if (selectedLanguage !== 'EN US') e.currentTarget.style.color = hoverColor
+                      }}
+                      onMouseLeave={(e) => {
+                        if (selectedLanguage !== 'EN US') e.currentTarget.style.color = ''
+                      }}
                     >
                       <span>English - United States</span>
                       {selectedLanguage === 'EN US' && <Check className="w-3 h-3" />}
@@ -105,9 +127,19 @@ const Header = ({ enableScrollEffects = false }: HeaderProps) => {
                         setLanguageOpen(false)
                       }}
                       className={`w-full px-3 py-1.5 text-left text-xs transition-colors flex items-center justify-between ${
-                        selectedLanguage === 'ES' ? 'bg-[#3b82f6]/10 text-[#3b82f6]' : 'text-gray-600 hover:bg-gray-100 hover:text-[#3b82f6]'
+                        selectedLanguage === 'ES' ? 'bg-gray-100' : 'text-gray-600 hover:bg-gray-100'
                       }`}
-                      style={{ fontFamily: 'var(--font-figtree)', fontWeight: 500 }}
+                      style={{
+                        fontFamily: 'var(--font-figtree)',
+                        fontWeight: 500,
+                        color: selectedLanguage === 'ES' ? hoverColor : undefined
+                      }}
+                      onMouseEnter={(e) => {
+                        if (selectedLanguage !== 'ES') e.currentTarget.style.color = hoverColor
+                      }}
+                      onMouseLeave={(e) => {
+                        if (selectedLanguage !== 'ES') e.currentTarget.style.color = ''
+                      }}
                     >
                       <span>Español - España</span>
                       {selectedLanguage === 'ES' && <Check className="w-3 h-3" />}
@@ -132,7 +164,7 @@ const Header = ({ enableScrollEffects = false }: HeaderProps) => {
             {/* Logo */}
             <Link href="/" className="flex-shrink-0 flex items-center gap-0">
               <div className="scale-[0.70] pt-2">
-                <LogoTest />
+                <LogoTest cubeColor={cubeColor} />
               </div>
               <span className="text-2xl  tracking-tighter font-medium text-black">
                 Lattice
@@ -141,12 +173,12 @@ const Header = ({ enableScrollEffects = false }: HeaderProps) => {
 
             {/* Primary Navigation - Centered */}
             <div className="absolute left-1/2 transform -translate-x-1/2">
-              <MegaMenu />
+              <MegaMenu hoverColor={hoverColor} />
             </div>
 
             {/* CTA Button */}
             <div>
-              <Button variant="blue">Schedule a Meeting</Button>
+              <Button variant="blue" customBackgroundColor={buttonColor}>{buttonText}</Button>
             </div>
           </div>
         </div>

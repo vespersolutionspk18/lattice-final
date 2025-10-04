@@ -11,13 +11,15 @@ const MegaMenuCard = ({
   icon: Icon,
   title,
   description,
-  isNew
+  isNew,
+  hoverColor = '#3b82f6'
 }: {
   href: string;
   icon: React.ElementType;
   title: string;
   description: string;
   isNew?: boolean;
+  hoverColor?: string;
 }) => {
   const [isHovered, setIsHovered] = useState(false);
   const router = useRouter();
@@ -52,7 +54,7 @@ const MegaMenuCard = ({
       onMouseLeave={() => setIsHovered(false)}
     >
       <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-100 to-blue-50 flex items-center justify-center flex-shrink-0">
-        <Icon className="w-6 h-6 text-blue-600" />
+        <Icon className="w-6 h-6" style={{ color: hoverColor }} />
       </div>
       <div className="flex-1 min-w-0">
         <div className="flex items-center gap-2 mb-0.5">
@@ -60,7 +62,7 @@ const MegaMenuCard = ({
             {title}
           </h4>
           {isNew && (
-            <span className="px-2 py-0.5 text-xs font-medium text-white bg-blue-600 rounded-full">
+            <span className="px-2 py-0.5 text-xs font-medium text-white rounded-full" style={{ backgroundColor: hoverColor }}>
               New
             </span>
           )}
@@ -70,9 +72,10 @@ const MegaMenuCard = ({
         </p>
       </div>
       <ArrowRight
-        className={`w-5 h-5 text-gray-400 group-hover:text-blue-600 flex-shrink-0 transition-all duration-200 ${
+        className={`w-5 h-5 text-gray-400 flex-shrink-0 transition-all duration-200 ${
           isHovered ? 'translate-x-1' : ''
         }`}
+        style={isHovered ? { color: hoverColor } : {}}
       />
     </Link>
   );
@@ -82,7 +85,11 @@ interface MenuItem {
   title: string;
 }
 
-const MegaMenu = () => {
+interface MegaMenuProps {
+  hoverColor?: string;
+}
+
+const MegaMenu = ({ hoverColor = '#3b82f6' }: MegaMenuProps) => {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
@@ -143,7 +150,7 @@ const MegaMenu = () => {
     },
     {
       name: "Comparison",
-      href: "/#whycooseus",
+      href: "/comparison",
       icon: Users,
       description: "See how we compare to the competition."
     }
@@ -193,8 +200,10 @@ const MegaMenu = () => {
     <nav className="hidden md:flex items-center space-x-2 whitespace-nowrap">
       <Link
         href="/"
-        className="px-5 py-2 text-lg text-black hover:text-[#3b82f6] transition-all duration-200 rounded-full hover:bg-white/50 whitespace-nowrap"
+        className="px-5 py-2 text-lg text-black transition-all duration-200 rounded-full hover:bg-white/50 whitespace-nowrap"
         style={{ fontFamily: 'var(--font-figtree)', fontWeight: 500 }}
+        onMouseEnter={(e) => e.currentTarget.style.color = hoverColor}
+        onMouseLeave={(e) => e.currentTarget.style.color = 'black'}
       >
         Home
       </Link>
@@ -205,7 +214,12 @@ const MegaMenu = () => {
           onMouseEnter={() => handleMouseEnter(key)}
           onMouseLeave={handleMouseLeave}
         >
-          <button className="px-5 py-2 text-lg text-black hover:text-[#3b82f6] transition-all duration-200 rounded-full hover:bg-white/50 flex items-center gap-1 whitespace-nowrap" style={{ fontFamily: 'var(--font-figtree)', fontWeight: 500 }}>
+          <button
+            className="px-5 py-2 text-lg text-black transition-all duration-200 rounded-full hover:bg-white/50 flex items-center gap-1 whitespace-nowrap"
+            style={{ fontFamily: 'var(--font-figtree)', fontWeight: 500 }}
+            onMouseEnter={(e) => e.currentTarget.style.color = hoverColor}
+            onMouseLeave={(e) => e.currentTarget.style.color = 'black'}
+          >
             {key}
             <ChevronDown className="w-4 h-4" />
           </button>
@@ -243,6 +257,7 @@ const MegaMenu = () => {
                           title={service.name}
                           description={service.description}
                           isNew={service.isNew}
+                          hoverColor={hoverColor}
                         />
                       ))}
                     </div>
@@ -260,6 +275,7 @@ const MegaMenu = () => {
                           icon={item.icon}
                           title={item.name}
                           description={item.description}
+                          hoverColor={hoverColor}
                         />
                       ))}
                     </div>
@@ -275,8 +291,10 @@ const MegaMenu = () => {
         <Link
           key={link}
           href={`/${link.toLowerCase().replace(/\s+/g, '-')}`}
-          className="px-5 py-2 text-lg text-black hover:text-[#3b82f6] transition-all duration-200 rounded-full hover:bg-white/50 whitespace-nowrap"
+          className="px-5 py-2 text-lg text-black transition-all duration-200 rounded-full hover:bg-white/50 whitespace-nowrap"
           style={{ fontFamily: 'var(--font-figtree)', fontWeight: 500 }}
+          onMouseEnter={(e) => e.currentTarget.style.color = hoverColor}
+          onMouseLeave={(e) => e.currentTarget.style.color = 'black'}
         >
           {link}
         </Link>

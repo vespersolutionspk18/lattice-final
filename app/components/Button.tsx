@@ -14,6 +14,7 @@ interface ButtonProps {
   className?: string
   disabled?: boolean
   type?: 'button' | 'submit' | 'reset'
+  customBackgroundColor?: string
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -24,7 +25,8 @@ const Button: React.FC<ButtonProps> = ({
   size = 'md',
   className = '',
   disabled = false,
-  type = 'button'
+  type = 'button',
+  customBackgroundColor
 }) => {
   const router = useRouter()
   const [isHovered, setIsHovered] = useState(false)
@@ -82,6 +84,7 @@ const Button: React.FC<ButtonProps> = ({
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
       className={`cursor-pointer font-medium inline-flex items-center justify-center overflow-hidden relative ${variantStyles[variant]} ${sizes[size]} ${className}`}
+      style={customBackgroundColor ? { backgroundColor: customBackgroundColor } : undefined}
     >
       <div className="relative inline-flex items-center">
         <motion.span

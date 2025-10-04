@@ -8,12 +8,12 @@ const AboutUs = () => {
                 About
             </h5>
             <h5>
-                2025
+                About
             </h5>
 
         </div>
         <h5 className="text-black/85 text-5xl tracking-tighter text-center">
-            Lattice is the leading B2B technology partner for home remodelers and contractors. Based in Virginia and serving clients nationwide, we combine cutting-edge tools with industry expertise to transform how contractors manage and grow their businesses.
+            Lattice is the leading B2B technology partner for home remodelers and contractors. Based in Texas and serving clients nationwide, we're redefining how remodelers manage and grow their businesses.
         </h5>
       
     </div>

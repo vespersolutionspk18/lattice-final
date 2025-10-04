@@ -3,7 +3,11 @@
 import React, { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 
-const LogoTest: React.FC = () => {
+interface LogoTestProps {
+  cubeColor?: string;
+}
+
+const LogoTest: React.FC<LogoTestProps> = ({ cubeColor = '#3b82f6' }) => {
   const containerRef = useRef<HTMLDivElement>(null)
   const svgRef = useRef<SVGSVGElement>(null)
   const animationRef = useRef<{ angle: number; speed: number; targetSpeed: number }>({
@@ -297,18 +301,18 @@ const LogoTest: React.FC = () => {
           </g>
           {/* Blue edges (foreground layer) */}
           <g id="edges">
-            <line id="edge-bottom-front" stroke="#3b82f6" strokeWidth={edgeWidth} strokeLinecap="round" x1={vertices.bottomFrontLeft.x} y1={vertices.bottomFrontLeft.y} x2={vertices.bottomFrontRight.x} y2={vertices.bottomFrontRight.y} />
-            <line id="edge-bottom-right" stroke="#3b82f6" strokeWidth={edgeWidth} strokeLinecap="round" x1={vertices.bottomFrontRight.x} y1={vertices.bottomFrontRight.y} x2={vertices.bottomBackRight.x} y2={vertices.bottomBackRight.y} />
-            <line id="edge-bottom-back" stroke="#3b82f6" strokeWidth={edgeWidth} strokeLinecap="round" x1={vertices.bottomBackRight.x} y1={vertices.bottomBackRight.y} x2={vertices.bottomBackLeft.x} y2={vertices.bottomBackLeft.y} />
-            <line id="edge-bottom-left" stroke="#3b82f6" strokeWidth={edgeWidth} strokeLinecap="round" x1={vertices.bottomBackLeft.x} y1={vertices.bottomBackLeft.y} x2={vertices.bottomFrontLeft.x} y2={vertices.bottomFrontLeft.y} />
-            <line id="edge-vertical-front-left" stroke="#3b82f6" strokeWidth={edgeWidth} strokeLinecap="round" x1={vertices.bottomFrontLeft.x} y1={vertices.bottomFrontLeft.y} x2={vertices.topFrontLeft.x} y2={vertices.topFrontLeft.y} />
-            <line id="edge-vertical-front-right" stroke="#3b82f6" strokeWidth={edgeWidth} strokeLinecap="round" x1={vertices.bottomFrontRight.x} y1={vertices.bottomFrontRight.y} x2={vertices.topFrontRight.x} y2={vertices.topFrontRight.y} />
-            <line id="edge-vertical-back-left" stroke="#3b82f6" strokeWidth={edgeWidth} strokeLinecap="round" x1={vertices.bottomBackLeft.x} y1={vertices.bottomBackLeft.y} x2={vertices.topBackLeft.x} y2={vertices.topBackLeft.y} />
-            <line id="edge-vertical-back-right" stroke="#3b82f6" strokeWidth={edgeWidth} strokeLinecap="round" x1={vertices.bottomBackRight.x} y1={vertices.bottomBackRight.y} x2={vertices.topBackRight.x} y2={vertices.topBackRight.y} />
-            <line id="edge-top-front" stroke="#3b82f6" strokeWidth={edgeWidth} strokeLinecap="round" x1={vertices.topFrontLeft.x} y1={vertices.topFrontLeft.y} x2={vertices.topFrontRight.x} y2={vertices.topFrontRight.y} />
-            <line id="edge-top-right" stroke="#3b82f6" strokeWidth={edgeWidth} strokeLinecap="round" x1={vertices.topFrontRight.x} y1={vertices.topFrontRight.y} x2={vertices.topBackRight.x} y2={vertices.topBackRight.y} />
-            <line id="edge-top-back" stroke="#3b82f6" strokeWidth={edgeWidth} strokeLinecap="round" x1={vertices.topBackRight.x} y1={vertices.topBackRight.y} x2={vertices.topBackLeft.x} y2={vertices.topBackLeft.y} />
-            <line id="edge-top-left" stroke="#3b82f6" strokeWidth={edgeWidth} strokeLinecap="round" x1={vertices.topBackLeft.x} y1={vertices.topBackLeft.y} x2={vertices.topFrontLeft.x} y2={vertices.topFrontLeft.y} />
+            <line id="edge-bottom-front" stroke={cubeColor} strokeWidth={edgeWidth} strokeLinecap="round" x1={vertices.bottomFrontLeft.x} y1={vertices.bottomFrontLeft.y} x2={vertices.bottomFrontRight.x} y2={vertices.bottomFrontRight.y} />
+            <line id="edge-bottom-right" stroke={cubeColor} strokeWidth={edgeWidth} strokeLinecap="round" x1={vertices.bottomFrontRight.x} y1={vertices.bottomFrontRight.y} x2={vertices.bottomBackRight.x} y2={vertices.bottomBackRight.y} />
+            <line id="edge-bottom-back" stroke={cubeColor} strokeWidth={edgeWidth} strokeLinecap="round" x1={vertices.bottomBackRight.x} y1={vertices.bottomBackRight.y} x2={vertices.bottomBackLeft.x} y2={vertices.bottomBackLeft.y} />
+            <line id="edge-bottom-left" stroke={cubeColor} strokeWidth={edgeWidth} strokeLinecap="round" x1={vertices.bottomBackLeft.x} y1={vertices.bottomBackLeft.y} x2={vertices.bottomFrontLeft.x} y2={vertices.bottomFrontLeft.y} />
+            <line id="edge-vertical-front-left" stroke={cubeColor} strokeWidth={edgeWidth} strokeLinecap="round" x1={vertices.bottomFrontLeft.x} y1={vertices.bottomFrontLeft.y} x2={vertices.topFrontLeft.x} y2={vertices.topFrontLeft.y} />
+            <line id="edge-vertical-front-right" stroke={cubeColor} strokeWidth={edgeWidth} strokeLinecap="round" x1={vertices.bottomFrontRight.x} y1={vertices.bottomFrontRight.y} x2={vertices.topFrontRight.x} y2={vertices.topFrontRight.y} />
+            <line id="edge-vertical-back-left" stroke={cubeColor} strokeWidth={edgeWidth} strokeLinecap="round" x1={vertices.bottomBackLeft.x} y1={vertices.bottomBackLeft.y} x2={vertices.topBackLeft.x} y2={vertices.topBackLeft.y} />
+            <line id="edge-vertical-back-right" stroke={cubeColor} strokeWidth={edgeWidth} strokeLinecap="round" x1={vertices.bottomBackRight.x} y1={vertices.bottomBackRight.y} x2={vertices.topBackRight.x} y2={vertices.topBackRight.y} />
+            <line id="edge-top-front" stroke={cubeColor} strokeWidth={edgeWidth} strokeLinecap="round" x1={vertices.topFrontLeft.x} y1={vertices.topFrontLeft.y} x2={vertices.topFrontRight.x} y2={vertices.topFrontRight.y} />
+            <line id="edge-top-right" stroke={cubeColor} strokeWidth={edgeWidth} strokeLinecap="round" x1={vertices.topFrontRight.x} y1={vertices.topFrontRight.y} x2={vertices.topBackRight.x} y2={vertices.topBackRight.y} />
+            <line id="edge-top-back" stroke={cubeColor} strokeWidth={edgeWidth} strokeLinecap="round" x1={vertices.topBackRight.x} y1={vertices.topBackRight.y} x2={vertices.topBackLeft.x} y2={vertices.topBackLeft.y} />
+            <line id="edge-top-left" stroke={cubeColor} strokeWidth={edgeWidth} strokeLinecap="round" x1={vertices.topBackLeft.x} y1={vertices.topBackLeft.y} x2={vertices.topFrontLeft.x} y2={vertices.topFrontLeft.y} />
           </g>
 
 {/* Vertices */}
