@@ -12,7 +12,8 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   onButtonClick,
   headingLevel = 'h3',
   lazyLoad = true,
-  priority = false
+  priority = false,
+  buttonVariant = 'blue'
 }) => {
   const HeadingTag = headingLevel as keyof React.JSX.IntrinsicElements
   
@@ -36,8 +37,8 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
       >
         {service.description}
       </p>
-      <Button 
-        variant="green" 
+      <Button
+        variant={buttonVariant}
         className="w-fit"
         href={service.buttonHref}
         onClick={handleButtonClick}
@@ -87,7 +88,8 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({
   onButtonClick,
   headingLevel = 'h3',
   lazyLoadImages = true,
-  animateOnScroll = false
+  animateOnScroll = false,
+  buttonVariant = 'blue'
 }) => {
   if (!services || services.length === 0) {
     return null
@@ -143,6 +145,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({
               headingLevel={headingLevel}
               lazyLoad={!shouldPrioritize && lazyLoadImages}
               priority={shouldPrioritize}
+              buttonVariant={buttonVariant}
             />
           </motion.div>
         ) : (
@@ -154,6 +157,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({
               headingLevel={headingLevel}
               lazyLoad={!shouldPrioritize && lazyLoadImages}
               priority={shouldPrioritize}
+              buttonVariant={buttonVariant}
             />
           </div>
         )

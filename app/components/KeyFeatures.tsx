@@ -6,13 +6,15 @@ interface KeyFeature {
   number: number
   title: string
   description: string
+  titleElement?: React.ReactNode
 }
 
 interface KeyFeaturesProps {
   features: KeyFeature[]
+  accentColor?: string
 }
 
-const KeyFeatures = ({ features }: KeyFeaturesProps) => {
+const KeyFeatures = ({ features, accentColor = '#3b82f6' }: KeyFeaturesProps) => {
   return (
     <div className="py-16 px-10 bg-white">
       <div className="max-w-7xl mx-auto">
@@ -25,16 +27,24 @@ const KeyFeatures = ({ features }: KeyFeaturesProps) => {
               {/* Card Content */}
               <div className="p-8 flex flex-col items-center text-center">
                 {/* Numbered Circle */}
-                <div className="w-12 h-12 rounded-lg bg-[#3b82f6]/10 flex items-center justify-center mb-6">
-                  <span className="text-xl font-semibold text-[#3b82f6]">
+                <div
+                  className="w-12 h-12 rounded-lg flex items-center justify-center mb-6"
+                  style={{ backgroundColor: `${accentColor}1A` }}
+                >
+                  <span
+                    className="text-xl font-semibold"
+                    style={{ color: accentColor }}
+                  >
                     {feature.number}
                   </span>
                 </div>
 
                 {/* Title */}
-                <h3 className="text-xl font-semibold text-black mb-4 leading-tight tracking-tight">
-                  {feature.title}
-                </h3>
+                <div className="mb-4 min-h-[3.5rem] flex items-center justify-center">
+                  <h3 className="text-xl font-semibold text-black leading-tight tracking-tight">
+                    {feature.titleElement || feature.title}
+                  </h3>
+                </div>
 
                 {/* Description */}
                 <p className="text-gray-600 leading-relaxed text-base tracking-tight">

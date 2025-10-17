@@ -3,13 +3,13 @@
 import Header from '@/app/components/Header'
 import Footer from '@/app/components/Footer'
 import React, { useEffect, useRef, useState } from 'react'
-import { Check, X, Zap, Shield, Palette, TrendingUp, Users, Globe, Info, Box } from 'lucide-react'
+import { Check, X, Zap, Shield, Palette, TrendingUp, Users, Globe, Info, Box, Award } from 'lucide-react'
 import LogoTestSmall from '../components/LogoTestSmall'
 import LogoTest from '../components/LogoTest'
 
 interface ComparisonFeature {
   icon: React.ComponentType<{ className?: string }>;
-  title: string;
+  title: string | React.ReactNode;
   description: string;
   lattice: boolean | "partial";
   competitors: boolean | "partial";
@@ -147,6 +147,561 @@ const ComparisonChart = () => {
   );
 };
 
+const InteractiveComparisonModule = () => {
+  const [hoveredItem, setHoveredItem] = useState<string | null>(null);
+
+  return (
+    <div className="bg-white rounded-3xl overflow-hidden border border-gray-200 relative" style={{ marginTop: '64px', padding: '64px' }}>
+      <div className="relative w-full h-full flex items-start justify-center" style={{ gap: '32px' }}>
+        {/* Left Card - Wevisu */}
+        <div
+          className="relative flex flex-col"
+          style={{
+            backgroundColor: 'rgba(231, 229, 228, 0.5)',
+            width: '380px',
+            borderRadius: '48px',
+            padding: '48px',
+            zIndex: 1
+          }}
+        >
+          <div className="text-center mb-8">
+            <h3 className="text-3xl font-bold mb-4 tracking-tight" style={{ fontFamily: 'var(--font-figtree)', color: '#6b7280' }}>
+              Wevisu
+            </h3>
+            <p className="text-sm font-medium tracking-tight" style={{ fontFamily: 'var(--font-figtree)', color: '#9ca3af' }}>
+              The Platform
+            </p>
+          </div>
+          <div style={{ flex: 1 }}>
+            <ul style={{ display: 'flex', flexDirection: 'column', gap: '16px', textAlign: 'left' }}>
+              <li
+                className="flex items-start gap-3 cursor-pointer transition-all duration-300"
+                style={{
+                  opacity: hoveredItem === null || hoveredItem === 'wevisu-software' ? 1 : 0.4,
+                  transform: hoveredItem === 'wevisu-software' ? 'scale(1.05)' : 'scale(1)'
+                }}
+                onMouseEnter={() => setHoveredItem('wevisu-software')}
+                onMouseLeave={() => setHoveredItem(null)}
+              >
+                <div style={{
+                  width: '32px',
+                  height: '32px',
+                  borderRadius: '50%',
+                  backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                  backdropFilter: 'blur(10px)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  flexShrink: 0
+                }}>
+                  <Check className="w-5 h-5" strokeWidth={2.5} style={{ color: '#16a34a' }} />
+                </div>
+                <span
+                  className="text-base tracking-tight"
+                  style={{
+                    fontFamily: 'var(--font-figtree)',
+                    color: '#374151',
+                    fontWeight: hoveredItem === 'wevisu-software' ? 600 : 400,
+                    transition: 'font-weight 0.3s ease-in-out'
+                  }}
+                >
+                  Access to Powerful Software Tools
+                </span>
+              </li>
+              <li
+                className="flex items-start gap-3 cursor-pointer transition-all duration-300"
+                style={{
+                  opacity: hoveredItem === null || hoveredItem === 'wevisu-integration' ? 1 : 0.4,
+                  transform: hoveredItem === 'wevisu-integration' ? 'scale(1.05)' : 'scale(1)'
+                }}
+                onMouseEnter={() => setHoveredItem('wevisu-integration')}
+                onMouseLeave={() => setHoveredItem(null)}
+              >
+                <div style={{
+                  width: '32px',
+                  height: '32px',
+                  borderRadius: '50%',
+                  backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                  backdropFilter: 'blur(10px)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  flexShrink: 0
+                }}>
+                  <Check className="w-5 h-5" strokeWidth={2.5} style={{ color: '#16a34a' }} />
+                </div>
+                <span
+                  className="text-base tracking-tight"
+                  style={{
+                    fontFamily: 'var(--font-figtree)',
+                    color: '#374151',
+                    fontWeight: hoveredItem === 'wevisu-integration' ? 600 : 400,
+                    transition: 'font-weight 0.3s ease-in-out'
+                  }}
+                >
+                  Built-In Platform Integration Tools
+                </span>
+              </li>
+              <li className="flex items-start gap-3" style={{ opacity: hoveredItem === null ? 1 : 0.4, transition: 'opacity 0.3s ease-in-out' }}>
+                <X className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" strokeWidth={2.5} />
+                <span className="text-base tracking-tight" style={{ fontFamily: 'var(--font-figtree)', color: '#374151' }}>
+                  Requires Expensive Annual Membership
+                </span>
+              </li>
+              <li className="flex items-start gap-3" style={{ opacity: hoveredItem === null ? 1 : 0.4, transition: 'opacity 0.3s ease-in-out' }}>
+                <X className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" strokeWidth={2.5} />
+                <span className="text-base tracking-tight" style={{ fontFamily: 'var(--font-figtree)', color: '#374151' }}>
+                  Inflexible, One-Size-Fits-All Showroom
+                </span>
+              </li>
+              <li className="flex items-start gap-3" style={{ opacity: hoveredItem === null ? 1 : 0.4, transition: 'opacity 0.3s ease-in-out' }}>
+                <X className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" strokeWidth={2.5} />
+                <span className="text-base tracking-tight" style={{ fontFamily: 'var(--font-figtree)', color: '#374151' }}>
+                  Restrictive Material Sourcing Policies
+                </span>
+              </li>
+              <li className="flex items-start gap-3" style={{ opacity: hoveredItem === null ? 1 : 0.4, transition: 'opacity 0.3s ease-in-out' }}>
+                <X className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" strokeWidth={2.5} />
+                <span className="text-base tracking-tight" style={{ fontFamily: 'var(--font-figtree)', color: '#374151' }}>
+                  Lacks Dedicated Human Support
+                </span>
+              </li>
+              <li className="flex items-start gap-3" style={{ opacity: hoveredItem === null ? 1 : 0.4, transition: 'opacity 0.3s ease-in-out' }}>
+                <X className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" strokeWidth={2.5} />
+                <span className="text-base tracking-tight" style={{ fontFamily: 'var(--font-figtree)', color: '#374151' }}>
+                  Limited Third-Party Integrations
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Center Card - Lattice */}
+        <div
+          className="relative flex flex-col"
+          style={{
+            background: 'linear-gradient(135deg, #0066FF 0%, #3b82f6 50%, #6ce2ff 100%)',
+            borderRadius: '48px',
+            width: '500px',
+            padding: '48px',
+            zIndex: 2,
+            boxShadow: '0 10px 40px rgba(59, 130, 246, 0.3)'
+          }}
+        >
+          <div className="text-center mb-8">
+            <h3 className="text-3xl font-bold mb-4 tracking-tight text-white" style={{ fontFamily: 'var(--font-figtree)' }}>
+              Lattice
+            </h3>
+            <p className="text-sm font-semibold text-white/90 tracking-tight mb-1" style={{ fontFamily: 'var(--font-figtree)' }}>
+              The Integrated Solution
+            </p>
+            <p className="text-xs font-medium text-white/70 tracking-tight" style={{ fontFamily: 'var(--font-figtree)' }}>
+              (The Best of Both Worlds)
+            </p>
+          </div>
+          <div style={{ flex: 1 }}>
+            <ul style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginBottom: '24px' }}>
+            <li
+              className="flex items-start gap-3 cursor-pointer transition-all duration-300"
+              style={{
+                opacity: hoveredItem === null || hoveredItem === 'wevisu-software' ? 1 : 0.5,
+                transform: hoveredItem === 'wevisu-software' ? 'scale(1.05)' : 'scale(1)',
+                boxShadow: hoveredItem === 'wevisu-software' ? '0 0 20px rgba(255, 255, 255, 0.4)' : 'none',
+                borderRadius: '12px',
+                padding: hoveredItem === 'wevisu-software' ? '8px' : '0px',
+                margin: hoveredItem === 'wevisu-software' ? '-8px' : '0px',
+                transition: 'all 0.3s ease-in-out'
+              }}
+              onMouseEnter={() => setHoveredItem('wevisu-software')}
+              onMouseLeave={() => setHoveredItem(null)}
+            >
+              <div style={{
+                width: '32px',
+                height: '32px',
+                borderRadius: '50%',
+                backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                backdropFilter: 'blur(10px)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                flexShrink: 0
+              }}>
+                <Check className="w-5 h-5" strokeWidth={3} style={{ color: '#16a34a' }} />
+              </div>
+              <span
+                className="text-base text-white tracking-tight"
+                style={{
+                  fontFamily: 'var(--font-figtree)',
+                  fontWeight: hoveredItem === 'wevisu-software' ? 700 : 500,
+                  transition: 'font-weight 0.3s ease-in-out'
+                }}
+              >
+                Fully Integrated Software Suite (CRM, AI)
+              </span>
+            </li>
+            <li
+              className="flex items-start gap-3 cursor-pointer transition-all duration-300"
+              style={{
+                opacity: hoveredItem === null || hoveredItem === 'wevisu-integration' ? 1 : 0.5,
+                transform: hoveredItem === 'wevisu-integration' ? 'scale(1.05)' : 'scale(1)',
+                boxShadow: hoveredItem === 'wevisu-integration' ? '0 0 20px rgba(255, 255, 255, 0.4)' : 'none',
+                borderRadius: '12px',
+                padding: hoveredItem === 'wevisu-integration' ? '8px' : '0px',
+                margin: hoveredItem === 'wevisu-integration' ? '-8px' : '0px',
+                transition: 'all 0.3s ease-in-out'
+              }}
+              onMouseEnter={() => setHoveredItem('wevisu-integration')}
+              onMouseLeave={() => setHoveredItem(null)}
+            >
+              <div style={{
+                width: '32px',
+                height: '32px',
+                borderRadius: '50%',
+                backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                backdropFilter: 'blur(10px)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                flexShrink: 0
+              }}>
+                <Check className="w-5 h-5" strokeWidth={3} style={{ color: '#16a34a' }} />
+              </div>
+              <span
+                className="text-base text-white tracking-tight"
+                style={{
+                  fontFamily: 'var(--font-figtree)',
+                  fontWeight: hoveredItem === 'wevisu-integration' ? 700 : 500,
+                  transition: 'font-weight 0.3s ease-in-out'
+                }}
+              >
+                Seamless Workflow & Tool Integration
+              </span>
+            </li>
+            <li
+              className="flex items-start gap-3 cursor-pointer transition-all duration-300"
+              style={{
+                opacity: hoveredItem === null || hoveredItem === 'inhouse-professionals' ? 1 : 0.5,
+                transform: hoveredItem === 'inhouse-professionals' ? 'scale(1.05)' : 'scale(1)',
+                boxShadow: hoveredItem === 'inhouse-professionals' ? '0 0 20px rgba(255, 255, 255, 0.4)' : 'none',
+                borderRadius: '12px',
+                padding: hoveredItem === 'inhouse-professionals' ? '8px' : '0px',
+                margin: hoveredItem === 'inhouse-professionals' ? '-8px' : '0px',
+                transition: 'all 0.3s ease-in-out'
+              }}
+              onMouseEnter={() => setHoveredItem('inhouse-professionals')}
+              onMouseLeave={() => setHoveredItem(null)}
+            >
+              <div style={{
+                width: '32px',
+                height: '32px',
+                borderRadius: '50%',
+                backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                backdropFilter: 'blur(10px)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                flexShrink: 0
+              }}>
+                <Check className="w-5 h-5" strokeWidth={3} style={{ color: '#16a34a' }} />
+              </div>
+              <span
+                className="text-base text-white tracking-tight"
+                style={{
+                  fontFamily: 'var(--font-figtree)',
+                  fontWeight: hoveredItem === 'inhouse-professionals' ? 700 : 500,
+                  transition: 'font-weight 0.3s ease-in-out'
+                }}
+              >
+                Dedicated, On-Demand Professionals
+              </span>
+            </li>
+            <li
+              className="flex items-start gap-3 cursor-pointer transition-all duration-300"
+              style={{
+                opacity: hoveredItem === null || hoveredItem === 'inhouse-accountability' ? 1 : 0.5,
+                transform: hoveredItem === 'inhouse-accountability' ? 'scale(1.05)' : 'scale(1)',
+                boxShadow: hoveredItem === 'inhouse-accountability' ? '0 0 20px rgba(255, 255, 255, 0.4)' : 'none',
+                borderRadius: '12px',
+                padding: hoveredItem === 'inhouse-accountability' ? '8px' : '0px',
+                margin: hoveredItem === 'inhouse-accountability' ? '-8px' : '0px',
+                transition: 'all 0.3s ease-in-out'
+              }}
+              onMouseEnter={() => setHoveredItem('inhouse-accountability')}
+              onMouseLeave={() => setHoveredItem(null)}
+            >
+              <div style={{
+                width: '32px',
+                height: '32px',
+                borderRadius: '50%',
+                backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                backdropFilter: 'blur(10px)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                flexShrink: 0
+              }}>
+                <Check className="w-5 h-5" strokeWidth={3} style={{ color: '#16a34a' }} />
+              </div>
+              <span
+                className="text-base text-white tracking-tight"
+                style={{
+                  fontFamily: 'var(--font-figtree)',
+                  fontWeight: hoveredItem === 'inhouse-accountability' ? 700 : 500,
+                  transition: 'font-weight 0.3s ease-in-out'
+                }}
+              >
+                Vetted Experts with Built-in Accountability
+              </span>
+            </li>
+          </ul>
+
+          {/* Visual Divider */}
+          <div style={{ height: '1px', background: 'rgba(255, 255, 255, 0.3)', margin: '24px 0' }} />
+
+          {/* Lattice-Exclusive Benefits */}
+          <p className="text-xs font-medium text-white/70 tracking-tight text-center mb-4" style={{ fontFamily: 'var(--font-figtree)' }}>
+            (The Lattice Exclusives)
+          </p>
+          <ul style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginBottom: '24px' }}>
+            <li
+              className="flex items-start gap-3 cursor-pointer transition-all duration-300"
+              style={{
+                opacity: hoveredItem === null || hoveredItem === 'lattice-flexibility' ? 1 : 0.5,
+                boxShadow: hoveredItem === 'lattice-flexibility' ? '0 0 20px rgba(255, 255, 255, 0.4)' : 'none',
+                borderRadius: '12px',
+                padding: hoveredItem === 'lattice-flexibility' ? '8px' : '0px',
+                margin: hoveredItem === 'lattice-flexibility' ? '-8px' : '0px',
+                transition: 'all 0.3s ease-in-out'
+              }}
+              onMouseEnter={() => setHoveredItem('lattice-flexibility')}
+              onMouseLeave={() => setHoveredItem(null)}
+            >
+              <Check className="w-5 h-5 text-white flex-shrink-0 mt-0.5" strokeWidth={3} />
+              <span className="text-base text-white font-medium tracking-tight" style={{ fontFamily: 'var(--font-figtree)' }}>
+                Pay-Per-Project Flexibility
+              </span>
+            </li>
+            <li
+              className="flex items-start gap-3 cursor-pointer transition-all duration-300"
+              style={{
+                opacity: hoveredItem === null || hoveredItem === 'lattice-quality' ? 1 : 0.5,
+                boxShadow: hoveredItem === 'lattice-quality' ? '0 0 20px rgba(255, 255, 255, 0.4)' : 'none',
+                borderRadius: '12px',
+                padding: hoveredItem === 'lattice-quality' ? '8px' : '0px',
+                margin: hoveredItem === 'lattice-quality' ? '-8px' : '0px',
+                transition: 'all 0.3s ease-in-out'
+              }}
+              onMouseEnter={() => setHoveredItem('lattice-quality')}
+              onMouseLeave={() => setHoveredItem(null)}
+            >
+              <Check className="w-5 h-5 text-white flex-shrink-0 mt-0.5" strokeWidth={3} />
+              <span className="text-base text-white font-medium tracking-tight" style={{ fontFamily: 'var(--font-figtree)' }}>
+                Cost of a Freelancer, Quality of a Partner
+              </span>
+            </li>
+            <li
+              className="flex items-start gap-3 cursor-pointer transition-all duration-300"
+              style={{
+                opacity: hoveredItem === null || hoveredItem === 'lattice-scalable' ? 1 : 0.5,
+                boxShadow: hoveredItem === 'lattice-scalable' ? '0 0 20px rgba(255, 255, 255, 0.4)' : 'none',
+                borderRadius: '12px',
+                padding: hoveredItem === 'lattice-scalable' ? '8px' : '0px',
+                margin: hoveredItem === 'lattice-scalable' ? '-8px' : '0px',
+                transition: 'all 0.3s ease-in-out'
+              }}
+              onMouseEnter={() => setHoveredItem('lattice-scalable')}
+              onMouseLeave={() => setHoveredItem(null)}
+            >
+              <Check className="w-5 h-5 text-white flex-shrink-0 mt-0.5" strokeWidth={3} />
+              <span className="text-base text-white font-medium tracking-tight" style={{ fontFamily: 'var(--font-figtree)' }}>
+                Instantly Scalable Team & Resources
+              </span>
+            </li>
+            <li
+              className="flex items-start gap-3 cursor-pointer transition-all duration-300"
+              style={{
+                opacity: hoveredItem === null || hoveredItem === 'lattice-hr' ? 1 : 0.5,
+                boxShadow: hoveredItem === 'lattice-hr' ? '0 0 20px rgba(255, 255, 255, 0.4)' : 'none',
+                borderRadius: '12px',
+                padding: hoveredItem === 'lattice-hr' ? '8px' : '0px',
+                margin: hoveredItem === 'lattice-hr' ? '-8px' : '0px',
+                transition: 'all 0.3s ease-in-out'
+              }}
+              onMouseEnter={() => setHoveredItem('lattice-hr')}
+              onMouseLeave={() => setHoveredItem(null)}
+            >
+              <Check className="w-5 h-5 text-white flex-shrink-0 mt-0.5" strokeWidth={3} />
+              <span className="text-base text-white font-medium tracking-tight" style={{ fontFamily: 'var(--font-figtree)' }}>
+                Zero HR Overhead or Hiring Risk
+              </span>
+            </li>
+            <li
+              className="flex items-start gap-3 cursor-pointer transition-all duration-300"
+              style={{
+                opacity: hoveredItem === null || hoveredItem === 'lattice-unified' ? 1 : 0.5,
+                boxShadow: hoveredItem === 'lattice-unified' ? '0 0 20px rgba(255, 255, 255, 0.4)' : 'none',
+                borderRadius: '12px',
+                padding: hoveredItem === 'lattice-unified' ? '8px' : '0px',
+                margin: hoveredItem === 'lattice-unified' ? '-8px' : '0px',
+                transition: 'all 0.3s ease-in-out'
+              }}
+              onMouseEnter={() => setHoveredItem('lattice-unified')}
+              onMouseLeave={() => setHoveredItem(null)}
+            >
+              <Check className="w-5 h-5 text-white flex-shrink-0 mt-0.5" strokeWidth={3} />
+              <span className="text-base text-white font-medium tracking-tight" style={{ fontFamily: 'var(--font-figtree)' }}>
+                A Single, Unified Platform for All Needs
+              </span>
+            </li>
+            <li
+              className="flex items-start gap-3 cursor-pointer transition-all duration-300"
+              style={{
+                opacity: hoveredItem === null || hoveredItem === 'lattice-compliant' ? 1 : 0.5,
+                boxShadow: hoveredItem === 'lattice-compliant' ? '0 0 20px rgba(255, 255, 255, 0.4)' : 'none',
+                borderRadius: '12px',
+                padding: hoveredItem === 'lattice-compliant' ? '8px' : '0px',
+                margin: hoveredItem === 'lattice-compliant' ? '-8px' : '0px',
+                transition: 'all 0.3s ease-in-out'
+              }}
+              onMouseEnter={() => setHoveredItem('lattice-compliant')}
+              onMouseLeave={() => setHoveredItem(null)}
+            >
+              <Check className="w-5 h-5 text-white flex-shrink-0 mt-0.5" strokeWidth={3} />
+              <span className="text-base text-white font-medium tracking-tight" style={{ fontFamily: 'var(--font-figtree)' }}>
+                Guaranteed Code-Compliant & Permit-Ready Work
+              </span>
+            </li>
+          </ul>
+          </div>
+        </div>
+
+        {/* Right Card - In-house Team */}
+        <div
+          className="relative flex flex-col"
+          style={{
+            backgroundColor: 'rgba(231, 229, 228, 0.5)',
+            width: '380px',
+            borderRadius: '48px',
+            padding: '48px',
+            zIndex: 1
+          }}
+        >
+          <div className="text-center mb-8">
+            <h3 className="text-3xl font-bold mb-4 tracking-tight" style={{ fontFamily: 'var(--font-figtree)', color: '#6b7280' }}>
+              In-house Team
+            </h3>
+            <p className="text-sm font-medium tracking-tight" style={{ fontFamily: 'var(--font-figtree)', color: '#9ca3af' }}>
+              The People
+            </p>
+          </div>
+          <div style={{ flex: 1 }}>
+            <ul style={{ display: 'flex', flexDirection: 'column', gap: '16px', textAlign: 'left' }}>
+              <li
+                className="flex items-start gap-3 cursor-pointer transition-all duration-300"
+                style={{
+                  opacity: hoveredItem === null || hoveredItem === 'inhouse-professionals' ? 1 : 0.4,
+                  transform: hoveredItem === 'inhouse-professionals' ? 'scale(1.05)' : 'scale(1)'
+                }}
+                onMouseEnter={() => setHoveredItem('inhouse-professionals')}
+                onMouseLeave={() => setHoveredItem(null)}
+              >
+                <div style={{
+                  width: '32px',
+                  height: '32px',
+                  borderRadius: '50%',
+                  backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                  backdropFilter: 'blur(10px)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  flexShrink: 0
+                }}>
+                  <Check className="w-5 h-5" strokeWidth={2.5} style={{ color: '#16a34a' }} />
+                </div>
+                <span
+                  className="text-base tracking-tight"
+                  style={{
+                    fontFamily: 'var(--font-figtree)',
+                    color: '#374151',
+                    fontWeight: hoveredItem === 'inhouse-professionals' ? 600 : 400,
+                    transition: 'font-weight 0.3s ease-in-out'
+                  }}
+                >
+                  Professionals Integrated With Your Brand
+                </span>
+              </li>
+              <li
+                className="flex items-start gap-3 cursor-pointer transition-all duration-300"
+                style={{
+                  opacity: hoveredItem === null || hoveredItem === 'inhouse-accountability' ? 1 : 0.4,
+                  transform: hoveredItem === 'inhouse-accountability' ? 'scale(1.05)' : 'scale(1)'
+                }}
+                onMouseEnter={() => setHoveredItem('inhouse-accountability')}
+                onMouseLeave={() => setHoveredItem(null)}
+              >
+                <div style={{
+                  width: '32px',
+                  height: '32px',
+                  borderRadius: '50%',
+                  backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                  backdropFilter: 'blur(10px)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  flexShrink: 0
+                }}>
+                  <Check className="w-5 h-5" strokeWidth={2.5} style={{ color: '#16a34a' }} />
+                </div>
+                <span
+                  className="text-base tracking-tight"
+                  style={{
+                    fontFamily: 'var(--font-figtree)',
+                    color: '#374151',
+                    fontWeight: hoveredItem === 'inhouse-accountability' ? 600 : 400,
+                    transition: 'font-weight 0.3s ease-in-out'
+                  }}
+                >
+                  Direct Oversight & Accountability
+                </span>
+              </li>
+              <li className="flex items-start gap-3" style={{ opacity: hoveredItem === null ? 1 : 0.4, transition: 'opacity 0.3s ease-in-out' }}>
+                <X className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" strokeWidth={2.5} />
+                <span className="text-base tracking-tight" style={{ fontFamily: 'var(--font-figtree)', color: '#374151' }}>
+                  Massive Overhead & Benefit Costs
+                </span>
+              </li>
+              <li className="flex items-start gap-3" style={{ opacity: hoveredItem === null ? 1 : 0.4, transition: 'opacity 0.3s ease-in-out' }}>
+                <X className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" strokeWidth={2.5} />
+                <span className="text-base tracking-tight" style={{ fontFamily: 'var(--font-figtree)', color: '#374151' }}>
+                  Slow to Scale Up or Down
+                </span>
+              </li>
+              <li className="flex items-start gap-3" style={{ opacity: hoveredItem === null ? 1 : 0.4, transition: 'opacity 0.3s ease-in-out' }}>
+                <X className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" strokeWidth={2.5} />
+                <span className="text-base tracking-tight" style={{ fontFamily: 'var(--font-figtree)', color: '#374151' }}>
+                  High Risk with Hiring & Firing
+                </span>
+              </li>
+              <li className="flex items-start gap-3" style={{ opacity: hoveredItem === null ? 1 : 0.4, transition: 'opacity 0.3s ease-in-out' }}>
+                <X className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" strokeWidth={2.5} />
+                <span className="text-base tracking-tight" style={{ fontFamily: 'var(--font-figtree)', color: '#374151' }}>
+                  Limited to a Single Skill Set Per Hire
+                </span>
+              </li>
+              <li className="flex items-start gap-3" style={{ opacity: hoveredItem === null ? 1 : 0.4, transition: 'opacity 0.3s ease-in-out' }}>
+                <X className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" strokeWidth={2.5} />
+                <span className="text-base tracking-tight" style={{ fontFamily: 'var(--font-figtree)', color: '#374151' }}>
+                  Requires Separate Software Investment
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const ComparisonPage = () => {
   const comparisonFeatures: ComparisonFeature[] = [
     {
@@ -164,45 +719,83 @@ const ComparisonPage = () => {
       competitors: "partial"
     },
     {
-      icon: Shield,
-      title: <span style={{
+      icon: Zap,
+      title: <><span style={{
         background: 'linear-gradient(135deg, #0066FF 0%, #1b2e9e 100%)',
         WebkitBackgroundClip: 'text',
         WebkitTextFillColor: 'transparent',
         backgroundClip: 'text',
         color: 'transparent'
-      }}>LatticeAI</span>,
-      description: "Unlimited photorealistic before-and-after renders with your preferred materials.",
-      lattice: true,
-      competitors: false
-    },
-    {
-      icon: TrendingUp,
-      title: "AI Powered Marketing",
-      description: "Demolish the competition with our industry-leading AI marketing program.",
-      lattice: true,
-      competitors: "partial"
-    },
-    {
-      icon: Zap,
-      title: "All-in-One CRM Platform",
+      }}>LatticeAI</span> <span style={{
+        background: 'linear-gradient(135deg, #16a34a 0%, #166534 100%)',
+        WebkitBackgroundClip: 'text',
+        WebkitTextFillColor: 'transparent',
+        backgroundClip: 'text',
+        color: 'transparent'
+      }}>CRM</span></>,
       description: "Ultra-efficient CRM, design tools, and a complimentary website in one unified system.",
       lattice: true,
       competitors: false
     },
     {
+      icon: Award,
+      title: "Industry-Leading Guarantees",
+      description: "Our trifecta; the price-beat, money-back and fast-service guarantees.",
+      lattice: true,
+      competitors: "partial"
+    },
+    {
+      icon: TrendingUp,
+      title: <><span style={{
+        background: 'linear-gradient(135deg, #0066FF 0%, #1b2e9e 100%)',
+        WebkitBackgroundClip: 'text',
+        WebkitTextFillColor: 'transparent',
+        backgroundClip: 'text',
+        color: 'transparent'
+      }}>LatticeAI</span> <span style={{
+        background: 'linear-gradient(135deg, #ea580c 0%, #7f1d1d 100%)',
+        WebkitBackgroundClip: 'text',
+        WebkitTextFillColor: 'transparent',
+        backgroundClip: 'text',
+        color: 'transparent'
+      }}>Web Suite</span></>,
+      description: "Demolish the competition with industry-leading AI web and marketing services.",
+      lattice: true,
+      competitors: "partial"
+    },
+    {
+      icon: Shield,
+      title: <><span style={{
+        background: 'linear-gradient(135deg, #0066FF 0%, #1b2e9e 100%)',
+        WebkitBackgroundClip: 'text',
+        WebkitTextFillColor: 'transparent',
+        backgroundClip: 'text',
+        color: 'transparent'
+      }}>LatticeAI</span> <span style={{
+        background: 'linear-gradient(135deg, #9333ea 0%, #581c87 100%)',
+        WebkitBackgroundClip: 'text',
+        WebkitTextFillColor: 'transparent',
+        backgroundClip: 'text',
+        color: 'transparent'
+      }}>Visualizer</span></>,
+      description: "Unlimited photorealistic before-and-after renders with your preferred materials.",
+      lattice: true,
+      competitors: false
+    },
+    {
       icon: Globe,
-      title: "Digital Showroom",
-      description: "Interactive project showcase, completely free of our branding.",
+      title: "Watermark-Free Digital Showroom",
+      description: "Custom-built interactive project showcase, completely free of our branding.",
       lattice: true,
       competitors: false
     }
   ];
 
   return (
-    <div className="pt-5">
+    <>
       <Header />
-      <div className="p-5 mt-24">
+      <main className="pt-[11.8rem] md:pt-[11.2rem]">
+      <div className="p-5">
         <div
           id="hero"
           className="relative flex items-center justify-center rounded-2xl overflow-hidden"
@@ -265,7 +858,7 @@ const ComparisonPage = () => {
           <div className="flex flex-row gap-16 items-center">
             <div className="bg-white rounded-3xl overflow-hidden border border-gray-200 p-8 w-[68%]">
               <p className="text-black/75 text-2xl tracking-tighter">
-                While we&apos;re unmatched in our dedication to excellence and setting the industry standard, we get it, sometimes you need to explore other options. But frankly, if you&apos;re comparing, choosing elsewhere just doesn&apos;t add up.
+                The remodeling industry was built on a fractured foundation. We engineered a stronger, smarter one. The cube symbolizes this new, unshakeable industry standard, a solid block of innovation that you can only find here.
               </p>
             </div>
             <div className="w-[28%] flex items-center justify-center">
@@ -283,7 +876,7 @@ const ComparisonPage = () => {
             </div>
             <div className="bg-white rounded-3xl overflow-hidden border border-gray-200 p-8 w-[68%]">
               <p className="text-black/75 text-2xl tracking-tighter">
-                While we&apos;re unmatched in our dedication to excellence and setting the industry standard, we get it, sometimes you need to explore other options. But frankly, if you&apos;re comparing, choosing elsewhere just doesn&apos;t add up.
+                Technically, the cube icon highlights a proprietary Lattice innovation. It signifies an exclusive, data-driven tool or methodology that sets a new, unmatched performance benchmark, delivering a quantifiable advantage to your business.
               </p>
             </div>
           </div>
@@ -350,8 +943,8 @@ const ComparisonPage = () => {
                       <div className="flex items-center gap-2 group relative">
                         <span className="text-base font-medium text-gray-600">Partial</span>
                         <Info className="w-4 h-4 text-gray-400 cursor-help" />
-                        <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-2 bg-black/90 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-10">
-                          Limited functionality compared to full implementation
+                        <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-2 bg-black/90 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10 whitespace-nowrap">
+                          Partial; competitors may have fewer features or less support.
                         </div>
                       </div>
                     )}
@@ -369,8 +962,8 @@ const ComparisonPage = () => {
                       <div className="flex items-center gap-2 group relative">
                         <span className="text-base font-medium text-gray-600">Partial</span>
                         <Info className="w-4 h-4 text-gray-400 cursor-help" />
-                        <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-2 bg-black/90 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-10">
-                          Limited functionality compared to full implementation
+                        <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-2 bg-black/90 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10 whitespace-nowrap">
+                          Partial; competitors may have fewer features or less support.
                         </div>
                       </div>
                     )}
@@ -389,81 +982,12 @@ const ComparisonPage = () => {
               Not Convinced? Let&apos;s Try Again
             </h2>
             <p className="text-2xl tracking-tighter" style={{ fontFamily: 'var(--font-figtree)', color: 'rgba(0, 0, 0, 0.75)' }}>
-              The intersection of innovation, reliability, and results—that&apos;s where you&apos;ll find Lattice
+              The intersection of innovation, reliability, and results, that&apos;s where you&apos;ll find Lattice
             </p>
           </div>
 
-          {/* Bi-Venn Diagram - Same width as comparison table, 30% taller */}
-          <div className="bg-white rounded-3xl overflow-hidden border border-gray-200" style={{ minHeight: '650px' }}>
-            <svg viewBox="0 0 1000 700" className="w-full h-full" preserveAspectRatio="xMidYMid meet">
-              <defs>
-                <clipPath id="leftOnly">
-                  <circle cx="350" cy="350" r="320" />
-                </clipPath>
-                <clipPath id="rightOnly">
-                  <circle cx="650" cy="350" r="320" />
-                </clipPath>
-              </defs>
-
-              {/* Left Circle non-overlapping part - light grey */}
-              <circle
-                cx="350"
-                cy="350"
-                r="320"
-                fill="rgba(231, 229, 228, 0.4)"
-              />
-
-              {/* Right Circle non-overlapping part - light grey */}
-              <circle
-                cx="650"
-                cy="350"
-                r="320"
-                fill="rgba(231, 229, 228, 0.4)"
-              />
-
-              {/* White overlap in the center */}
-              <circle
-                cx="350"
-                cy="350"
-                r="320"
-                fill="white"
-                clipPath="url(#rightOnly)"
-              />
-
-              {/* Left Circle border */}
-              <circle
-                cx="350"
-                cy="350"
-                r="320"
-                fill="none"
-                stroke="black"
-                strokeWidth="0.96"
-              />
-
-              {/* Right Circle border */}
-              <circle
-                cx="650"
-                cy="350"
-                r="320"
-                fill="none"
-                stroke="black"
-                strokeWidth="0.96"
-              />
-
-              <text x="210" y="185" fontSize="26" fontWeight="400" fill="black" fontFamily="var(--font-figtree)">
-                Wevisu
-              </text>
-
-              <text x="650" y="185" fontSize="26" fontWeight="400" fill="black" fontFamily="var(--font-figtree)">
-                In-house Team
-              </text>
-
-              {/* Center Text - Lattice at intersection point */}
-              <text x="455" y="180" fontSize="32" fontWeight="700" fill="#3b82f6" fontFamily="var(--font-figtree)">
-                Lattice
-              </text>
-            </svg>
-          </div>
+          {/* Interactive Comparison Module */}
+          <InteractiveComparisonModule />
 
           {/* Comparison Chart Section */}
           <div className="text-center mt-16 mb-4">
@@ -471,7 +995,7 @@ const ComparisonPage = () => {
               There&apos;s No Point in Comparing
             </h2>
             <p className="text-2xl tracking-tighter" style={{ fontFamily: 'var(--font-figtree)', color: 'rgba(0, 0, 0, 0.75)' }}>
-              The numbers speak for themselves—Lattice outperforms on every metric
+              The numbers speak for themselves, Lattice outperforms on every metric
             </p>
           </div>
 
@@ -481,7 +1005,8 @@ const ComparisonPage = () => {
       </div>
 
       <Footer />
-    </div>
+      </main>
+    </>
   )
 }
 

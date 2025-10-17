@@ -48,372 +48,223 @@ const PricingPage = () => {
   `
 
   const services = [
-    { id: 'crm' as Service, label: 'Real Estate CRM' },
+    { id: 'crm' as Service, label: 'LatticeAI CRM' },
     { id: '3d-rendering' as Service, label: '3D Rendering' },
-    { id: 'ai-designer' as Service, label: 'AI Designer' },
-    { id: 'design-plans' as Service, label: 'Design & Plans' },
+    { id: 'ai-designer' as Service, label: 'LatticeAI Visualizer' },
+    { id: 'design-plans' as Service, label: 'Remote Employees' },
     { id: 'digital-showroom' as Service, label: 'Digital Showroom' },
-    { id: 'web-seo' as Service, label: 'Web Design & SEO' }
+    { id: 'web-seo' as Service, label: 'LatticeAI Web Suite' }
   ]
 
   const pricingTiers: Record<Service, PricingTier[]> = {
     'crm': [
       {
-        name: 'One-Time',
-        targetAudience: 'Perfect for trying out our CRM',
-        price: 250,
-        billingFrequency: 'Per Package',
+        name: 'Essentials Plan',
+        targetAudience: 'Foundational plan for daily operations',
+        price: 299,
+        billingFrequency: 'Per Month',
         features: [
-          'CRM setup and configuration',
-          'Basic lead management',
-          'Email integration',
-          '30-day support',
-          'Standard reporting'
+          'Manage Leads, Projects & Invoicing',
+          'Auto-Capture & Score Leads',
+          'AI-Optimized Project Scheduling',
+          'Auto-Generated Invoices & Reminders',
+          'QuickBooks & Stripe Integration',
+          'Automated Client Status Updates',
+          'Professional Templates Included'
         ]
       },
       {
-        name: 'Basic',
-        targetAudience: 'Great for small contracting teams',
-        price: 750,
+        name: 'Pro AI Suite',
+        targetAudience: 'Most popular - Advanced AI-powered features',
+        price: 399,
         billingFrequency: 'Per Month',
         features: [
-          'Everything in One-Time',
-          'Unlimited leads and contacts',
-          'Automated follow-ups',
-          'QuickBooks integration',
-          'Mobile app access',
-          'Priority support'
-        ]
-      },
-      {
-        name: 'Pro',
-        targetAudience: 'Best for growing contractor businesses',
-        price: 1250,
-        billingFrequency: 'Per Month',
-        features: [
-          'Everything in Basic',
-          'FREE professional website',
-          'Advanced automation workflows',
-          'Team collaboration tools',
-          'Custom reporting & analytics',
-          'API access',
-          'Dedicated account manager'
+          'Everything in Essentials Plan',
+          'AI Scope of Work Generator',
+          'On-Site Voice-to-CRM Sync',
+          'Renovation ROI Estimator',
+          '24/7 AI Customer Communication',
+          'ML Project Decision Making',
+          'FREE 3D Renderings for Customers',
+          'FREE SEO-Optimized Website'
         ],
         highlighted: true
-      },
-      {
-        name: 'Enterprise',
-        targetAudience: 'For large contracting organizations',
-        price: 'Custom',
-        billingFrequency: 'Contact Us',
-        features: [
-          'Everything in Pro',
-          'Custom integrations',
-          'White-label options',
-          'Advanced security features',
-          'SLA guarantees',
-          'On-premise deployment option',
-          '24/7 premium support'
-        ]
       }
     ],
     '3d-rendering': [
       {
-        name: 'One-Time',
-        targetAudience: 'Single project visualization',
+        name: 'Interior Visualization',
+        targetAudience: 'Professional interior rendering',
         price: 250,
         billingFrequency: 'Per Rendering',
         features: [
-          '1 photorealistic rendering',
-          'FREE 4K cinematic video',
-          '24-48 hour delivery',
-          'Up to 2 revisions',
-          'High-resolution files'
+          'Photorealistic 3D Interior Render',
+          '24-Hour Turnaround Guarantee',
+          'Free 4K Cinematic Video',
+          'Studio-Grade Post-Production',
+          'Dedicated Design Liaison'
         ]
       },
       {
-        name: 'Basic',
-        targetAudience: 'Regular visualization needs',
-        price: 750,
-        billingFrequency: 'Per Month',
+        name: 'Exterior Visualization',
+        targetAudience: 'Professional exterior rendering',
+        price: 250,
+        billingFrequency: 'Per Rendering',
         features: [
-          '5 renderings per month',
-          'FREE 4K videos included',
-          'Priority 24-hour delivery',
-          'Unlimited revisions',
-          'Portfolio integration',
-          'Social media formats'
+          'Photorealistic 3D Exterior Render',
+          '24-Hour Turnaround Guarantee',
+          'Free 4K Cinematic Video',
+          'Seasonal & Lighting Variations',
+          'Studio-Grade Post-Production'
         ]
       },
       {
-        name: 'Pro',
-        targetAudience: 'High-volume contractors',
-        price: 1250,
-        billingFrequency: 'Per Month',
+        name: 'IntEx Visualisation',
+        targetAudience: 'Complete interior & exterior solution',
+        price: 450,
+        billingFrequency: 'Per Project',
         features: [
-          'Unlimited renderings',
-          'Same-day rush available',
-          'Virtual reality tours',
-          'Interactive 360° views',
-          'Branded templates',
-          'Dedicated rendering team',
-          'Marketing materials'
+          'One Complete Interior Render',
+          'One Complete Exterior Render',
+          'Custom Material Digitization',
+          'Free 4K Cinematic Videos',
+          'Immersive AR/VR Walkthrough',
+          'Dedicated Design Liaison'
         ],
         highlighted: true
       },
       {
-        name: 'Enterprise',
-        targetAudience: 'Large firms and agencies',
+        name: 'Custom Build & Multi-Project',
+        targetAudience: 'For large-scale projects',
         price: 'Custom',
-        billingFrequency: 'Contact Us',
+        billingFrequency: 'Quote',
         features: [
-          'Everything in Pro',
-          'Custom workflow integration',
-          'Multi-location support',
-          'White-label delivery',
-          'API access for automation',
-          'Volume discounts',
-          'Account manager'
+          'For Full House, Commercial, or Multi-Unit Projects',
+          'Volume-Based Pricing',
+          'Advanced AR/VR Integration',
+          'Dedicated Project Manager',
+          'Unlimited Revisions'
         ]
       }
     ],
     'ai-designer': [
       {
-        name: 'One-Time',
-        targetAudience: 'Try AI-powered design',
-        price: 250,
-        billingFrequency: 'Per Package',
+        name: 'AI Designer',
+        targetAudience: 'Instant design concepts & exploration',
+        price: 39.99,
+        billingFrequency: 'Per Project',
         features: [
-          '50 AI design generations',
-          'All design styles available',
-          'Export in multiple formats',
-          'Basic editing tools',
-          '7-day access'
+          'Designs in 10-30 Seconds',
+          'Multi-Style Explorer (10+ Styles)',
+          'Unlimited Design Variations',
+          'Live Client Consultations',
+          'Standard AI Models'
         ]
       },
       {
-        name: 'Basic',
-        targetAudience: 'Regular design work',
-        price: 750,
-        billingFrequency: 'Per Month',
+        name: 'AI Design Pro',
+        targetAudience: 'Advanced AI with buildable designs',
+        price: 59.99,
+        billingFrequency: 'Per Project',
         features: [
-          '500 AI generations/month',
-          'Real-time client collaboration',
-          'Advanced style options',
-          'Buildable design verification',
-          'Save favorites library',
-          'Email support'
-        ]
-      },
-      {
-        name: 'Pro',
-        targetAudience: 'Professional designers',
-        price: 1250,
-        billingFrequency: 'Per Month',
-        features: [
-          'Unlimited AI generations',
-          'Kitchen & bath specialist AI',
-          'Custom brand style training',
-          'Client portal access',
-          'Priority processing',
-          'Advanced export options',
-          'Phone support'
+          'Everything in AI Designer',
+          'Code-Compliant Buildable Designs',
+          'Kitchen & Bath AI Specialist',
+          'Client-Facing Visualizer Tool',
+          'Priority Support Team'
         ],
         highlighted: true
-      },
-      {
-        name: 'Enterprise',
-        targetAudience: 'Design firms and studios',
-        price: 'Custom',
-        billingFrequency: 'Contact Us',
-        features: [
-          'Everything in Pro',
-          'Multi-user team access',
-          'Custom AI model training',
-          'API integration',
-          'White-label platform',
-          'Dedicated support',
-          'Custom workflows'
-        ]
       }
     ],
     'design-plans': [
       {
-        name: 'One-Time',
-        targetAudience: 'Single project plans',
-        price: 250,
-        billingFrequency: 'Per Project',
+        name: 'Dedicated Remote Professional',
+        targetAudience: '60% Less Than a Traditional Hire Guaranteed',
+        price: 'Custom',
+        billingFrequency: 'Billed Per Project Duration',
         features: [
-          'Basic construction plans',
-          'Single revision included',
-          'Standard delivery (5-7 days)',
-          'PDF format',
-          'Email support'
-        ]
-      },
-      {
-        name: 'Basic',
-        targetAudience: 'Regular design needs',
-        price: 750,
-        billingFrequency: 'Per Month',
-        features: [
-          '2 permit-ready plans/month',
-          'Code-compliant drawings',
-          '3-5 day delivery',
-          'Unlimited revisions',
-          '3D rendering included',
-          'Priority support'
-        ]
-      },
-      {
-        name: 'Pro',
-        targetAudience: 'Active contractor businesses',
-        price: 1250,
-        billingFrequency: 'Per Month',
-        features: [
-          'Unlimited design plans',
-          'Same-day rush available',
-          'FREE 4K videos',
-          'Structural engineering review',
-          'Local code verification',
-          'Dedicated designer',
-          'Phone & email support'
+          'Designers, Drafters, Estimators, Accountants',
+          'Operates Under Your Branding',
+          'Code-Compliant Permit-Ready Plans',
+          'Unlimited Design Revisions',
+          'Bidding, Takeoffs & Financial Oversight',
+          'Hire As Needed, No Long-Term Overhead'
         ],
         highlighted: true
-      },
-      {
-        name: 'Enterprise',
-        targetAudience: 'Large design-build firms',
-        price: 'Custom',
-        billingFrequency: 'Contact Us',
-        features: [
-          'Everything in Pro',
-          'Multi-project management',
-          'Custom template library',
-          'Team collaboration tools',
-          'API access',
-          'White-label delivery',
-          'Account manager'
-        ]
       }
     ],
     'digital-showroom': [
       {
-        name: 'One-Time',
-        targetAudience: 'Basic portfolio setup',
-        price: 250,
-        billingFrequency: 'One-Time Setup',
+        name: 'Digital Showroom',
+        targetAudience: 'Interactive online catalog for your work',
+        price: 199,
+        billingFrequency: 'Per Month',
         features: [
-          'Showroom setup',
-          'Up to 10 projects',
-          'Basic analytics',
-          'Standard templates',
-          '30-day hosting'
+          '24/7 Branded Online Portfolio',
+          'Click & Swap Material Replacement',
+          'Client Wish Lists & Favorites',
+          'Manual Quote Review & Send',
+          'Custom Company Branding'
         ]
       },
       {
-        name: 'Basic',
-        targetAudience: 'Growing portfolios',
-        price: 750,
+        name: 'AI-Powered Showroom',
+        targetAudience: 'Intelligent automation & analytics',
+        price: 399,
         billingFrequency: 'Per Month',
         features: [
-          'Unlimited projects',
-          'Material library access',
-          'Lead capture forms',
-          'Basic engagement analytics',
-          'Mobile-optimized',
-          'Email support'
-        ]
-      },
-      {
-        name: 'Pro',
-        targetAudience: 'Professional contractors',
-        price: 1250,
-        billingFrequency: 'Per Month',
-        features: [
-          'Everything in Basic',
-          'AR visualization',
-          'Advanced analytics',
-          'Wishlist functionality',
-          'CRM integration',
-          'Custom branding',
-          'Priority support'
+          'Everything in Digital Showroom',
+          'Auto-Generated Quotes (Zero-Touch)',
+          'Budget-Adaptive Material Display',
+          'Identify High-Intent Leads',
+          'Automated Scarcity Alerts',
+          'Live Competitor Price Tracking',
+          'Dedicated ML Engineering Team'
         ],
         highlighted: true
-      },
-      {
-        name: 'Enterprise',
-        targetAudience: 'Multi-location firms',
-        price: 'Custom',
-        billingFrequency: 'Contact Us',
-        features: [
-          'Everything in Pro',
-          'Multi-showroom management',
-          'White-label platform',
-          'API access',
-          'Custom integrations',
-          'Dedicated hosting',
-          'Account manager'
-        ]
       }
     ],
     'web-seo': [
       {
-        name: 'One-Time',
-        targetAudience: 'Basic website setup',
-        price: 250,
-        billingFrequency: 'Setup Fee',
+        name: 'Starter Web Presence',
+        targetAudience: 'Professional online presence',
+        price: 149,
+        billingFrequency: 'Per Month',
         features: [
-          'Basic website design',
-          'Up to 5 pages',
-          'Mobile responsive',
-          'Contact form',
-          'Basic SEO setup'
+          'Custom-Designed Website ($5,000+ Value)',
+          'Forms Feed Directly Into CRM',
+          'Before/After Project Showcases',
+          'Perfect on All Devices',
+          'Reliable Hosting Included'
         ]
       },
       {
-        name: 'Basic',
-        targetAudience: 'Small contractor websites',
-        price: 750,
+        name: 'Local SEO Growth Engine',
+        targetAudience: 'Dominate your local market',
+        price: 299,
         billingFrequency: 'Per Month',
         features: [
-          'Professional website',
-          'FREE with CRM subscription',
-          'Portfolio integration',
-          'Google My Business setup',
-          'Monthly SEO updates',
-          'Basic analytics'
-        ]
-      },
-      {
-        name: 'Pro',
-        targetAudience: 'Growth-focused contractors',
-        price: 1250,
-        billingFrequency: 'Per Month',
-        features: [
-          'Everything in Basic',
-          'Local SEO domination',
-          'Content creation',
-          'Advanced analytics',
-          'A/B testing',
-          'Conversion optimization',
-          'Monthly strategy calls'
+          'All Starter Features',
+          'Rank #1 for "Contractor Near Me"',
+          'GMB Management & Optimization',
+          'Pages for Every Service Area',
+          'Authority Building Across Web',
+          'Track SEO Progress & Traffic'
         ],
         highlighted: true
       },
       {
-        name: 'Enterprise',
-        targetAudience: 'Large contractor organizations',
-        price: 'Custom',
-        billingFrequency: 'Contact Us',
+        name: 'Ultimate Conversion Suite',
+        targetAudience: 'Automated lead generation machine',
+        price: 499,
+        billingFrequency: 'Per Month',
         features: [
-          'Everything in Pro',
-          'Multi-location SEO',
-          'Custom web development',
-          'Dedicated content team',
-          'Advanced integrations',
-          'White-label options',
-          'Account manager'
+          'All SEO Features',
+          'A/B Tested Design Elements',
+          'Auto-Generate Social Content',
+          'Interactive Showroom Embedded',
+          'Quote Calculators & Live Chat',
+          'AI Posts Popular Designs'
         ]
       }
     ]
@@ -422,12 +273,13 @@ const PricingPage = () => {
   const currentTiers = pricingTiers[selectedService]
 
   return (
-    <div className="min-h-screen bg-white">
+    <>
       <style jsx>{animatedGradientStyle}</style>
       <Header />
+      <main className="pt-[11.8rem] md:pt-[11.2rem]">
 
       {/* Guarantees Section */}
-      <div className="pt-24">
+      <div>
         <Guarantees />
       </div>
 
@@ -437,7 +289,13 @@ const PricingPage = () => {
           <div className="text-center mb-12">
             <h1 className="text-5xl font-bold text-gray-900 mb-4">
               <span
-                className="bg-gradient-to-r from-[#6ce2ff] via-[#3b82f6] to-[#6ce2ff] bg-clip-text text-transparent"
+                style={{
+                  backgroundImage: 'linear-gradient(90deg, #6ce2ff 0%, #3b82f6 25%, #3b82f6 75%, #6ce2ff 100%)',
+                  WebkitBackgroundClip: 'text',
+                  backgroundClip: 'text',
+                  color: 'transparent',
+                  WebkitTextFillColor: 'transparent'
+                }}
               >
                 Transparent
               </span>{' '}
@@ -454,10 +312,10 @@ const PricingPage = () => {
               <button
                 key={service.id}
                 onClick={() => setSelectedService(service.id)}
-                className={`px-6 py-2 rounded-full border transition-all duration-200 ${
+                className={`px-6 py-3 rounded-full border transition-all duration-200 font-medium ${
                   selectedService === service.id
-                    ? 'bg-gradient-to-r from-[#6ce2ff] via-[#3b82f6] to-[#6ce2ff] text-white border-transparent'
-                    : 'bg-white text-gray-700 border-gray-300 hover:border-gray-400'
+                    ? 'bg-blue-600 text-white border-transparent shadow-lg'
+                    : 'bg-white text-gray-700 border-gray-300 hover:border-gray-400 hover:shadow-md'
                 }`}
               >
                 {service.label}
@@ -466,7 +324,15 @@ const PricingPage = () => {
           </div>
 
           {/* Pricing Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className={`grid gap-8 ${
+            selectedService === 'design-plans'
+              ? 'grid-cols-1 max-w-2xl mx-auto'
+              : selectedService === 'crm' || selectedService === 'ai-designer' || selectedService === 'digital-showroom'
+              ? 'grid-cols-1 md:grid-cols-2 max-w-5xl mx-auto'
+              : selectedService === 'web-seo'
+              ? 'grid-cols-1 md:grid-cols-3 max-w-6xl mx-auto'
+              : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-4'
+          }`}>
             {currentTiers.map((tier, index) => (
               <div key={index} className={tier.highlighted ? 'relative p-[3px] rounded-2xl animated-gradient-border shadow-xl hover:shadow-2xl transition-shadow duration-300' : ''}>
                 <div
@@ -547,7 +413,8 @@ const PricingPage = () => {
       </svg>
 
       <Footer />
-    </div>
+      </main>
+    </>
   )
 }
 

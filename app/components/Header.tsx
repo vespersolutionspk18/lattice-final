@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { Globe, LogIn, Check, Menu, X } from 'lucide-react'
+import { Globe, LogIn, Check, Menu, X, ChevronLeft, ChevronRight } from 'lucide-react'
 import LogoTest from './LogoTest'
 import MegaMenu from './MegaMenu'
 import Button from './Button'
@@ -13,13 +13,60 @@ interface HeaderProps {
   buttonText?: string
   buttonColor?: string
   hoverColor?: string
+  promoBannerColor?: string
 }
 
-const Header = ({ enableScrollEffects = false, cubeColor, buttonText = 'Schedule a Meeting', buttonColor, hoverColor = '#3b82f6' }: HeaderProps) => {
+const Header = ({ enableScrollEffects = false, cubeColor, buttonText = 'Get a Demo', buttonColor, hoverColor = '#3b82f6', promoBannerColor = '#3b82f6' }: HeaderProps) => {
   const [isScrolled, setIsScrolled] = useState(false)
   const [languageOpen, setLanguageOpen] = useState(false)
   const [selectedLanguage, setSelectedLanguage] = useState('EN US')
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [currentPromoIndex, setCurrentPromoIndex] = useState(0)
+  const [resetKey, setResetKey] = useState(0)
+
+  const promos = [
+    {
+      text: "Free 3D rendering for all new customers!",
+      link: true
+    },
+    {
+      text: "14-Day Free Trial for ",
+      hasGradient: true,
+      link: true
+    },
+    {
+      text: "Bundle & Save: CRM + Website + Rendering Package",
+      link: true
+    },
+    {
+      text: "Free floor plan for your first project.",
+      link: true
+    },
+    {
+      text: "Limited Time: 3 Free Renderings with CRM Bundle",
+      link: true
+    }
+  ]
+
+  const nextPromo = () => {
+    setCurrentPromoIndex((prev) => (prev + 1) % promos.length)
+    setResetKey(prev => prev + 1)
+  }
+
+  const prevPromo = () => {
+    setCurrentPromoIndex((prev) => (prev - 1 + promos.length) % promos.length)
+    setResetKey(prev => prev + 1)
+  }
+
+  // Auto-advance carousel every 4.9 seconds
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentPromoIndex((current) => (current + 1) % promos.length)
+      setResetKey(prev => prev + 1)
+    }, 4900)
+
+    return () => clearInterval(timer)
+  }, [promos.length, resetKey])
 
   useEffect(() => {
     if (!enableScrollEffects) return
@@ -62,10 +109,12 @@ const Header = ({ enableScrollEffects = false, cubeColor, buttonText = 'Schedule
     }
   }, [mobileMenuOpen])
 
+  const currentPromo = promos[currentPromoIndex]
+
   return (
     <>
       {/* Top Bar - Only fixed on home page, hidden on mobile */}
-      <div className={`hidden md:block ${enableScrollEffects ? 'fixed' : 'absolute'} top-0 left-0 right-0 z-[10000] bg-gray-100/70 backdrop-blur-sm border-b-2 border-gray-300 transition-all duration-500 ${
+      <div className={`hidden md:block ${enableScrollEffects ? 'fixed' : 'absolute'} top-0 left-0 right-0 z-[10000] bg-gray-100/70 backdrop-blur-sm border-b border-gray-300 transition-all duration-500 ${
         enableScrollEffects && isScrolled ? 'h-0 opacity-0 overflow-hidden' : 'h-8 opacity-100'
       }`}>
         <div className="w-full px-2 sm:px-4">
@@ -157,12 +206,134 @@ const Header = ({ enableScrollEffects = false, cubeColor, buttonText = 'Schedule
         </div>
       </div>
 
+      {/* Promotional Banner - Below Partner bar */}
+      <div
+        className={`${enableScrollEffects ? 'fixed' : 'absolute'} ${enableScrollEffects ? 'top-8' : 'top-8'} left-0 right-0 z-[10000] border-b-2 border-gray-300 transition-all duration-500 ${
+          enableScrollEffects && isScrolled ? 'h-0 opacity-0 overflow-hidden' : 'opacity-100'
+        }`}
+        style={{ backgroundColor: promoBannerColor }}
+      >
+        <div className="relative w-full h-full flex flex-col items-center justify-center px-4 py-3">
+          {/* Left Arrow */}
+          <button
+            onClick={prevPromo}
+            className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 text-white hover:text-white/80 transition-colors"
+            aria-label="Previous promotion"
+          >
+            <ChevronLeft className="w-6 h-6" />
+          </button>
+
+          {/* Center Content */}
+          <div className="flex items-center justify-center gap-2 flex-wrap">
+            <span className="text-white font-semibold text-sm sm:text-base md:text-lg" style={{ fontFamily: 'var(--font-figtree)', fontWeight: 600 }}>
+              {currentPromo.text}
+            </span>
+            {currentPromo.hasGradient && (
+              <span className="inline-flex items-center gap-1 px-1.5 bg-white/80 backdrop-blur-sm rounded">
+                <span
+                  className="font-semibold text-sm sm:text-base md:text-lg"
+                  style={{
+                    fontFamily: 'var(--font-figtree)',
+                    fontWeight: 600,
+                    background: 'linear-gradient(135deg, #0066FF 0%, #1b2e9e 100%)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    backgroundClip: 'text',
+                    color: 'transparent'
+                  }}
+                >
+                  LatticeAI
+                </span>
+                <span
+                  className="font-semibold text-sm sm:text-base md:text-lg"
+                  style={{
+                    fontFamily: 'var(--font-figtree)',
+                    fontWeight: 600,
+                    background: 'linear-gradient(135deg, #9333ea 0%, #581c87 100%)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    backgroundClip: 'text',
+                    color: 'transparent'
+                  }}
+                >
+                  Visualizer
+                </span>
+              </span>
+            )}
+            {currentPromo.link && (
+              <a
+                href="/contact"
+                className="text-white font-semibold text-sm sm:text-base md:text-lg underline hover:text-white/80 transition-colors"
+                style={{ fontFamily: 'var(--font-figtree)', fontWeight: 600 }}
+              >
+                Get Started
+              </a>
+            )}
+          </div>
+
+          {/* Progressive Dot Indicators */}
+          <style jsx>{`
+            @keyframes progressFill {
+              0% {
+                transform: scaleX(0);
+              }
+              100% {
+                transform: scaleX(1);
+              }
+            }
+            .active-progress-dot {
+              width: 24px;
+              background: rgba(156, 163, 175, 0.4);
+              position: relative;
+              overflow: hidden;
+            }
+            .active-progress-dot::before {
+              content: '';
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              background: white;
+              border-radius: 9999px;
+              transform-origin: left;
+              animation: progressFill 4.9s linear forwards;
+              will-change: transform;
+            }
+          `}</style>
+          <div className="flex items-center gap-2 mt-2">
+            {promos.map((_, index) => (
+              <button
+                key={`${index}-${resetKey}`}
+                onClick={() => {
+                  setCurrentPromoIndex(index)
+                  setResetKey(prev => prev + 1)
+                }}
+                className={`h-2 rounded-full ${
+                  index === currentPromoIndex ? 'active-progress-dot' : 'w-2 bg-gray-400'
+                }`}
+                aria-label={`Go to promotion ${index + 1}`}
+              />
+            ))}
+          </div>
+
+          {/* Right Arrow */}
+          <button
+            onClick={nextPromo}
+            className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 text-white hover:text-white/80 transition-colors"
+            aria-label="Next promotion"
+          >
+            <ChevronRight className="w-6 h-6" />
+          </button>
+        </div>
+      </div>
+
       {/* Main Header - Fixed on home page, absolute on others */}
       <header className={`${enableScrollEffects ? 'fixed' : 'absolute'} z-[9999] transition-all duration-500 ${
-        enableScrollEffects && isScrolled ? 'top-2 left-2 right-2 md:left-4 md:right-4' : 'top-0 md:top-8 left-0 right-0'
+        enableScrollEffects && isScrolled ? 'top-2 left-2 right-2 md:left-4 md:right-4' : 'top-[7rem] md:top-[6rem] left-0 right-0'
       }`}>
         <div className={`bg-white/50 backdrop-blur-xl transition-all duration-500 ${
-          enableScrollEffects && isScrolled ? 'border-[2px] border-black/20 shadow-lg rounded-2xl' : 'border-b-2 border-gray-300'
+          enableScrollEffects && isScrolled ? 'border-[2px] border-black/20 shadow-lg rounded-2xl' : 'border-t-2 border-b-2 border-gray-300'
         }`}>
         <div className="w-full px-4 sm:px-6 md:px-10">
           <div className="flex justify-between items-center h-14 md:h-16">
@@ -253,12 +424,12 @@ const Header = ({ enableScrollEffects = false, cubeColor, buttonText = 'Schedule
                 </div>
                 <div className="flex flex-col gap-1 mt-1">
                   <Link
-                    href="/services/design-and-plans"
+                    href="/services/remote-employees"
                     onClick={() => setMobileMenuOpen(false)}
                     className="px-4 py-2.5 text-base text-black hover:bg-gray-100 rounded-lg transition-colors"
                     style={{ fontFamily: 'var(--font-figtree)', fontWeight: 400 }}
                   >
-                    Design & Plans
+                    Remote Employees
                   </Link>
                   <Link
                     href="/services/3d-rendering"
@@ -271,18 +442,60 @@ const Header = ({ enableScrollEffects = false, cubeColor, buttonText = 'Schedule
                   <Link
                     href="/services/crm"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="px-4 py-2.5 text-base text-black hover:bg-gray-100 rounded-lg transition-colors"
+                    className="px-4 py-2.5 text-base hover:bg-gray-100 rounded-lg transition-colors flex items-center gap-1"
                     style={{ fontFamily: 'var(--font-figtree)', fontWeight: 400 }}
                   >
-                    CRM for Contractors
+                    <span
+                      style={{
+                        background: 'linear-gradient(135deg, #0066FF 0%, #1b2e9e 100%)',
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
+                        backgroundClip: 'text',
+                        fontWeight: 600
+                      }}
+                    >
+                      LatticeAI
+                    </span>
+                    <span
+                      style={{
+                        background: 'linear-gradient(135deg, #0066FF 0%, #1b2e9e 100%)',
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
+                        backgroundClip: 'text',
+                        fontWeight: 600
+                      }}
+                    >
+                      CRM
+                    </span>
                   </Link>
                   <Link
                     href="/services/ai-designer"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="px-4 py-2.5 text-base text-black hover:bg-gray-100 rounded-lg transition-colors flex items-center gap-2"
+                    className="px-4 py-2.5 text-base hover:bg-gray-100 rounded-lg transition-colors flex items-center gap-2"
                     style={{ fontFamily: 'var(--font-figtree)', fontWeight: 400 }}
                   >
-                    AI Designer
+                    <span
+                      style={{
+                        background: 'linear-gradient(135deg, #0066FF 0%, #1b2e9e 100%)',
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
+                        backgroundClip: 'text',
+                        fontWeight: 600
+                      }}
+                    >
+                      LatticeAI
+                    </span>
+                    <span
+                      style={{
+                        background: 'linear-gradient(135deg, #9333ea 0%, #581c87 100%)',
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
+                        backgroundClip: 'text',
+                        fontWeight: 600
+                      }}
+                    >
+                      Visualizer
+                    </span>
                     <span className="px-2 py-0.5 text-xs font-medium text-white rounded-full" style={{ backgroundColor: hoverColor }}>
                       New
                     </span>
@@ -298,10 +511,31 @@ const Header = ({ enableScrollEffects = false, cubeColor, buttonText = 'Schedule
                   <Link
                     href="/services/web-design-seo"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="px-4 py-2.5 text-base text-black hover:bg-gray-100 rounded-lg transition-colors"
+                    className="px-4 py-2.5 text-base hover:bg-gray-100 rounded-lg transition-colors flex items-center gap-1"
                     style={{ fontFamily: 'var(--font-figtree)', fontWeight: 400 }}
                   >
-                    Web Design & SEO
+                    <span
+                      style={{
+                        background: 'linear-gradient(135deg, #0066FF 0%, #1b2e9e 100%)',
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
+                        backgroundClip: 'text',
+                        fontWeight: 600
+                      }}
+                    >
+                      LatticeAI
+                    </span>
+                    <span
+                      style={{
+                        background: 'linear-gradient(135deg, #0066FF 0%, #1b2e9e 100%)',
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
+                        backgroundClip: 'text',
+                        fontWeight: 600
+                      }}
+                    >
+                      Web Suite
+                    </span>
                   </Link>
                 </div>
               </div>

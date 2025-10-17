@@ -12,7 +12,7 @@ import FAQ from '@/app/components/FAQ'
 import StickyNavigation from '@/app/components/StickyNavigation'
 import KeyFeatures from '@/app/components/KeyFeatures'
 import WhyLattice from '@/app/components/WhyLattice'
-import { Eye, Zap, Award } from 'lucide-react'
+import { Clock, CircleDollarSign, Glasses } from 'lucide-react'
 
 const renderingTestimonials: Testimonial[] = [
   {
@@ -55,13 +55,13 @@ const renderingTestimonials: Testimonial[] = [
 
 const renderingServices: ServiceItem[] = [
   {
-    id: 'photorealistic-interiors',
-    title: 'Photorealistic Interior Renderings',
-    description: 'Show clients their dream spaces in stunning detail before construction begins. Our photorealistic interior renderings capture every element – from natural lighting and shadows to material textures and furniture placement. Perfect for kitchens, bathrooms, living spaces, and bedrooms. Each rendering showcases different times of day, helping clients envision living in their transformed space. Quick 24-hour delivery means you can present while interest is hot.',
-    buttonText: 'Get Interior Renderings',
-    buttonHref: '/contact?service=interior-renderings',
+    id: 'ar-vr-difference',
+    title: 'The AR/VR Difference',
+    description: 'Bridge the gap between imagination and reality with immersive AR/VR. By allowing clients to virtually walk through their future space, you eliminate the single biggest obstacle to a decision: uncertainty. This tangible, true-to-scale experience builds profound confidence, leading directly to faster approvals, a significant reduction in costly change orders, and a stronger client commitment to investing in higher-margin, premium upgrades.',
+    buttonText: 'Explore AR/VR',
+    buttonHref: '/contact?service=ar-vr',
     imageSrc: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=2674&auto=format&fit=crop',
-    imageAlt: 'Photorealistic 3D rendering of luxury kitchen interior',
+    imageAlt: 'Client experiencing AR/VR visualization technology',
     priority: true,
     imageSizes: '(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 45vw',
     imageQuality: 90
@@ -79,8 +79,8 @@ const renderingServices: ServiceItem[] = [
   },
   {
     id: '4k-cinematic-videos',
-    title: 'FREE 4K Cinematic Walkthrough Videos',
-    description: 'Every rendering package includes a professional 4K cinematic video at no extra cost. These aren\'t basic flythroughs – they\'re emotion-driven stories that showcase lifestyle and transformation. Perfect for social media marketing, website portfolios, and client presentations. Videos include music, smooth camera movements, and professional editing. Most contractors charge $2,000+ for what you get free with every Lattice rendering.',
+    title: 'Free 4K Cinematic Walkthrough Videos',
+    description: 'Elevate every client presentation into a compelling sales tool. Included with every 3D rendering, this complimentary 4K cinematic video provides a dynamic, professional showcase of your design. It functions as a premium marketing asset for your portfolio and social media, while giving clients a tangible, exciting vision to share. This high-value deliverable effectively accelerates decision-making and reinforces the premium quality of your service.',
     buttonText: 'Get 4K Videos',
     buttonHref: '/contact?service=4k-videos',
     imageSrc: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=2680&auto=format&fit=crop',
@@ -93,33 +93,33 @@ const renderingServices: ServiceItem[] = [
 const renderingFAQs = [
   {
     id: 'faq-1',
-    question: 'How fast can I get 3D renderings for my client?',
-    answer: 'Standard turnaround is 24-48 hours for photorealistic renderings. Rush service available for same-day delivery. The free 4K video is included in this timeframe. Most contractors present renderings at the second client meeting while excitement is highest.'
+    question: 'Your turnaround times and pricing are significantly different from the industry standard. How is this possible?',
+    answer: 'We understand the question, as our model was specifically engineered to challenge an inefficient status quo. We have made significant investments in a proprietary, technology-driven workflow and a highly specialized team. This allows us to eliminate the traditional bottlenecks and overhead that lead to long delays and inflated costs. Our service isn\'t an anomaly; it is the result of a fundamentally more efficient, modern approach to 3D visualization.'
   },
   {
     id: 'faq-2',
-    question: 'What do I need to provide for a 3D rendering?',
-    answer: 'Just basic dimensions, photos of the existing space (if applicable), and material/color preferences. Our team handles the rest. We have a simple upload form that takes 5 minutes to complete. Even rough sketches work – we\'ll create professional results from minimal input.'
+    question: 'What happens if my rendering isn\'t completed within the 24-hour guarantee?',
+    answer: 'Our 24-hour turnaround is a core promise, and we stand by it unequivocally. In the rare event that a delay occurs due to an issue on our end, you are entitled to a full refund for that specific rendering, no questions asked. We believe in accountability and delivering on our commitments.'
   },
   {
     id: 'faq-3',
-    question: 'Can clients request changes to the renderings?',
-    answer: 'Unlimited revisions are included in your Lattice subscription. Change colors, materials, layouts, or furniture as many times as needed. Most revisions are completed within 24 hours. This flexibility helps you close deals without worrying about additional costs.'
+    question: 'What is the process for submitting my project, and how much support will I get?',
+    answer: 'Once you initiate a project, you\'ll be assigned a dedicated design liaison. This person is your single point of contact and will guide you through our simple submission process. They ensure we have all necessary files, like plans, material specs, and desired camera angles, before production begins, guaranteeing a smooth and efficient experience.'
   },
   {
     id: 'faq-4',
-    question: 'How do the FREE 4K videos work?',
-    answer: 'Every 3D rendering project automatically includes a professional 4K cinematic walkthrough video. No extra charges, no hidden fees. Videos are 60-90 seconds, include music, and are optimized for social media. You own full rights to use in marketing.'
+    question: 'What if I need a revision after I receive the final rendering?',
+    answer: 'We understand that design is an iterative process. If we have missed a detail from your initial submission, we will correct it immediately, free of charge. For client-driven design changes after delivery, we offer a streamlined and transparent revision process at a reasonable rate.'
   },
   {
     id: 'faq-5',
-    question: 'Can I add my company branding to renderings and videos?',
-    answer: 'Yes! All renderings and videos include your company logo, contact information, and brand colors. Clients see these as your professional services. We can also match your existing marketing materials for consistent brand presentation.'
+    question: 'Does the price vary for different types of rooms, projects, or an entire house?',
+    answer: 'Yes, the investment is tailored to the specific scope of the work. Our well-known flat rate is designed to cover a standard, single-room project, like a kitchen or bathroom. From there, the pricing really depends on the scale and complexity, a multi-room interior project, a full house exterior, or highly detailed custom designs will have a different scope. Our pricing page provides a detailed breakdown for different project types, ensuring you can select the exact service you need. Rest assured, we always provide a firm, all-inclusive quote for your approval before beginning any work.'
   },
   {
     id: 'faq-6',
-    question: 'What\'s the ROI on offering 3D rendering services?',
-    answer: 'Contractors typically charge $500-2,000 for rendering packages to their clients. More importantly, projects with 3D renderings close 3x faster at 25-40% higher values. The increased close rates and project values deliver exceptional ROI on your Lattice subscription.'
+    question: 'Are my design files and my clients\' project details kept confidential?',
+    answer: 'Absolutely. We operate with the same discretion and professionalism as a trusted member of your own team. All project files are managed through a secure, encrypted portal, and our entire staff is bound by strict non-disclosure agreements. Your intellectual property and your clients\' privacy are rigorously protected at every stage of the process.'
   }
 ]
 
@@ -141,47 +141,48 @@ const ThreeDRenderingPage = () => {
   const keyFeatures = [
     {
       number: 1,
-      title: 'Close Deals 3x Faster',
-      description: 'Show clients their exact project before construction begins. Photorealistic renderings eliminate uncertainty and objections, turning "maybe" into signed contracts instantly.'
+      title: 'Custom Material Digitization',
+      description: 'We digitally replicate your specific, custom-supplied materials with photorealistic accuracy, ensuring every unique detail is perfectly represented in the render.'
     },
     {
       number: 2,
-      title: '24-Hour Turnaround',
-      description: 'Strike while interest is hot. Get stunning 3D renderings delivered within 24-48 hours, allowing you to present while clients are still excited about their project.'
+      title: 'Multiple Lighting Scenarios',
+      description: 'Visualize your design under various conditions, from bright daylight to warm evening ambiance, to perfect the mood and atmosphere.'
     },
     {
       number: 3,
-      title: 'FREE 4K Video Included',
-      description: 'Every rendering package includes professional cinematic walkthrough video at no extra cost. Perfect for social media marketing and client presentations—a $2,000+ value included free.'
+      title: 'Design Liaison for Your Project',
+      description: 'Your dedicated expert serves as a single point of contact, ensuring seamless communication and meticulous management of your project details.'
     },
     {
       number: 4,
-      title: 'Unlimited Revisions',
-      description: 'Change materials, colors, layouts, or furniture as many times as needed. No additional costs, no questions asked. Flexibility that helps you close more deals.'
+      title: 'Studio-Grade Post-Production',
+      description: 'Each image undergoes meticulous post-production, including professional color grading and texture enhancement, to deliver a polished, magazine-quality final result.'
     }
   ]
 
   const whyLatticeCards = [
     {
-      title: 'Photorealistic Quality',
-      description: 'Our 3D renderings are indistinguishable from professional photography. Every texture, shadow, and reflection is crafted to perfection. Clients see their exact project in stunning detail, eliminating guesswork and building confidence. Show clients exactly what they\'re getting—photorealistic visualizations that sell themselves.',
-      icon: Eye
+      title: '24-Hour Turnaround Guarantee',
+      description: 'Experience unparalleled project velocity with our 24-hour turnaround guarantee. Receive stunning, photorealistic 3D renders in just one business day, accelerating design approvals. This unmatched speed empowers you to impress clients and close deals while competitors are still drafting plans.',
+      icon: Clock
     },
     {
-      title: 'Lightning-Fast Delivery',
-      description: '24-48 hour turnaround means you strike while interest is hot. No waiting weeks for renderings—get them while clients are excited. Rush delivery available for same-day presentations. Present stunning visuals at your second meeting and close deals before competitors send quotes.',
-      icon: Zap
+      title: 'No Subscription or Membership Fee',
+      description: 'Experience complete financial flexibility with our pay-per-project model and one flat rate. We believe in earning your business every time, so there are no restrictive subscriptions or hidden membership fees. Access our world-class rendering services on demand, paying only for what you truly need.',
+      icon: CircleDollarSign
     },
     {
-      title: 'Professional Marketing Assets',
-      description: 'Every rendering includes a FREE professional 4K cinematic video—a $2,000+ value. Use these videos for Instagram, Facebook, YouTube, and your website to attract premium clients. Build a portfolio of stunning visuals that establish you as the premium choice.',
-      icon: Award
+      title: 'Additional VR/AR Capabilities',
+      description: 'Elevate presentations with our immersive virtual and augmented reality add-on. Allow clients to virtually step inside and walk through their future space, creating a powerful emotional connection. This next-level visualization brings your vision to life, securing faster approvals. Refer to our pricing page.',
+      icon: Glasses
     }
   ]
 
   return (
-    <div className="pt-5">
+    <>
       <Header />
+      <main className="pt-[7.40rem] md:pt-[7.02rem]">
       <div id="hero">
         <Hero />
       </div>
@@ -205,9 +206,40 @@ const ThreeDRenderingPage = () => {
       </div>
       <div id="testimonials">
         <Testimonials
-          testimonials={renderingTestimonials}
-          title="3D Success Stories"
-          subtitle="How Contractors Close More Deals with Lattice Renderings"
+          title="Success Stories"
+          subtitle="Contractors Growing with Lattice"
+          testimonials={[
+            {
+              id: 1,
+              body: "Lattice's CRM transformed how we manage projects. We've doubled our client base in 6 months and the free website brought in 30+ leads monthly. Game changer for our business!",
+              clientName: "Robert Martinez",
+              clientCompany: "Lone Star Contractors"
+            },
+            {
+              id: 2,
+              body: "The 3D rendering tools and AI designer help us close deals 3x faster. Clients love seeing their vision come to life instantly. Worth every penny!",
+              clientName: "Sarah Chen",
+              clientCompany: "NY Home Remodeling"
+            },
+            {
+              id: 3,
+              body: "From design to invoicing, everything's in one place. The digital showroom alone increased our conversion rate by 45%. Lattice understands what contractors need.",
+              clientName: "Hugo J. Gordon",
+              clientCompany: "C&G Renovations"
+            },
+            {
+              id: 4,
+              body: "The SEO-optimized website Lattice built ranks #1 locally. Combined with their CRM, we're managing 5x more projects efficiently. Best B2B investment we've made.",
+              clientName: "Davis Miller",
+              clientCompany: "Davis Construction"
+            },
+            {
+              id: 5,
+              body: "Lattice's AI design tool saves us 20+ hours per week. The 4K videos we get with renders blow clients away. Our close rate went from 15% to 42%!",
+              clientName: "James Wilson",
+              clientCompany: "A2Z Contractors"
+            }
+          ]}
         />
       </div>
       <div id="faq">
@@ -222,7 +254,8 @@ const ThreeDRenderingPage = () => {
         <LeadChange text="Start Closing More Deals Today"/>
       </div>
       <Footer />
-    </div>
+      </main>
+    </>
   )
 }
 

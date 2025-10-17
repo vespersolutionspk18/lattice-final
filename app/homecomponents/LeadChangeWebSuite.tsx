@@ -4,11 +4,11 @@ import { gsap } from 'gsap';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 
-interface LeadChangeProps {
+interface LeadChangeWebSuiteProps {
   text?: string;
 }
 
-const LeadChange: React.FC<LeadChangeProps> = ({ text = "Lead The Change" }) => {
+const LeadChangeWebSuite: React.FC<LeadChangeWebSuiteProps> = ({ text = "Lead The Change" }) => {
   const marqueeRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -34,7 +34,7 @@ const LeadChange: React.FC<LeadChangeProps> = ({ text = "Lead The Change" }) => 
 
     // Create the timeline
     const tl = gsap.timeline({ repeat: -1 });
-    
+
     tl.to([marqueeContent, clone], {
       x: -contentWidth,
       duration: 20,
@@ -51,15 +51,15 @@ const LeadChange: React.FC<LeadChangeProps> = ({ text = "Lead The Change" }) => 
     if (!container) return;
 
     const mediaQuery = window.matchMedia("(min-width: 1024px)");
-    
+
     if (mediaQuery.matches) {
       const handleMouseMove = (e: MouseEvent) => {
         if (!buttonRef.current || !isHovered) return;
-        
+
         const rect = container.getBoundingClientRect();
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
-        
+
         gsap.to(buttonRef.current, {
           x: x,
           y: y,
@@ -91,7 +91,7 @@ const LeadChange: React.FC<LeadChangeProps> = ({ text = "Lead The Change" }) => 
       // Wait for button to be in DOM
       setTimeout(() => {
         if (!buttonRef.current) return;
-        
+
         // Set initial button state
         gsap.set(buttonRef.current, {
           opacity: 0,
@@ -104,7 +104,7 @@ const LeadChange: React.FC<LeadChangeProps> = ({ text = "Lead The Change" }) => 
       container.addEventListener('mousemove', handleMouseMove);
       container.addEventListener('mouseenter', handleMouseEnter);
       container.addEventListener('mouseleave', handleMouseLeave);
-      
+
       return () => {
         container.removeEventListener('mousemove', handleMouseMove);
         container.removeEventListener('mouseenter', handleMouseEnter);
@@ -131,17 +131,17 @@ const LeadChange: React.FC<LeadChangeProps> = ({ text = "Lead The Change" }) => 
           <span className="text-black mx-4 md:mx-6 lg:mx-8 text-2xl md:text-4xl lg:text-6xl xl:text-7xl">•</span>
         </div>
       </div>
-      <div 
-        ref={buttonRef} 
+      <div
+        ref={buttonRef}
         className="hidden lg:block absolute pointer-events-none"
         style={{ zIndex: 50, left: 0, top: 0 }}
       >
         <Link href="/contact" className="pointer-events-auto">
-          <Button variant="default"  className='hover:cursor-pointer hover:bg-blue-500 hover:text-white'>GET IN TOUCH</Button>
+          <Button variant="default" className='hover:cursor-pointer hover:text-white' style={{ backgroundColor: '#ea580c' }}>GET IN TOUCH</Button>
         </Link>
       </div>
     </div>
   )
 }
 
-export default LeadChange
+export default LeadChangeWebSuite

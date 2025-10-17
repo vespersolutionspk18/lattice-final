@@ -6,16 +6,18 @@ import OpenPositions from './components/OpenPositions'
 
 const CareersPage = () => {
   return (
-    <div className="min-h-screen">
+    <>
       <Header />
-      <div className="p-5 pt-32 px-5 pb-5">
+      <main className="pt-[11.8rem] md:pt-[11.2rem]">
+      <div className="p-5 px-5 pb-5">
         <div className="rounded-2xl overflow-hidden ">
           <Hero />
         </div>
       </div>
       <OpenPositions />
       <Footer />
-    </div>
+      </main>
+    </>
   )
 }
 

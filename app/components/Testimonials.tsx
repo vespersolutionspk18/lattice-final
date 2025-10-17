@@ -12,12 +12,14 @@ interface TestimonialsProps {
   testimonials: Testimonial[];
   title?: string;
   subtitle?: string;
+  accentColor?: string;
 }
 
-const Testimonials: React.FC<TestimonialsProps> = ({ 
-  testimonials, 
+const Testimonials: React.FC<TestimonialsProps> = ({
+  testimonials,
   title = "Testimonials",
-  subtitle = "What Our Clients Say About Us" 
+  subtitle = "What Our Clients Say About Us",
+  accentColor = '#3b82f6'
 }) => {
   // Create infinite array by tripling the testimonials
   const infiniteTestimonials = [...testimonials, ...testimonials, ...testimonials];
@@ -175,7 +177,10 @@ const Testimonials: React.FC<TestimonialsProps> = ({
                 {testimonial.body}
               </p>
               <div className="flex flex-row gap-4 sm:gap-5 md:gap-7">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-highlighter-green rounded-lg sm:rounded-xl text-white flex flex-col items-center justify-center flex-shrink-0">
+                <div
+                  className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl text-white flex flex-col items-center justify-center flex-shrink-0"
+                  style={{ backgroundColor: accentColor }}
+                >
                   <p className="text-xl sm:text-2xl font-semibold">{testimonial.clientName.charAt(0)}</p>
                 </div>
                 <div className="flex flex-col justify-center">

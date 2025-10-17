@@ -1,6 +1,6 @@
 'use client'
 
-import LeadChange from '@/app/homecomponents/LeadChange'
+import LeadChangeVisualizer from '@/app/homecomponents/LeadChangeVisualizer'
 import Header from '@/app/components/Header'
 import Hero from './components/Hero'
 import Footer from '@/app/components/Footer'
@@ -11,7 +11,7 @@ import Testimonials, { Testimonial } from '@/app/components/Testimonials'
 import FAQ from '@/app/components/FAQ'
 import StickyNavigation from '@/app/components/StickyNavigation'
 import KeyFeatures from '@/app/components/KeyFeatures'
-import WhyLattice from '@/app/components/WhyLattice'
+import WhyLatticeVisualizer from '@/app/components/WhyLatticeVisualizer'
 import { Sparkles, Zap, Palette } from 'lucide-react'
 
 const aiDesignerTestimonials: Testimonial[] = [
@@ -142,34 +142,34 @@ const AIDesignerPage = () => {
     {
       number: 1,
       title: 'Instant Design Concepts',
-      description: 'Generate multiple professional design options in 10-30 seconds. Upload a photo and watch AI create stunning variations in modern, traditional, farmhouse, and luxury styles instantly.'
+      description: 'Generate professional designs in 10-30 seconds. Upload a photo, watch AI create variations in modern, traditional, farmhouse, and luxury styles.'
     },
     {
       number: 2,
       title: 'Actually Buildable Designs',
-      description: 'AI trained on real construction projects understands building constraints. No impossible layouts or code violations—every design is practical, buildable, and ready for implementation.'
+      description: 'AI trained on real construction projects understands building constraints. No impossible layouts or code violations. Every design is practical, buildable, implementation-ready.'
     },
     {
       number: 3,
       title: 'Live Client Consultations',
-      description: 'Show clients design possibilities in real-time during meetings. Explore multiple styles, materials, and layouts on the spot. No waiting, no callbacks—close deals faster with instant visualization.'
+      description: 'Show clients design possibilities in real-time during meetings. Explore multiple styles, materials, layouts instantly. No waiting, no callbacks. Close deals faster.'
     },
     {
       number: 4,
       title: 'Unlimited Variations',
-      description: 'Mix and match elements from different designs. Try unlimited color schemes, materials, and layouts without additional costs. Perfect designs through rapid iteration, not guesswork.'
+      description: 'Mix and match elements from different designs. Try unlimited color schemes, materials, layouts without additional costs. Perfect designs through rapid iteration.'
     }
   ]
 
   const whyLatticeCards = [
     {
       title: 'AI That Understands Construction',
-      description: 'Our AI isn\'t just pretty pictures—it understands how homes are actually built. Trained on thousands of real projects, it knows load-bearing walls, plumbing constraints, and building codes. Every design is practical and buildable. The AI thinks like a contractor, suggesting realistic layouts that maximize space while respecting structural limitations.',
+      description: 'Our AI isn\'t just pretty pictures, it understands how homes are actually built. Trained on thousands of real projects, it knows load-bearing walls, plumbing constraints, and building codes. Every design is practical and buildable. The AI thinks like a contractor, suggesting realistic layouts that maximize space while respecting structural limitations.',
       icon: Sparkles
     },
     {
-      title: 'Real-Time Design Power',
-      description: '10-30 second generation time means you design with clients in real-time, not days later. Show 5 different kitchen layouts during your consultation. Try modern, farmhouse, and contemporary styles instantly. No "let me get back to you" delays—close deals on the spot with immediate visual results.',
+      title: 'A Tool for Clients',
+      description: 'Empower every prospective client by providing them with the LatticeAI Visualizer. This professional, intuitive tool allows them to independently explore material combinations and visualize possibilities for their own space in a creative, no-pressure environment. It nurtures their vision, accelerates decision-making, and brings them into your sales pipeline more engaged and qualified.',
       icon: Zap
     },
     {
@@ -180,17 +180,25 @@ const AIDesignerPage = () => {
   ]
 
   return (
-    <div className="pt-5">
-      <Header />
+    <>
+      <Header
+        enableScrollEffects={false}
+        cubeColor="#581c87"
+        buttonText="Get Started"
+        buttonColor="#581c87"
+        hoverColor="#9333ea"
+        promoBannerColor="#581c87"
+      />
+      <main className="pt-[7.40rem] md:pt-[7.02rem]">
       <div id="hero">
         <Hero />
       </div>
-      <StickyNavigation items={navigationItems} />
+      <StickyNavigation items={navigationItems} accentColor="#581c87" />
       <div id="key-features">
-        <KeyFeatures features={keyFeatures} />
+        <KeyFeatures features={keyFeatures} accentColor="#581c87" />
       </div>
       <div id="why-lattice">
-        <WhyLattice cards={whyLatticeCards} />
+        <WhyLatticeVisualizer cards={whyLatticeCards} />
       </div>
       <div id="services">
         <ServicesSection
@@ -201,13 +209,46 @@ const AIDesignerPage = () => {
           headingLevel="h2"
           lazyLoadImages={true}
           animateOnScroll={true}
+          buttonVariant="purple"
         />
       </div>
       <div id="testimonials">
         <Testimonials
-          testimonials={aiDesignerTestimonials}
-          title="AI Success Stories"
-          subtitle="How Contractors Win with AI-Powered Design"
+          title="Success Stories"
+          subtitle="Contractors Growing with Lattice"
+          accentColor="#581c87"
+          testimonials={[
+            {
+              id: 1,
+              body: "Lattice's CRM transformed how we manage projects. We've doubled our client base in 6 months and the free website brought in 30+ leads monthly. Game changer for our business!",
+              clientName: "Robert Martinez",
+              clientCompany: "Lone Star Contractors"
+            },
+            {
+              id: 2,
+              body: "The 3D rendering tools and AI designer help us close deals 3x faster. Clients love seeing their vision come to life instantly. Worth every penny!",
+              clientName: "Sarah Chen",
+              clientCompany: "NY Home Remodeling"
+            },
+            {
+              id: 3,
+              body: "From design to invoicing, everything's in one place. The digital showroom alone increased our conversion rate by 45%. Lattice understands what contractors need.",
+              clientName: "Hugo J. Gordon",
+              clientCompany: "C&G Renovations"
+            },
+            {
+              id: 4,
+              body: "The SEO-optimized website Lattice built ranks #1 locally. Combined with their CRM, we're managing 5x more projects efficiently. Best B2B investment we've made.",
+              clientName: "Davis Miller",
+              clientCompany: "Davis Construction"
+            },
+            {
+              id: 5,
+              body: "Lattice's AI design tool saves us 20+ hours per week. The 4K videos we get with renders blow clients away. Our close rate went from 15% to 42%!",
+              clientName: "James Wilson",
+              clientCompany: "A2Z Contractors"
+            }
+          ]}
         />
       </div>
       <div id="faq">
@@ -219,10 +260,11 @@ const AIDesignerPage = () => {
         />
       </div>
       <div id="contact">
-        <LeadChange text="Start Designing with AI Today"/>
+        <LeadChangeVisualizer text="Start Designing with AI Today"/>
       </div>
-      <Footer />
-    </div>
+      <Footer backgroundColor="#581c87" />
+      </main>
+    </>
   )
 }
 

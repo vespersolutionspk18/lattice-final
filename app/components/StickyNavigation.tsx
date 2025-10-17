@@ -10,9 +10,10 @@ interface NavItem {
 
 interface StickyNavigationProps {
   items: NavItem[]
+  accentColor?: string
 }
 
-const StickyNavigation = ({ items }: StickyNavigationProps) => {
+const StickyNavigation = ({ items, accentColor = '#3b82f6' }: StickyNavigationProps) => {
   // Set initial active section to 'key-features'
   const [activeSection, setActiveSection] = useState('key-features')
   const [isSticky, setIsSticky] = useState(false)
@@ -119,7 +120,8 @@ const StickyNavigation = ({ items }: StickyNavigationProps) => {
                     {activeSection === item.id && (
                       <motion.div
                         layoutId="activeIndicator"
-                        className="absolute inset-0 rounded-full bg-blue-500"
+                        className="absolute inset-0 rounded-full"
+                        style={{ backgroundColor: accentColor }}
                         transition={{
                           type: "spring",
                           stiffness: 400,

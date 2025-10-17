@@ -26,7 +26,7 @@ interface HeroProps {
 
 const Hero = ({
   preHeader,
-  headline = "Revolutionising How Home Remodelers Work",
+  headline = "Revolutionising Home Remodeling for Contractors",
   subtitle = "Your complete B2B solution for design, CRM, and digital tools to grow your remodeling business.",
   backgroundStyle,
   height = "760px",
@@ -65,7 +65,7 @@ const Hero = ({
   };
 
   return (
-    <div className="p-3 sm:p-5 mt-16 sm:mt-20 md:mt-24">
+    <div className="p-3 sm:p-5">
       <div
         className="flex flex-col lg:flex-row rounded-xl sm:rounded-2xl justify-between relative overflow-hidden min-h-[500px] sm:min-h-[600px]"
         style={{

@@ -5,15 +5,15 @@ import ApplicationForm from '../careers/components/ApplicationForm'
 
 const ApplyNowPage = () => {
   return (
-    <div className="min-h-screen">
+    <>
       <Header />
-      <div className="pt-24">
-        <Suspense fallback={<div className="flex justify-center items-center min-h-[400px]">Loading...</div>}>
-          <ApplicationForm />
-        </Suspense>
-      </div>
+      <main className="pt-[11.8rem] md:pt-[11.2rem]">
+      <Suspense fallback={<div className="flex justify-center items-center min-h-[400px]">Loading...</div>}>
+        <ApplicationForm />
+      </Suspense>
       <Footer />
-    </div>
+      </main>
+    </>
   )
 }
 

@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { FileText, Clock } from "lucide-react";
+import { FileText, Clock, Users, DollarSign, Database, Globe, TrendingUp } from "lucide-react";
 import { motion } from "framer-motion";
 
 const PurpleBoxSection = () => {
@@ -30,49 +30,49 @@ const PurpleBoxSection = () => {
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-full bg-[#3b82f6] flex items-center justify-center">
                 <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
                 </svg>
               </div>
               <span className="text-base md:text-lg text-gray-600" style={{ fontFamily: 'var(--font-figtree)', fontWeight: 500 }}>
-                Streamlined, organized operations
+                Virtual Design and Architecture
               </span>
             </div>
 
             {/* Main Headline */}
             <h2 className="text-2xl md:text-4xl font-bold text-gray-900 tracking-tight">
-              Eliminate double data entry and spreadsheets
+              Exterior and Interior 3-D Renderings<br />Without the Subscription Headache
             </h2>
 
             {/* Descriptive Paragraph */}
             <p className="text-lg md:text-2xl text-gray-600 leading-relaxed tracking-tighter" style={{ fontFamily: 'var(--font-figtree)', fontWeight: 400 }}>
-              Save 30+ minutes per move and prepare to scale by cutting manual steps across sales, scheduling, dispatch, payroll, and accounting.
+              Get access to the highest quality 3-D renderings and dedicated remote designers, architects and planners who work exclusively under your brand.
             </p>
 
             {/* Feature List - Two column grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-7 mt-3 md:mt-[11px]">
-              {/* Back Office Feature */}
+              {/* Your Virtual Staff Feature */}
               <div className="flex flex-col gap-3">
                 <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center">
-                  <FileText className="w-6 h-6 text-black" />
+                  <Users className="w-6 h-6 text-black" />
                 </div>
                 <h3 className="text-xl md:text-2xl font-medium text-black tracking-tighter" style={{ fontFamily: 'var(--font-figtree)', fontWeight: 500 }}>
-                  Back Office
+                  Your Virtual Staff
                 </h3>
                 <p className="text-gray-600 leading-tight text-base md:text-lg tracking-tighter" style={{ fontFamily: 'var(--font-figtree)', fontWeight: 400 }}>
-                  Simplify job close-out, accounting, and payroll -- while gaining real-time insights.
+                  Working exclusively under your brand throughout the project duration, delivering a seamless experience for your clients.
                 </p>
               </div>
 
-              {/* Job Schedule Feature */}
+              {/* One Simple Price Feature */}
               <div className="flex flex-col gap-3">
                 <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center">
-                  <Clock className="w-6 h-6 text-black" />
+                  <DollarSign className="w-6 h-6 text-black" />
                 </div>
                 <h3 className="text-xl md:text-2xl font-medium text-black tracking-tighter" style={{ fontFamily: 'var(--font-figtree)', fontWeight: 500 }}>
-                  Job Schedule
+                  One Simple Price
                 </h3>
                 <p className="text-gray-600 leading-tight text-base md:text-lg tracking-tighter" style={{ fontFamily: 'var(--font-figtree)', fontWeight: 400 }}>
-                  Schedule jobs, track capacity in real-time, and easily handles any dispatch scenario.
+                  No additional fees, no hassle. Just pure dedication to your project, your client, and you.
                 </p>
               </div>
             </div>
@@ -126,7 +126,7 @@ const PurpleBoxSection = () => {
                     variants={textVariants}
                     transition={{ duration: 0.12, ease: 'easeInOut' }}
                   >
-                    Schedule A Demo
+                    Get a Demo
                   </motion.span>
                   <motion.span
                     className="absolute inset-0 inline-flex items-center"
@@ -135,7 +135,7 @@ const PurpleBoxSection = () => {
                     variants={textVariantsHover}
                     transition={{ duration: 0.18, ease: 'easeInOut' }}
                   >
-                    Schedule A Demo
+                    Get a Demo
                   </motion.span>
                 </div>
               </motion.button>
@@ -146,19 +146,28 @@ const PurpleBoxSection = () => {
           <div className="relative pr-12 flex justify-end">
             <div className="relative">
               {/* Main Application UI Screenshot */}
-              <div className="w-[500px] h-[336px] bg-gray-200 rounded-2xl overflow-hidden shadow-lg">
+              <div className="w-[500px] h-[336px] bg-gray-200 rounded-2xl overflow-hidden shadow-lg border border-black">
                 <img
-                  src="/assets/showroom.png"
-                  alt="Digital Showroom Interface"
+                  src="/assets/meeting.png"
+                  alt="Video Meeting Interface"
                   className="w-full h-full object-cover"
                 />
               </div>
 
-              {/* Revenue Widget - Bottom Right overlapping */}
-              <div className="absolute bottom-0 -right-20 h-[150px] w-[250px] bg-white border-2 border-gray-300 rounded-xl overflow-hidden shadow-lg">
+              {/* Mobile Placeholder - Behind revenue, above main UI */}
+              <div className="absolute top-8 -right-16 h-[280px] w-[160px] bg-white border border-black rounded-2xl overflow-hidden shadow-lg z-0">
                 <img
-                  src="/assets/magicai.png"
-                  alt="AI Designer Interface"
+                  src="/assets/cad1.png"
+                  alt="Floor Plan Design"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+              {/* CAD Widget - Bottom Right overlapping */}
+              <div className="absolute bottom-0 -right-20 h-[150px] w-[250px] bg-white border border-black rounded-xl overflow-hidden shadow-lg z-10">
+                <img
+                  src="/assets/cad2.png"
+                  alt="3D Design View"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -174,28 +183,19 @@ const PurpleBoxSection = () => {
           <div className="relative pl-12 flex justify-start">
             <div className="relative">
               {/* Main Application UI Screenshot */}
-              <div className="w-[500px] h-[336px] bg-gray-200 rounded-2xl overflow-hidden shadow-lg">
+              <div className="w-[500px] h-[336px] bg-gray-200 rounded-2xl overflow-hidden shadow-lg border border-black">
                 <img
-                  src="/assets/meeting.png"
-                  alt="Video Meeting Interface"
-                  className="w-full h-full object-cover"
+                  src="/assets/magicai.png"
+                  alt="AI Designer Interface"
+                  className="w-full h-full object-cover object-left"
                 />
               </div>
 
-              {/* Mobile Placeholder - Behind revenue, above main UI */}
-              <div className="absolute top-8 -left-16 h-[280px] w-[160px] bg-white border-2 border-gray-300 rounded-2xl overflow-hidden shadow-lg z-0">
+              {/* Revenue Widget - Bottom Left overlapping */}
+              <div className="absolute bottom-0 -left-20 h-[224px] w-[373px] bg-white border border-black rounded-xl overflow-hidden shadow-lg">
                 <img
-                  src="/assets/cad1.png"
-                  alt="Floor Plan Design"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-
-              {/* CAD Widget - Bottom Left overlapping */}
-              <div className="absolute bottom-0 -left-20 h-[150px] w-[250px] bg-white border-2 border-gray-300 rounded-xl overflow-hidden shadow-lg z-10">
-                <img
-                  src="/assets/cad2.png"
-                  alt="3D Design View"
+                  src="/assets/showroom.png"
+                  alt="Digital Showroom Interface"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -207,50 +207,78 @@ const PurpleBoxSection = () => {
             {/* Header with Icon */}
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-full bg-[#3b82f6] flex items-center justify-center">
-                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                </svg>
+                <TrendingUp className="w-5 h-5 text-white" />
               </div>
               <span className="text-base md:text-lg text-gray-600" style={{ fontFamily: 'var(--font-figtree)', fontWeight: 500 }}>
-                Streamlined, organized operations
+                Web Services and Scalable Marketing
               </span>
             </div>
 
             {/* Main Headline */}
             <h2 className="text-2xl md:text-4xl font-bold text-gray-900 tracking-tight">
-              Eliminate double data entry and spreadsheets
+              Powered by <span style={{
+                background: 'linear-gradient(135deg, #0066FF 0%, #1b2e9e 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+                color: 'transparent'
+              }}>LatticeAI</span>,<br />Built to Integrate Seamlessly with Your Digital Infrastructure
             </h2>
 
             {/* Descriptive Paragraph */}
             <p className="text-lg md:text-2xl text-gray-600 leading-relaxed tracking-tighter" style={{ fontFamily: 'var(--font-figtree)', fontWeight: 400 }}>
-              Save 30+ minutes per move and prepare to scale by cutting manual steps across sales, scheduling, dispatch, payroll, and accounting.
+              Scale your client base by leveraging cutting-edge technology and redefining how you market your services through intelligent, AI-driven strategies.
             </p>
 
             {/* Feature List - Two column grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-7 mt-3 md:mt-[11px]">
-              {/* Back Office Feature */}
+              {/* LatticeAI CRM Feature */}
               <div className="flex flex-col gap-3">
                 <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center">
-                  <FileText className="w-6 h-6 text-black" />
+                  <Database className="w-6 h-6 text-black" />
                 </div>
-                <h3 className="text-2xl font-medium text-black tracking-tighter" style={{ fontFamily: 'var(--font-figtree)', fontWeight: 500 }}>
-                  Back Office
+                <h3 className="text-2xl font-medium tracking-tighter" style={{ fontFamily: 'var(--font-figtree)', fontWeight: 500 }}>
+                  <span style={{
+                    background: 'linear-gradient(135deg, #0066FF 0%, #1b2e9e 100%)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    backgroundClip: 'text',
+                    color: 'transparent'
+                  }}>LatticeAI</span> <span style={{
+                    background: 'linear-gradient(135deg, #16a34a 0%, #166534 100%)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    backgroundClip: 'text',
+                    color: 'transparent'
+                  }}>CRM</span>
                 </h3>
                 <p className="text-gray-600 leading-tight text-lg tracking-tighter" style={{ fontFamily: 'var(--font-figtree)', fontWeight: 400 }}>
-                  Simplify job close-out, accounting, and payroll -- while gaining real-time insights.
+                  Get more efficient and automate your work, while gaining real-time insights.
                 </p>
               </div>
 
-              {/* Job Schedule Feature */}
+              {/* LatticeAI Web Suite Feature */}
               <div className="flex flex-col gap-3">
                 <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center">
-                  <Clock className="w-6 h-6 text-black" />
+                  <Globe className="w-6 h-6 text-black" />
                 </div>
-                <h3 className="text-2xl font-medium text-black tracking-tighter" style={{ fontFamily: 'var(--font-figtree)', fontWeight: 500 }}>
-                  Job Schedule
+                <h3 className="text-2xl font-medium tracking-tighter" style={{ fontFamily: 'var(--font-figtree)', fontWeight: 500 }}>
+                  <span style={{
+                    background: 'linear-gradient(135deg, #0066FF 0%, #1b2e9e 100%)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    backgroundClip: 'text',
+                    color: 'transparent'
+                  }}>LatticeAI</span> <span style={{
+                    background: 'linear-gradient(135deg, #ea580c 0%, #7f1d1d 100%)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    backgroundClip: 'text',
+                    color: 'transparent'
+                  }}>Web Suite</span>
                 </h3>
                 <p className="text-gray-600 leading-tight text-lg tracking-tighter" style={{ fontFamily: 'var(--font-figtree)', fontWeight: 400 }}>
-                  Schedule jobs, track capacity in real-time, and easily handles any dispatch scenario.
+                  Automated marketing, interactive website, and AI-based tools all in one place.
                 </p>
               </div>
             </div>
@@ -304,7 +332,7 @@ const PurpleBoxSection = () => {
                     variants={textVariants}
                     transition={{ duration: 0.12, ease: 'easeInOut' }}
                   >
-                    Schedule A Demo
+                    Get a Demo
                   </motion.span>
                   <motion.span
                     className="absolute inset-0 inline-flex items-center"
@@ -313,7 +341,7 @@ const PurpleBoxSection = () => {
                     variants={textVariantsHover}
                     transition={{ duration: 0.18, ease: 'easeInOut' }}
                   >
-                    Schedule A Demo
+                    Get a Demo
                   </motion.span>
                 </div>
               </motion.button>

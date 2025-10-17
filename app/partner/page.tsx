@@ -36,7 +36,9 @@ const PartnerPage = () => {
         buttonText="Apply Now"
         buttonColor="#1b2e9e"
         hoverColor="#1b2e9e"
+        promoBannerColor="#1b2e9e"
       />
+      <main className="pt-[11.8rem] md:pt-[11.2rem]">
       <Hero
         preHeader=""
         headline="Partner With Us, Build Success Together"
@@ -56,6 +58,7 @@ const PartnerPage = () => {
       <PartnerHero />
       <PartnerApplicationForm />
       <Footer backgroundColor="#1b2e9e" />
+      </main>
     </>
   );
 };

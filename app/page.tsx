@@ -17,6 +17,7 @@ export default function Home() {
   return (
    <>
    <Header enableScrollEffects={true} />
+   <main className="pt-[11.8rem] md:pt-[11.2rem]">
    <Hero />
    <AboutUs />
    <PurpleBoxSection />
@@ -30,37 +31,38 @@ export default function Home() {
         {
           id: 1,
           body: "Lattice's CRM transformed how we manage projects. We've doubled our client base in 6 months and the free website brought in 30+ leads monthly. Game changer for our business!",
-          clientName: "Mike Johnson",
-          clientCompany: "Premier Remodeling VA"
+          clientName: "Robert Martinez",
+          clientCompany: "Lone Star Contractors"
         },
         {
           id: 2,
           body: "The 3D rendering tools and AI designer help us close deals 3x faster. Clients love seeing their vision come to life instantly. Worth every penny!",
           clientName: "Sarah Chen",
-          clientCompany: "Chen Construction Group"
+          clientCompany: "NY Home Remodeling"
         },
         {
           id: 3,
           body: "From design to invoicing, everything's in one place. The digital showroom alone increased our conversion rate by 45%. Lattice understands what contractors need.",
-          clientName: "Robert Martinez",
-          clientCompany: "Martinez Home Solutions"
+          clientName: "Hugo J. Gordon",
+          clientCompany: "C&G Renovations"
         },
         {
           id: 4,
           body: "The SEO-optimized website Lattice built ranks #1 locally. Combined with their CRM, we're managing 5x more projects efficiently. Best B2B investment we've made.",
-          clientName: "Emily Davis",
-          clientCompany: "Davis Design & Build"
+          clientName: "Davis Miller",
+          clientCompany: "Davis Construction"
         },
         {
           id: 5,
           body: "Lattice's AI design tool saves us 20+ hours per week. The 4K videos we get with renders blow clients away. Our close rate went from 15% to 42%!",
           clientName: "James Wilson",
-          clientCompany: "Wilson Contractors LLC"
+          clientCompany: "A2Z Contractors"
         }
       ]}
     />
     <LeadChange text="Transform Your Business With Lattice"/>
     <Footer />
+    </main>
    </>
   );
 }

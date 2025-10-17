@@ -63,12 +63,12 @@ const Footer = ({ backgroundColor = '#3b82f6' }: FooterProps) => {
                 Services
             </h5>
             <ul className="text-base sm:text-lg md:text-xl text-white font-normal">
-                <li className="cursor-pointer hover:text-white/80 transition-colors" onClick={() => router.push('/services/design-and-plans')}>Design & Plans</li>
+                <li className="cursor-pointer hover:text-white/80 transition-colors" onClick={() => router.push('/services/crm')}>LatticeAI CRM</li>
                 <li className="cursor-pointer hover:text-white/80 transition-colors" onClick={() => router.push('/services/3d-rendering')}>3D Rendering</li>
-                <li className="cursor-pointer hover:text-white/80 transition-colors" onClick={() => router.push('/services/crm')}>CRM for Contractors</li>
-                <li className="cursor-pointer hover:text-white/80 transition-colors" onClick={() => router.push('/services/ai-designer')}>AI Designer</li>
+                <li className="cursor-pointer hover:text-white/80 transition-colors" onClick={() => router.push('/services/ai-designer')}>LatticeAI Visualizer</li>
+                <li className="cursor-pointer hover:text-white/80 transition-colors" onClick={() => router.push('/services/remote-employees')}>Remote Employees</li>
                 <li className="cursor-pointer hover:text-white/80 transition-colors" onClick={() => router.push('/services/digital-showroom')}>Digital Showroom</li>
-                <li className="cursor-pointer hover:text-white/80 transition-colors" onClick={() => router.push('/services/web-design-seo')}>Web Design & SEO</li>
+                <li className="cursor-pointer hover:text-white/80 transition-colors" onClick={() => router.push('/services/web-design-seo')}>LatticeAI Web Suite</li>
             </ul>
             </div>
             <div className="flex flex-col gap-2 sm:gap-3">
@@ -86,7 +86,7 @@ const Footer = ({ backgroundColor = '#3b82f6' }: FooterProps) => {
                 </div>
                 <div className="flex gap-2 sm:gap-3 group cursor-pointer">
                     <MapPin className="!text-white group-hover:!text-black transition-colors duration-150 flex-shrink-0 mt-1" size={18} />
-                    <span className="text-base sm:text-lg md:text-xl font-normal !text-white group-hover:!text-black transition-colors duration-150">Richmond, Virginia • Nationwide Service</span>
+                    <span className="text-base sm:text-lg md:text-xl font-normal !text-white group-hover:!text-black transition-colors duration-150">Houston, Texas • Nationwide Service</span>
                 </div>
 
             </div>

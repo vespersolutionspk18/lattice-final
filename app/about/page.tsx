@@ -8,18 +8,16 @@ import OurStory from './components/OurStory'
 
 const page = () => {
   return (
-    <div>
-      <div className="p-5">
-        <Header />
-      </div>
-      <div className="pt-32">
-        <Hero />
-      </div>
+    <>
+      <Header />
+      <main className="pt-[11.8rem] md:pt-[11.2rem]">
+      <Hero />
       <WhoWeAre />
       <OurStory />
       <LeadChange text="Join 850+ Successful Contractors" />
       <Footer />
-    </div>
+      </main>
+    </>
   )
 }
 

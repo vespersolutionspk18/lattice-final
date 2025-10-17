@@ -3,7 +3,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { useRouter, usePathname } from "next/navigation";
-import { ChevronDown, ArrowRight, Palette, Box, Database, Sparkles, Monitor, Globe, Target, Users, Info } from "lucide-react";
+import { ChevronDown, ArrowRight, UserCheck, Box, Database, Sparkles, Monitor, Globe, Target, Users, Info } from "lucide-react";
 import { useMegaMenu } from "../contexts/MegaMenuContext";
 
 const MegaMenuCard = ({
@@ -12,7 +12,8 @@ const MegaMenuCard = ({
   title,
   description,
   isNew,
-  hoverColor = '#3b82f6'
+  hoverColor = '#3b82f6',
+  hasGradient
 }: {
   href: string;
   icon: React.ElementType;
@@ -20,6 +21,7 @@ const MegaMenuCard = ({
   description: string;
   isNew?: boolean;
   hoverColor?: string;
+  hasGradient?: string;
 }) => {
   const [isHovered, setIsHovered] = useState(false);
   const router = useRouter();
@@ -58,9 +60,86 @@ const MegaMenuCard = ({
       </div>
       <div className="flex-1 min-w-0">
         <div className="flex items-center gap-2 mb-0.5">
-          <h4 className="text-base font-semibold text-gray-900" style={{ fontFamily: 'var(--font-figtree)' }}>
-            {title}
-          </h4>
+          {hasGradient === 'crm' ? (
+            <h4 className="text-base font-semibold flex items-center gap-1" style={{ fontFamily: 'var(--font-figtree)' }}>
+              <span
+                style={{
+                  background: 'linear-gradient(135deg, #0066FF 0%, #1b2e9e 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                  color: 'transparent'
+                }}
+              >
+                LatticeAI
+              </span>
+              <span
+                style={{
+                  background: 'linear-gradient(135deg, #16a34a 0%, #166534 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                  color: 'transparent'
+                }}
+              >
+                CRM
+              </span>
+            </h4>
+          ) : hasGradient === 'visualizer' ? (
+            <h4 className="text-base font-semibold flex items-center gap-1" style={{ fontFamily: 'var(--font-figtree)' }}>
+              <span
+                style={{
+                  background: 'linear-gradient(135deg, #0066FF 0%, #1b2e9e 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                  color: 'transparent'
+                }}
+              >
+                LatticeAI
+              </span>
+              <span
+                style={{
+                  background: 'linear-gradient(135deg, #9333ea 0%, #581c87 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                  color: 'transparent'
+                }}
+              >
+                Visualizer
+              </span>
+            </h4>
+          ) : hasGradient === 'websuite' ? (
+            <h4 className="text-base font-semibold flex items-center gap-1" style={{ fontFamily: 'var(--font-figtree)' }}>
+              <span
+                style={{
+                  background: 'linear-gradient(135deg, #0066FF 0%, #1b2e9e 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                  color: 'transparent'
+                }}
+              >
+                LatticeAI
+              </span>
+              <span
+                style={{
+                  background: 'linear-gradient(135deg, #ea580c 0%, #7f1d1d 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                  color: 'transparent'
+                }}
+              >
+                Web Suite
+              </span>
+            </h4>
+          ) : (
+            <h4 className="text-base font-semibold text-gray-900" style={{ fontFamily: 'var(--font-figtree)' }}>
+              {title}
+            </h4>
+          )}
           {isNew && (
             <span className="px-2 py-0.5 text-xs font-medium text-white rounded-full" style={{ backgroundColor: hoverColor }}>
               New
@@ -97,10 +176,10 @@ const MegaMenu = ({ hoverColor = '#3b82f6' }: MegaMenuProps) => {
 
   const services = [
     {
-      name: "Design & Plans",
-      href: "/services/design-and-plans",
-      icon: Palette,
-      description: "Professional design services and detailed construction plans."
+      name: "Remote Employees",
+      href: "/services/remote-employees",
+      icon: UserCheck,
+      description: "Professional design, accounting and planning services."
     },
     {
       name: "3D Rendering",
@@ -112,14 +191,16 @@ const MegaMenu = ({ hoverColor = '#3b82f6' }: MegaMenuProps) => {
       name: "CRM for Contractors",
       href: "/services/crm",
       icon: Database,
-      description: "Streamline your business operations and client management."
+      description: "Streamline your business operations and client management.",
+      hasGradient: 'crm'
     },
     {
       name: "AI Designer",
       href: "/services/ai-designer",
       icon: Sparkles,
       description: "AI-powered design tools and intelligent user experience.",
-      isNew: true
+      isNew: true,
+      hasGradient: 'visualizer'
     },
     {
       name: "Digital Showroom",
@@ -131,7 +212,8 @@ const MegaMenu = ({ hoverColor = '#3b82f6' }: MegaMenuProps) => {
       name: "Web Design & SEO",
       href: "/services/web-design-seo",
       icon: Globe,
-      description: "Modern websites with search engine optimization."
+      description: "AI-powered marketing with the best SEO.",
+      hasGradient: 'websuite'
     }
   ];
 
@@ -258,6 +340,7 @@ const MegaMenu = ({ hoverColor = '#3b82f6' }: MegaMenuProps) => {
                           description={service.description}
                           isNew={service.isNew}
                           hoverColor={hoverColor}
+                          hasGradient={service.hasGradient}
                         />
                       ))}
                     </div>

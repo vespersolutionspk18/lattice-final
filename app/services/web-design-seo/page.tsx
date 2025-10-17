@@ -1,6 +1,6 @@
 'use client'
 
-import LeadChange from '@/app/homecomponents/LeadChange'
+import LeadChangeWebSuite from '@/app/homecomponents/LeadChangeWebSuite'
 import Header from '@/app/components/Header'
 import Hero from './components/Hero'
 import Footer from '@/app/components/Footer'
@@ -11,7 +11,7 @@ import Testimonials, { Testimonial } from '@/app/components/Testimonials'
 import FAQ from '@/app/components/FAQ'
 import StickyNavigation from '@/app/components/StickyNavigation'
 import KeyFeatures from '@/app/components/KeyFeatures'
-import WhyLattice from '@/app/components/WhyLattice'
+import WhyLatticeWebSuite from '@/app/components/WhyLatticeWebSuite'
 import { Globe, Search, TrendingUp } from 'lucide-react'
 
 const webSeoTestimonials: Testimonial[] = [
@@ -56,8 +56,8 @@ const webSeoTestimonials: Testimonial[] = [
 const webSeoServices: ServiceItem[] = [
   {
     id: 'free-website-crm',
-    title: 'FREE Professional Website with CRM',
-    description: 'Get a stunning, fully-functional website absolutely FREE when you subscribe to our CRM. This isn\'t a template – it\'s a custom-designed site built specifically for contractors. Features include portfolio galleries, service pages, contact forms that feed directly into your CRM, online scheduling, and instant quote calculators. Mobile-optimized, lightning-fast, and professionally designed to convert visitors into leads. The website alone is worth thousands, but it\'s yours free with CRM.',
+    title: 'A Marketing Methodology of the AI Age',
+    description: 'Embed our web suite on your website and transform your digital presence into an intelligence-gathering engine. As visitors design, the AI learns what they desire in real-time. This data can trigger automated, personalized email follow-ups or generate compelling social media content that speaks directly to these discovered trends, creating a system that actively communicates, nurtures, and captures perfectly qualified leads.',
     buttonText: 'Claim Free Website',
     buttonHref: '/contact?service=free-website',
     imageSrc: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2815&auto=format&fit=crop',
@@ -142,34 +142,34 @@ const WebDesignSEOPage = () => {
     {
       number: 1,
       title: 'FREE Professional Website',
-      description: 'Get a stunning, fully-functional website absolutely FREE with CRM subscription. Custom-designed for contractors with portfolio galleries, quote calculators, and CRM integration—a $5,000+ value included.'
+      description: 'Get stunning website FREE with CRM subscription. Custom-designed for contractors with portfolio galleries, quote calculators, CRM integration. A $5,000+ value included.'
     },
     {
       number: 2,
       title: 'Dominate Local Search',
-      description: 'Rank #1 for "contractor near me" and high-value local searches. Proven SEO strategy with Google My Business optimization, local citations, and location-specific landing pages that drive qualified leads.'
+      description: 'Rank #1 for contractor near me and high-value searches. Proven SEO with Google Business optimization, local citations, location-specific pages driving leads.'
     },
     {
       number: 3,
       title: 'Convert Visitors to Customers',
-      description: 'Every element designed to convert: compelling headlines, trust badges, client testimonials, strategic CTAs, and instant quote calculators. Your website becomes a lead-generating machine, not just an online brochure.'
+      description: 'Every element designed to convert: compelling headlines, trust badges, testimonials, strategic CTAs, instant quote calculators. Website becomes lead-generating machine, not online brochure.'
     },
     {
       number: 4,
       title: 'Fully Integrated Platform',
-      description: 'Website forms feed directly into CRM. Portfolio showcases 3D renderings. Digital showroom embedded seamlessly. Scheduling syncs with calendar. Everything works together as one powerful, time-saving system.'
+      description: 'Website forms feed into CRM. Portfolio showcases 3D renderings. Digital showroom embedded seamlessly. Scheduling syncs with calendar. Everything works together powerfully.'
     }
   ]
 
   const whyLatticeCards = [
     {
-      title: 'All-in-One Platform Eliminates Integration Headaches',
-      description: 'Most contractors cobble together multiple tools from different vendors, creating endless frustration with data syncing and duplicate entry. Lattice provides a unified platform where everything works seamlessly. Website forms automatically create CRM leads. Portfolio projects update everywhere simultaneously. This integration saves hours weekly on manual data entry.',
+      title: 'AI-Powered Marketing Intelligence',
+      description: 'Our AI analyzes every client interaction within your web ecosystem to identify trending materials and design preferences. This powerful insight automatically triggers marketing campaigns using workflow automation (n8n). The system can instantly generate and post compelling content, like popular design visualizations, directly to your social media channels, keeping your brand effortlessly active.',
       icon: Globe
     },
     {
       title: 'Contractor-Specific SEO That Actually Generates Leads',
-      description: 'Generic SEO services optimize for traffic, not qualified leads. Lattice SEO targets exact searches your ideal clients use when ready to hire—like "kitchen remodeling contractor near me." Location-specific landing pages capture searches in every neighborhood you serve. The result: 3-5x higher conversion rates compared to generic SEO approaches.',
+      description: 'Generic SEO services optimize for traffic, not qualified leads. Lattice SEO targets exact searches your ideal clients use when ready to hire, like "kitchen remodeling contractor near me." Location-specific landing pages capture searches in every neighborhood you serve. The result: 3-5x higher conversion rates compared to generic SEO approaches.',
       icon: Search
     },
     {
@@ -180,17 +180,25 @@ const WebDesignSEOPage = () => {
   ]
 
   return (
-    <div className="pt-5">
-      <Header />
+    <>
+      <Header
+        enableScrollEffects={false}
+        cubeColor="#ea580c"
+        buttonText="Get Started"
+        buttonColor="#ea580c"
+        hoverColor="#fb923c"
+        promoBannerColor="#ea580c"
+      />
+      <main className="pt-[7.40rem] md:pt-[7.02rem]">
       <div id="hero">
         <Hero />
       </div>
-      <StickyNavigation items={navigationItems} />
+      <StickyNavigation items={navigationItems} accentColor="#ea580c" />
       <div id="key-features">
-        <KeyFeatures features={keyFeatures} />
+        <KeyFeatures features={keyFeatures} accentColor="#ea580c" />
       </div>
       <div id="why-lattice">
-        <WhyLattice cards={whyLatticeCards} />
+        <WhyLatticeWebSuite cards={whyLatticeCards} />
       </div>
       <div id="services">
         <ServicesSection
@@ -201,13 +209,46 @@ const WebDesignSEOPage = () => {
           headingLevel="h2"
           lazyLoadImages={true}
           animateOnScroll={true}
+          buttonVariant="webSuiteOrange"
         />
       </div>
       <div id="testimonials">
         <Testimonials
-          testimonials={webSeoTestimonials}
-          title="Web & SEO Success"
-          subtitle="How Contractors Dominate Online with Lattice"
+          title="Success Stories"
+          subtitle="Contractors Growing with Lattice"
+          accentColor="#ea580c"
+          testimonials={[
+            {
+              id: 1,
+              body: "Lattice's CRM transformed how we manage projects. We've doubled our client base in 6 months and the free website brought in 30+ leads monthly. Game changer for our business!",
+              clientName: "Robert Martinez",
+              clientCompany: "Lone Star Contractors"
+            },
+            {
+              id: 2,
+              body: "The 3D rendering tools and AI designer help us close deals 3x faster. Clients love seeing their vision come to life instantly. Worth every penny!",
+              clientName: "Sarah Chen",
+              clientCompany: "NY Home Remodeling"
+            },
+            {
+              id: 3,
+              body: "From design to invoicing, everything's in one place. The digital showroom alone increased our conversion rate by 45%. Lattice understands what contractors need.",
+              clientName: "Hugo J. Gordon",
+              clientCompany: "C&G Renovations"
+            },
+            {
+              id: 4,
+              body: "The SEO-optimized website Lattice built ranks #1 locally. Combined with their CRM, we're managing 5x more projects efficiently. Best B2B investment we've made.",
+              clientName: "Davis Miller",
+              clientCompany: "Davis Construction"
+            },
+            {
+              id: 5,
+              body: "Lattice's AI design tool saves us 20+ hours per week. The 4K videos we get with renders blow clients away. Our close rate went from 15% to 42%!",
+              clientName: "James Wilson",
+              clientCompany: "A2Z Contractors"
+            }
+          ]}
         />
       </div>
       <div id="faq">
@@ -219,10 +260,11 @@ const WebDesignSEOPage = () => {
         />
       </div>
       <div id="contact">
-        <LeadChange text="Get Your Free Website Today"/>
+        <LeadChangeWebSuite text="Get Your Free Website Today"/>
       </div>
-      <Footer />
-    </div>
+      <Footer backgroundColor="#ea580c" />
+      </main>
+    </>
   )
 }
 

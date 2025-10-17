@@ -20,7 +20,7 @@ const positions: Position[] = [
     id: 1,
     title: 'Senior Full Stack Developer',
     department: 'Engineering',
-    location: 'Remote / Virginia',
+    location: 'Remote / Texas',
     type: 'Full-time',
     description: 'Build cutting-edge B2B solutions for contractors using Next.js, React, and Node.js.'
   },
@@ -28,7 +28,7 @@ const positions: Position[] = [
     id: 2,
     title: 'Product Designer',
     department: 'Design',
-    location: 'Remote / Virginia',
+    location: 'Remote / Texas',
     type: 'Full-time',
     description: 'Design intuitive interfaces for our CRM and 3D rendering tools that contractors love.'
   },
@@ -36,7 +36,7 @@ const positions: Position[] = [
     id: 3,
     title: 'Customer Success Manager',
     department: 'Customer Success',
-    location: 'Virginia',
+    location: 'Texas',
     type: 'Full-time',
     description: 'Help contractors maximize their success with our platform through onboarding and support.'
   },
@@ -44,7 +44,7 @@ const positions: Position[] = [
     id: 4,
     title: 'Sales Development Representative',
     department: 'Sales',
-    location: 'Remote / Virginia',
+    location: 'Remote / Texas',
     type: 'Full-time',
     description: 'Connect with contractors nationwide to introduce them to our innovative solutions.'
   },

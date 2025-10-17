@@ -1,7 +1,11 @@
 "use client";
 import React from 'react'
 
-const Hero = () => {
+interface HeroProps {
+  gradientBackground?: React.CSSProperties;
+}
+
+const Hero: React.FC<HeroProps> = ({ gradientBackground }) => {
   return (
   <div className="p-4 sm:p-6 md:p-8 lg:p-10 mt-16 sm:mt-20 md:mt-24 flex flex-col gap-8 sm:gap-12 md:gap-16">
         <div className="flex flex-col lg:flex-row gap-6 sm:gap-8 lg:gap-10 justify-between w-full" >
@@ -9,7 +13,7 @@ const Hero = () => {
             CRM Built <br></br> for Contractors
         </h1>
         <h5 className="text-lg sm:text-xl md:text-2xl tracking-tighter leading-tight sm:leading-tight text-black/90 w-full lg:w-[50%]">
-Finally, a CRM that understands how contractors work. Manage leads, track projects, automate follow-ups, and get paid faster – all in one platform designed specifically for remodelers and builders. Stop losing leads in spreadsheets and start growing your business systematically.
+Manage leads, track projects, automate follow-ups, handle bookings, resolve customer complaints, and get paid faster, all in one intelligent platform designed specifically for remodelers and builders. Say goodbye to spreadsheets and manual tasks. Let AI streamline your operations, so you can focus on growing your business.
         </h5>
       </div>
       <div className="rounded-2xl sm:rounded-3xl overflow-hidden relative w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px]">

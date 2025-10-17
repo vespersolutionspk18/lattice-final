@@ -7,7 +7,7 @@ import {
   LayoutDashboard,
   Box,
   Sparkles,
-  Ruler,
+  UserCheck,
   MonitorPlay,
   Globe,
   ChevronRight,
@@ -28,9 +28,10 @@ const OurServices = () => {
 
   const services = [
     {
-      title: "Real Estate CRM",
+      title: "LatticeAI CRM",
       icon: LayoutDashboard,
       href: "/services/crm",
+      hasGradient: "crm"
     },
     {
       title: "3D Rendering",
@@ -38,14 +39,15 @@ const OurServices = () => {
       href: "/services/3d-rendering",
     },
     {
-      title: "AI Designer",
+      title: "LatticeAI Visualizer",
       icon: Sparkles,
       href: "/services/ai-designer",
+      hasGradient: "visualizer"
     },
     {
-      title: "Design & Plans",
-      icon: Ruler,
-      href: "/services/design-and-plans",
+      title: "Remote Employees",
+      icon: UserCheck,
+      href: "/services/remote-employees",
     },
     {
       title: "Digital Showroom",
@@ -53,9 +55,10 @@ const OurServices = () => {
       href: "/services/digital-showroom",
     },
     {
-      title: "Web Design & SEO",
+      title: "LatticeAI Web Suite",
       icon: Globe,
       href: "/services/web-design-seo",
+      hasGradient: "websuite"
     },
   ];
 
@@ -89,9 +92,86 @@ const OurServices = () => {
 
                 {/* Label */}
                 <div className="flex items-center gap-2">
-                  <p className="text-lg font-bold text-gray-900 group-hover:text-[#3b82f6] transition-colors">
-                    {service.title}
-                  </p>
+                  {service.hasGradient === 'crm' ? (
+                    <p className="text-lg font-bold flex items-center gap-1">
+                      <span
+                        style={{
+                          background: 'linear-gradient(135deg, #0066FF 0%, #1b2e9e 100%)',
+                          WebkitBackgroundClip: 'text',
+                          WebkitTextFillColor: 'transparent',
+                          backgroundClip: 'text',
+                          color: 'transparent'
+                        }}
+                      >
+                        LatticeAI
+                      </span>
+                      <span
+                        style={{
+                          background: 'linear-gradient(135deg, #16a34a 0%, #166534 100%)',
+                          WebkitBackgroundClip: 'text',
+                          WebkitTextFillColor: 'transparent',
+                          backgroundClip: 'text',
+                          color: 'transparent'
+                        }}
+                      >
+                        CRM
+                      </span>
+                    </p>
+                  ) : service.hasGradient === 'visualizer' ? (
+                    <p className="text-lg font-bold flex items-center gap-1">
+                      <span
+                        style={{
+                          background: 'linear-gradient(135deg, #0066FF 0%, #1b2e9e 100%)',
+                          WebkitBackgroundClip: 'text',
+                          WebkitTextFillColor: 'transparent',
+                          backgroundClip: 'text',
+                          color: 'transparent'
+                        }}
+                      >
+                        LatticeAI
+                      </span>
+                      <span
+                        style={{
+                          background: 'linear-gradient(135deg, #9333ea 0%, #581c87 100%)',
+                          WebkitBackgroundClip: 'text',
+                          WebkitTextFillColor: 'transparent',
+                          backgroundClip: 'text',
+                          color: 'transparent'
+                        }}
+                      >
+                        Visualizer
+                      </span>
+                    </p>
+                  ) : service.hasGradient === 'websuite' ? (
+                    <p className="text-lg font-bold flex items-center gap-1">
+                      <span
+                        style={{
+                          background: 'linear-gradient(135deg, #0066FF 0%, #1b2e9e 100%)',
+                          WebkitBackgroundClip: 'text',
+                          WebkitTextFillColor: 'transparent',
+                          backgroundClip: 'text',
+                          color: 'transparent'
+                        }}
+                      >
+                        LatticeAI
+                      </span>
+                      <span
+                        style={{
+                          background: 'linear-gradient(135deg, #ea580c 0%, #7f1d1d 100%)',
+                          WebkitBackgroundClip: 'text',
+                          WebkitTextFillColor: 'transparent',
+                          backgroundClip: 'text',
+                          color: 'transparent'
+                        }}
+                      >
+                        Web Suite
+                      </span>
+                    </p>
+                  ) : (
+                    <p className="text-lg font-bold text-gray-900 group-hover:text-[#3b82f6] transition-colors">
+                      {service.title}
+                    </p>
+                  )}
                   <ChevronRight className="w-4 h-4 text-gray-400 group-hover:text-[#3b82f6] transition-colors" />
                 </div>
               </Link>

@@ -22,6 +22,7 @@ export interface ServicesSectionProps {
   headingLevel?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
   lazyLoadImages?: boolean
   animateOnScroll?: boolean
+  buttonVariant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'green' | 'blue' | 'purple' | 'crmGreen' | 'webSuiteOrange'
 }
 
 export interface ServiceCardProps {
@@ -31,6 +32,7 @@ export interface ServiceCardProps {
   headingLevel?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
   lazyLoad?: boolean
   priority?: boolean
+  buttonVariant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'green' | 'blue' | 'purple' | 'crmGreen' | 'webSuiteOrange'
 }
 
 export interface SEOMetadata {

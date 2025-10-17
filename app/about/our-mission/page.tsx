@@ -64,7 +64,7 @@ const missionPillars = [
   {
     id: 'deliver-results',
     title: 'Deliver Measurable Results',
-    description: 'Technology should drive tangible business outcomes. We measure success through contractor revenue growth, time savings, and higher close rates. Every feature we build is designed to deliver measurable ROI – whether it\'s increasing project values by 45%, saving 15 hours weekly, or boosting close rates by 89%.',
+    description: 'We go beyond features to deliver tangible, measurable results. Our platform is engineered to directly impact your bottom line by increasing sales velocity and maximizing profitability through intelligent automation and data-driven insights.',
     icon: TrendingUp
   }
 ]
@@ -111,8 +111,9 @@ const missionFAQs = [
 
 const OurMissionPage = () => {
   return (
-    <div className="pt-5">
+    <>
       <Header />
+      <main className="pt-[7.40rem] md:pt-[7.02rem]">
       <div id="hero">
         <Hero />
       </div>
@@ -201,7 +202,8 @@ const OurMissionPage = () => {
         <LeadChange text="Join 850+ Successful Contractors"/>
       </div>
       <Footer />
-    </div>
+      </main>
+    </>
   )
 }
 

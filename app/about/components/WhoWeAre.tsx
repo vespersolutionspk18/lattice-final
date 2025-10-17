@@ -9,7 +9,7 @@ const WhoWeAre = () => {
             Who We Are
           </h5>
           <p className="text-black/75 text-2xl tracking-tighter w-[68%]">
-            Lattice is more than a software company – we&apos;re your strategic partner in growth. Our integrated suite of B2B solutions is specifically designed for contractors and remodelers, combining industry expertise with cutting-edge technology to transform how you run your business.
+            Lattice is more than a software company, we&apos;re your strategic partner in growth. Our integrated suite of B2B solutions is specifically designed for contractors and remodelers, combining industry expertise with cutting-edge technology to transform how you run your business.
           </p>
             </div>
             <div className="flex flex-row gap-5 justify-between">

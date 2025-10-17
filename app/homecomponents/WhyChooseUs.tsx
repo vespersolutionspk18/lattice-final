@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Check, X, Zap, Shield, Palette, TrendingUp, Users, Globe, Info, Box } from 'lucide-react'
+import { Check, X, Zap, Shield, Palette, TrendingUp, Users, Globe, Info, Box, Award } from 'lucide-react'
 import LogoTestSmall from '../components/LogoTestSmall'
 
 interface ComparisonFeature {
@@ -16,7 +16,9 @@ interface ComparisonFeature {
 const WhyChooseUs = () => {
   const [visibleCount, setVisibleCount] = useState(1)
   const [hasAnimated, setHasAnimated] = useState(false)
+  const [showChat, setShowChat] = useState(false)
   const statsCardRef = useRef<HTMLDivElement>(null)
+  const chatRef = useRef<HTMLDivElement>(null)
 
   const comparisonFeatures: ComparisonFeature[] = [
     {
@@ -34,36 +36,73 @@ const WhyChooseUs = () => {
       competitors: "partial"
     },
     {
-      icon: Shield,
-      title: <span style={{
+      icon: Zap,
+      title: <><span style={{
         background: 'linear-gradient(135deg, #0066FF 0%, #1b2e9e 100%)',
         WebkitBackgroundClip: 'text',
         WebkitTextFillColor: 'transparent',
         backgroundClip: 'text',
         color: 'transparent'
-      }}>LatticeAI</span>,
-      description: "Unlimited photorealistic before-and-after renders with your preferred materials.",
-      lattice: true,
-      competitors: false
-    },
-    {
-      icon: TrendingUp,
-      title: "AI Powered Marketing",
-      description: "Demolish the competition with our industry-leading AI marketing program.",
-      lattice: true,
-      competitors: "partial"
-    },
-    {
-      icon: Zap,
-      title: "All-in-One CRM Platform",
+      }}>LatticeAI</span> <span style={{
+        background: 'linear-gradient(135deg, #16a34a 0%, #166534 100%)',
+        WebkitBackgroundClip: 'text',
+        WebkitTextFillColor: 'transparent',
+        backgroundClip: 'text',
+        color: 'transparent'
+      }}>CRM</span></>,
       description: "Ultra-efficient CRM, design tools, and a complimentary website in one unified system.",
       lattice: true,
       competitors: false
     },
     {
+      icon: Award,
+      title: "Industry-Leading Guarantees",
+      description: "Our trifecta; the price-beat, money-back and fast-service guarantees.",
+      lattice: true,
+      competitors: "partial"
+    },
+    {
+      icon: TrendingUp,
+      title: <><span style={{
+        background: 'linear-gradient(135deg, #0066FF 0%, #1b2e9e 100%)',
+        WebkitBackgroundClip: 'text',
+        WebkitTextFillColor: 'transparent',
+        backgroundClip: 'text',
+        color: 'transparent'
+      }}>LatticeAI</span> <span style={{
+        background: 'linear-gradient(135deg, #ea580c 0%, #7f1d1d 100%)',
+        WebkitBackgroundClip: 'text',
+        WebkitTextFillColor: 'transparent',
+        backgroundClip: 'text',
+        color: 'transparent'
+      }}>Web Suite</span></>,
+      description: "Demolish the competition with industry-leading AI web and marketing services.",
+      lattice: true,
+      competitors: "partial"
+    },
+    {
+      icon: Shield,
+      title: <><span style={{
+        background: 'linear-gradient(135deg, #0066FF 0%, #1b2e9e 100%)',
+        WebkitBackgroundClip: 'text',
+        WebkitTextFillColor: 'transparent',
+        backgroundClip: 'text',
+        color: 'transparent'
+      }}>LatticeAI</span> <span style={{
+        background: 'linear-gradient(135deg, #9333ea 0%, #581c87 100%)',
+        WebkitBackgroundClip: 'text',
+        WebkitTextFillColor: 'transparent',
+        backgroundClip: 'text',
+        color: 'transparent'
+      }}>Visualizer</span></>,
+      description: "Unlimited photorealistic before-and-after renders with your preferred materials.",
+      lattice: true,
+      competitors: false
+    },
+    {
       icon: Globe,
-      title: "Digital Showroom",
-      description: "Interactive project showcase, completely free of our branding.",
+      title: "Watermark-Free Digital Showroom",
+      description: "Custom-built interactive project showcase, completely free of our branding.",
       lattice: true,
       competitors: false
     }
@@ -116,6 +155,34 @@ const WhyChooseUs = () => {
     return () => {
       if (statsCardRef.current) {
         observer.unobserve(statsCardRef.current)
+      }
+    }
+  }, [])
+
+  // Intersection observer for chat animation - restarts when scrolled back
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setShowChat(false)
+            // Small delay before starting animation
+            setTimeout(() => setShowChat(true), 100)
+          } else {
+            setShowChat(false)
+          }
+        })
+      },
+      { threshold: 0.5 }
+    )
+
+    if (chatRef.current) {
+      observer.observe(chatRef.current)
+    }
+
+    return () => {
+      if (chatRef.current) {
+        observer.unobserve(chatRef.current)
       }
     }
   }, [])
@@ -190,8 +257,8 @@ const WhyChooseUs = () => {
                     <div className="flex items-center gap-1 sm:gap-2 group relative">
                       <span className="text-xs sm:text-sm md:text-base font-medium text-gray-600">Partial</span>
                       <Info className="w-3 h-3 sm:w-4 sm:h-4 text-gray-400 cursor-help" />
-                      <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-2 bg-black/90 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-10">
-                        Limited functionality compared to full implementation
+                      <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-2 bg-black/90 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10 whitespace-nowrap">
+                        Partial; competitors may have fewer features or less support.
                       </div>
                     </div>
                   )}
@@ -209,8 +276,8 @@ const WhyChooseUs = () => {
                     <div className="flex items-center gap-1 sm:gap-2 group relative">
                       <span className="text-xs sm:text-sm md:text-base font-medium text-gray-600">Partial</span>
                       <Info className="w-3 h-3 sm:w-4 sm:h-4 text-gray-400 cursor-help" />
-                      <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-2 bg-black/90 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-10">
-                        Limited functionality compared to full implementation
+                      <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-2 bg-black/90 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10 whitespace-nowrap">
+                        Partial; competitors may have fewer features or less support.
                       </div>
                     </div>
                   )}
@@ -226,10 +293,10 @@ const WhyChooseUs = () => {
         {/* Features Introduction */}
         <div className="flex flex-col lg:flex-row gap-6 sm:gap-8 lg:gap-16">
           <h5 className="text-2xl sm:text-3xl md:text-4xl text-black/80 font-medium tracking-tighter w-full lg:w-[28%]">
-            Our Features
+            Our Fundamentals
           </h5>
           <p className="text-black/75 text-lg sm:text-xl md:text-2xl tracking-tighter w-full lg:w-[68%]">
-            Beyond the basics, we&apos;ve built a comprehensive suite of tools designed to transform how you work. Each feature is crafted to deliver measurable results and drive your business forward.
+            Randomness is not an option; every part of our process is methodical and designed to make working with us a seamless yet unforgettable experience. Each remodeler can and should expect the highest standards when it comes to our services.
           </p>
         </div>
 
@@ -247,15 +314,15 @@ const WhyChooseUs = () => {
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-5 md:gap-6">
               <div>
                 <div className="text-3xl sm:text-4xl md:text-5xl font-medium text-black/85 tracking-tighter">850+</div>
-                <div className="text-sm sm:text-base md:text-lg text-black/50 tracking-tighter mt-1">Contractors</div>
+                <div className="text-sm sm:text-base md:text-lg text-black/50 tracking-tighter mt-1">Finished Renderings</div>
               </div>
               <div>
                 <div className="text-3xl sm:text-4xl md:text-5xl font-medium text-black/85 tracking-tighter">98%</div>
                 <div className="text-sm sm:text-base md:text-lg text-black/50 tracking-tighter mt-1">Satisfaction</div>
               </div>
               <div>
-                <div className="text-3xl sm:text-4xl md:text-5xl font-medium text-black/85 tracking-tighter">3.2M</div>
-                <div className="text-sm sm:text-base md:text-lg text-black/50 tracking-tighter mt-1">Revenue Generated</div>
+                <div className="text-3xl sm:text-4xl md:text-5xl font-medium text-black/85 tracking-tighter">68</div>
+                <div className="text-sm sm:text-base md:text-lg text-black/50 tracking-tighter mt-1">Remote Employees</div>
               </div>
               <div>
                 <div className="text-3xl sm:text-4xl md:text-5xl font-medium text-black/85 tracking-tighter">48</div>
@@ -304,7 +371,7 @@ const WhyChooseUs = () => {
               </div>
               <div className="space-y-1.5 sm:space-y-2">
                 <div className="flex justify-between text-sm sm:text-base md:text-lg items-center">
-                  <span className="text-black/70">CRM included</span>
+                  <span className="text-black/70">CRM Online</span>
                   <motion.div
                     className="w-2 h-2 rounded-full"
                     initial={{
@@ -329,7 +396,7 @@ const WhyChooseUs = () => {
                   />
                 </div>
                 <div className="flex justify-between text-sm sm:text-base md:text-lg items-center">
-                  <span className="text-black/70">Design tools</span>
+                  <span className="text-black/70">Website Live</span>
                   <motion.div
                     className="w-2 h-2 rounded-full"
                     initial={{
@@ -354,7 +421,7 @@ const WhyChooseUs = () => {
                   />
                 </div>
                 <div className="flex justify-between text-sm sm:text-base md:text-lg items-center">
-                  <span className="text-black/70">Free website</span>
+                  <span className="text-black/70">Rendering Processed</span>
                   <motion.div
                     className="w-2 h-2 rounded-full"
                     initial={{
@@ -476,10 +543,44 @@ const WhyChooseUs = () => {
                 We&apos;re here when you need us
               </p>
             </div>
+
+            {/* Chat Animation */}
+            <div ref={chatRef} className="flex flex-col gap-3 mb-6">
+              <AnimatePresence>
+                {showChat && (
+                  <>
+                    {/* First message - Customer (left, WhatsApp green) */}
+                    <motion.div
+                      initial={{ opacity: 0, x: -20, scale: 0.8 }}
+                      animate={{ opacity: 1, x: 0, scale: 1 }}
+                      transition={{ duration: 0.4, ease: "easeOut", delay: 0.2 }}
+                      className="flex justify-start"
+                    >
+                      <div className="bg-[#DCF8C6] text-black px-4 py-2.5 rounded-2xl rounded-bl-sm max-w-[85%] shadow-sm">
+                        <p className="text-sm leading-relaxed">Hello, I need help with my CRM setup.</p>
+                      </div>
+                    </motion.div>
+
+                    {/* Second message - Support (right, gray) */}
+                    <motion.div
+                      initial={{ opacity: 0, x: 20, scale: 0.8 }}
+                      animate={{ opacity: 1, x: 0, scale: 1 }}
+                      transition={{ duration: 0.4, ease: "easeOut", delay: 1.0 }}
+                      className="flex justify-end"
+                    >
+                      <div className="bg-gray-200 text-black px-4 py-2.5 rounded-2xl rounded-br-sm max-w-[85%] shadow-sm">
+                        <p className="text-sm leading-relaxed">I&apos;m here to help. What specifically are you having difficulty with?</p>
+                      </div>
+                    </motion.div>
+                  </>
+                )}
+              </AnimatePresence>
+            </div>
+
             <div className="flex flex-col gap-4">
               <div className="flex items-center justify-between">
                 <span className="text-lg text-black/70">Response Time</span>
-                <span className="text-2xl font-medium text-black/80">&lt; 2hrs</span>
+                <span className="text-2xl font-medium text-black/80">&lt; 10mins</span>
               </div>
               <div className="w-full bg-black/10 rounded-full h-3 overflow-hidden">
                 <div className="bg-green-700 h-full rounded-full" style={{width: '95%'}}></div>
