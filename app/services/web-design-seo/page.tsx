@@ -7,51 +7,12 @@ import Footer from '@/app/components/Footer'
 import ServicesSection from '../service'
 import { ServiceItem } from '@/app/types/service'
 import React from 'react'
-import Testimonials, { Testimonial } from '@/app/components/Testimonials'
+import Testimonials from '@/app/components/Testimonials'
 import FAQ from '@/app/components/FAQ'
 import StickyNavigation from '@/app/components/StickyNavigation'
 import KeyFeatures from '@/app/components/KeyFeatures'
 import WhyLatticeWebSuite from '@/app/components/WhyLatticeWebSuite'
 import { Globe, Search, TrendingUp } from 'lucide-react'
-
-const webSeoTestimonials: Testimonial[] = [
-  {
-    id: 1,
-    body: "FREE website with CRM? I was skeptical, but it\'s better than the $8K site I paid for last year. Ranks #1 for \'kitchen remodeling near me\' and generates 40+ leads monthly. The CRM integration is seamless.",
-    clientName: "Michael Stevens",
-    clientCompany: "Stevens Home Improvements"
-  },
-  {
-    id: 2,
-    body: "Our Lattice website generates more leads than Angi and Houzz combined. The SEO actually works - we show up for every local search. Forms go straight to CRM, no manual entry. Game changer.",
-    clientName: "Patricia Kim",
-    clientCompany: "Kim Construction Group"
-  },
-  {
-    id: 3,
-    body: "Went from page 5 on Google to top 3 in four months. The website speed is incredible, mobile experience is flawless, and the portfolio integration with 3D renderings blows clients away.",
-    clientName: "Carlos Rodriguez",
-    clientCompany: "Rodriguez Builders LLC"
-  },
-  {
-    id: 4,
-    body: "The instant quote calculator on our site pre-qualifies leads perfectly. Only serious inquiries come through. Conversion tracking shows exactly which pages and keywords drive revenue. Data-driven growth.",
-    clientName: "Amanda Foster",
-    clientCompany: "Foster Design Build"
-  },
-  {
-    id: 5,
-    body: "Having website, CRM, and digital showroom all connected is powerful. Client browses portfolio, submits form, automatically enters CRM pipeline, gets instant follow-up. We look so professional.",
-    clientName: "Jason Park",
-    clientCompany: "Park Renovation Experts"
-  },
-  {
-    id: 6,
-    body: "The local SEO optimization is unreal. We dominate \'contractor near me\' searches in our entire service area. Reviews automatically display, projects update from CRM. It runs itself while generating leads.",
-    clientName: "Rebecca Chen",
-    clientCompany: "Chen Custom Homes"
-  }
-];
 
 const webSeoServices: ServiceItem[] = [
   {

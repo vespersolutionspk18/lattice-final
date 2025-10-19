@@ -2,12 +2,12 @@
 
 import React, { useEffect, useState, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Check, X, Zap, Shield, Palette, TrendingUp, Users, Globe, Info, Box, Award } from 'lucide-react'
+import { Check, X, Zap, Shield, TrendingUp, Users, Globe, Info, Box, Award } from 'lucide-react'
 import LogoTestSmall from '../components/LogoTestSmall'
 
 interface ComparisonFeature {
   icon: React.ComponentType<{ className?: string }>;
-  title: string;
+  title: string | React.ReactNode;
   description: string;
   lattice: boolean | "partial";
   competitors: boolean | "partial";
@@ -148,13 +148,14 @@ const WhyChooseUs = () => {
       { threshold: 0.3 }
     )
 
-    if (statsCardRef.current) {
-      observer.observe(statsCardRef.current)
+    const currentRef = statsCardRef.current
+    if (currentRef) {
+      observer.observe(currentRef)
     }
 
     return () => {
-      if (statsCardRef.current) {
-        observer.unobserve(statsCardRef.current)
+      if (currentRef) {
+        observer.unobserve(currentRef)
       }
     }
   }, [])
@@ -176,13 +177,14 @@ const WhyChooseUs = () => {
       { threshold: 0.5 }
     )
 
-    if (chatRef.current) {
-      observer.observe(chatRef.current)
+    const currentRef = chatRef.current
+    if (currentRef) {
+      observer.observe(currentRef)
     }
 
     return () => {
-      if (chatRef.current) {
-        observer.unobserve(chatRef.current)
+      if (currentRef) {
+        observer.unobserve(currentRef)
       }
     }
   }, [])

@@ -7,54 +7,12 @@ import Footer from '@/app/components/Footer'
 import ServicesSection from '../service'
 import { ServiceItem } from '@/app/types/service'
 import React from 'react'
-import Testimonials, { Testimonial } from '@/app/components/Testimonials'
+import Testimonials from '@/app/components/Testimonials'
 import FAQ from '@/app/components/FAQ'
 import StickyNavigation from '@/app/components/StickyNavigation'
 import KeyFeatures from '@/app/components/KeyFeatures'
 import WhyLattice from '@/app/components/WhyLattice'
 import { Users, CircleDollarSign, Building } from 'lucide-react'
-
-// Note: For SEO metadata in Next.js App Router with Client Components,
-// create a separate metadata.ts or layout.tsx file in this directory
-
-const designTestimonials: Testimonial[] = [
-  {
-    id: 1,
-    body: "Lattice's design tools have revolutionized our sales process. We close 70% more deals when clients see their project in 3D. The permit-ready plans save us weeks of back-and-forth with architects.",
-    clientName: "Michael Torres",
-    clientCompany: "Torres Construction LLC"
-  },
-  {
-    id: 2,
-    body: "The AI designer generates multiple concepts in minutes, not days. Our clients love having options, and we've increased our average project value by 40% using Lattice's visualization tools.",
-    clientName: "Amanda Richardson",
-    clientCompany: "Richardson Remodeling"
-  },
-  {
-    id: 3,
-    body: "Professional plans at a fraction of traditional architect costs. We can now offer design services as a value-add, setting us apart from competitors who just show up with a sketch.",
-    clientName: "David Kim",
-    clientCompany: "Premier Home Solutions"
-  },
-  {
-    id: 4,
-    body: "The 4K cinematic videos we get with each rendering are game-changers. Posted one on social media and got 8 qualified leads within a week. This pays for itself instantly.",
-    clientName: "Carlos Martinez",
-    clientCompany: "Martinez Custom Homes"
-  },
-  {
-    id: 5,
-    body: "Lattice handles all the technical drawings we need for permits. What used to take 3 weeks now takes 3 days. We're completing more projects per year with the same crew.",
-    clientName: "Jason Wright",
-    clientCompany: "Wright Way Builders"
-  },
-  {
-    id: 6,
-    body: "The design library saves us hours on every project. Drag-and-drop kitchens, bathrooms, additions – all customizable. Our designers focus on selling, not drawing from scratch.",
-    clientName: "Sandra Lee",
-    clientCompany: "Lee & Associates Contractors"
-  }
-];
 
 const homeDesignServices: ServiceItem[] = [
   {

@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Button from "../components/Button";
-import FrostedGlass from "../components/FrostedGlass";
 import { ArrowRight } from "lucide-react";
 
 interface HeroProps {
@@ -27,7 +26,6 @@ interface HeroProps {
 const Hero = ({
   preHeader,
   headline = "Revolutionising Home Remodeling for Contractors",
-  subtitle = "Your complete B2B solution for design, CRM, and digital tools to grow your remodeling business.",
   backgroundStyle,
   height = "760px",
   showARVRBanner = true,

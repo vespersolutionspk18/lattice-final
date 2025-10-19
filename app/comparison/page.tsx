@@ -3,7 +3,7 @@
 import Header from '@/app/components/Header'
 import Footer from '@/app/components/Footer'
 import React, { useEffect, useRef, useState } from 'react'
-import { Check, X, Zap, Shield, Palette, TrendingUp, Users, Globe, Info, Box, Award } from 'lucide-react'
+import { Check, X, Zap, Shield, TrendingUp, Users, Globe, Info, Box, Award } from 'lucide-react'
 import LogoTestSmall from '../components/LogoTestSmall'
 import LogoTest from '../components/LogoTest'
 

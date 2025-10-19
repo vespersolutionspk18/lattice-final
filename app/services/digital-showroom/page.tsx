@@ -7,51 +7,12 @@ import Footer from '@/app/components/Footer'
 import ServicesSection from '../service'
 import { ServiceItem } from '@/app/types/service'
 import React from 'react'
-import Testimonials, { Testimonial } from '@/app/components/Testimonials'
+import Testimonials from '@/app/components/Testimonials'
 import FAQ from '@/app/components/FAQ'
 import StickyNavigation from '@/app/components/StickyNavigation'
 import KeyFeatures from '@/app/components/KeyFeatures'
 import WhyLattice from '@/app/components/WhyLattice'
 import { Brain, Zap, TrendingUp } from 'lucide-react'
-
-const showroomTestimonials: Testimonial[] = [
-  {
-    id: 1,
-    body: "Our digital showroom generates leads while we sleep. Clients spend 20+ minutes browsing, save their favorites, and come to meetings knowing exactly what they want. Conversations start at \'how\' not \'if\'.",
-    clientName: "David Park",
-    clientCompany: "Park Home Solutions"
-  },
-  {
-    id: 2,
-    body: "No more lugging samples to every appointment. Clients explore materials online, build mood boards, and share with spouses. By the time we meet, they\'re emotionally invested and ready to move forward.",
-    clientName: "Michelle Roberts",
-    clientCompany: "Roberts Renovation Group"
-  },
-  {
-    id: 3,
-    body: "The analytics are eye-opening. I see which projects get the most views, what materials clients prefer, and how long they browse. This data helps me stock the right materials and showcase trending styles.",
-    clientName: "James Wilson",
-    clientCompany: "Wilson Custom Builders"
-  },
-  {
-    id: 4,
-    body: "Clients love the AR feature - they can visualize materials in their actual space using their phone. Had a client choose premium hardwood after seeing it in AR. That upgrade alone paid for Lattice for a year.",
-    clientName: "Angela Martinez",
-    clientCompany: "Martinez Design & Build"
-  },
-  {
-    id: 5,
-    body: "It\'s like having a showroom without the overhead. Showcase unlimited products, update instantly, and track what converts. We closed our physical showroom and doubled our reach with the digital one.",
-    clientName: "Christopher Lee",
-    clientCompany: "Lee Brothers Construction"
-  },
-  {
-    id: 6,
-    body: "The wishlist feature is brilliant. Clients save favorites, I get notified, and can prepare perfect quotes before we meet. It\'s like they\'re pre-selling themselves. Close rate went from 25% to 60%.",
-    clientName: "Nicole Foster",
-    clientCompany: "Foster Interiors & Remodeling"
-  }
-];
 
 const showroomServices: ServiceItem[] = [
   {

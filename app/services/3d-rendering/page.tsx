@@ -7,51 +7,12 @@ import Footer from '@/app/components/Footer'
 import ServicesSection from '../service'
 import { ServiceItem } from '@/app/types/service'
 import React from 'react'
-import Testimonials, { Testimonial } from '@/app/components/Testimonials'
+import Testimonials from '@/app/components/Testimonials'
 import FAQ from '@/app/components/FAQ'
 import StickyNavigation from '@/app/components/StickyNavigation'
 import KeyFeatures from '@/app/components/KeyFeatures'
 import WhyLattice from '@/app/components/WhyLattice'
 import { Clock, CircleDollarSign, Glasses } from 'lucide-react'
-
-const renderingTestimonials: Testimonial[] = [
-  {
-    id: 1,
-    body: "The 3D renderings sell themselves! We show clients their exact kitchen before demo day. Close rate went from 30% to 85%. The free 4K video alone has generated $150K in new business from Instagram.",
-    clientName: "Steve Patterson",
-    clientCompany: "Patterson Renovations"
-  },
-  {
-    id: 2,
-    body: "24-hour turnaround is unreal. Client meeting on Tuesday, gorgeous renderings by Wednesday, contract signed Thursday. Lattice's 3D tools have literally transformed how we sell remodels.",
-    clientName: "Maria Gonzalez",
-    clientCompany: "Gonzalez Custom Builders"
-  },
-  {
-    id: 3,
-    body: "We charge $500-1500 for 3D visualization packages using Lattice. Clients happily pay premium prices because they can see exactly what they're getting. The renderings basically sell themselves.",
-    clientName: "Ryan Thompson",
-    clientCompany: "Thompson & Associates"
-  },
-  {
-    id: 4,
-    body: "The ability to show different material options in real-time is a game-changer. Clients upgrade to premium finishes when they see how good it looks. Average project value up 45%.",
-    clientName: "Jennifer Park",
-    clientCompany: "Park Construction Group"
-  },
-  {
-    id: 5,
-    body: "Posted one 4K walkthrough video and got 12 qualified leads in 48 hours. The production quality rivals what agencies charge thousands for. This feature alone pays for Lattice 10x over.",
-    clientName: "Marcus Williams",
-    clientCompany: "Williams Remodeling Co."
-  },
-  {
-    id: 6,
-    body: "Virtual reality walkthroughs on tablets close deals on the spot. No more 'let me think about it.' When clients see their future bathroom in 3D, they're ready to sign immediately.",
-    clientName: "Ashley Chen",
-    clientCompany: "Chen Design Build"
-  }
-];
 
 const renderingServices: ServiceItem[] = [
   {

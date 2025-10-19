@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { FileText, Clock, Users, DollarSign, Database, Globe, TrendingUp } from "lucide-react";
+import { Users, DollarSign, Database, Globe, TrendingUp } from "lucide-react";
 import { motion } from "framer-motion";
 
 const PurpleBoxSection = () => {

@@ -7,52 +7,13 @@ import Footer from '@/app/components/Footer'
 import ServicesSection from '../service'
 import { ServiceItem } from '@/app/types/service'
 import React from 'react'
-import Testimonials, { Testimonial } from '@/app/components/Testimonials'
+import Testimonials from '@/app/components/Testimonials'
 import FAQ from '@/app/components/FAQ'
 import StickyNavigation from '@/app/components/StickyNavigation'
 import KeyFeatures from '@/app/components/KeyFeatures'
 import WhyLatticeCRM from '@/app/components/WhyLatticeCRM'
 import IntegrationsTicker from '@/app/components/IntegrationsTicker'
 import { Hammer, Layers, TrendingUp } from 'lucide-react'
-
-const crmTestimonials: Testimonial[] = [
-  {
-    id: 1,
-    body: "Before Lattice CRM, I was losing 30% of leads in email and text threads. Now everything's automated - follow-ups, quotes, scheduling. We've grown from 6 to 18 employees in one year, all managed through the platform.",
-    clientName: "Daniel Rodriguez",
-    clientCompany: "Rodriguez Home Improvements"
-  },
-  {
-    id: 2,
-    body: "The automated payment system alone saves me 10 hours a week. Clients pay deposits online, progress payments trigger automatically, and I can see cash flow in real-time. No more chasing checks!",
-    clientName: "Kevin O'Brien",
-    clientCompany: "O'Brien Custom Builders"
-  },
-  {
-    id: 3,
-    body: "Lead scoring and automation changed everything. Hot leads get instant responses, quotes go out automatically, and my team knows exactly who to call first. Conversion rate up 65% in 6 months.",
-    clientName: "Lisa Chang",
-    clientCompany: "Chang Construction Co."
-  },
-  {
-    id: 4,
-    body: "Managing multiple crews across 15+ active projects used to be chaos. Now scheduling, materials, and progress tracking all happen in one place. Everything is accessible from any device, anywhere.",
-    clientName: "Frank Martinez",
-    clientCompany: "Martinez Brothers Building"
-  },
-  {
-    id: 5,
-    body: "The best part? It actually works how contractors work. Not some generic CRM we have to fight with. From first call to final invoice, everything flows naturally. Plus we got a FREE website!",
-    clientName: "Tom Anderson",
-    clientCompany: "Anderson Remodeling Group"
-  },
-  {
-    id: 6,
-    body: "ROI was immediate. Stopped losing leads, started closing more deals, eliminated double-booking. The analytics show exactly where our business comes from. Essential tool for scaling.",
-    clientName: "Rachel Foster",
-    clientCompany: "Foster Design Build"
-  }
-];
 
 const crmServices: ServiceItem[] = [
   {
@@ -130,28 +91,6 @@ const CRMPage = () => {
     // Add navigation or modal logic here
   }
 
-  const gradientBackground = {
-    background: `
-      linear-gradient(180deg,
-        rgba(34, 197, 94, 0) 0%,
-        rgba(34, 197, 94, 0) 30%,
-        rgba(34, 197, 94, 0.15) 50%,
-        rgba(34, 197, 94, 0) 70%
-      ),
-      radial-gradient(ellipse 120% 80% at 50% 100%,
-        #22c55e 0%,
-        #16a34a 25%,
-        #166534 50%,
-        #166534 65%,
-        #166534 80%,
-        #14532d 100%
-      ),
-      #000000
-    `,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-  };
-
   const navigationItems = [
     { id: 'key-features', label: 'Key Features' },
     { id: 'why-lattice', label: 'Why Lattice' },
@@ -215,7 +154,7 @@ const CRMPage = () => {
       />
       <main className="pt-[7.40rem] md:pt-[7.02rem]">
       <div id="hero">
-        <Hero gradientBackground={gradientBackground} />
+        <Hero />
       </div>
       <StickyNavigation items={navigationItems} accentColor="#166534" />
       <div id="key-features">

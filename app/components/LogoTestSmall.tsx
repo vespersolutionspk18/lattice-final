@@ -1,7 +1,6 @@
 'use client'
 
 import React, { useEffect, useRef } from 'react'
-import { gsap } from 'gsap'
 
 const LogoTestSmall: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null)

@@ -3,7 +3,6 @@
 import React, { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { motion } from 'framer-motion'
-import Button from '../../components/Button'
 import { HiArrowUpRight } from 'react-icons/hi2'
 
 interface Position {

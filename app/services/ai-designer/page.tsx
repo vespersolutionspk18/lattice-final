@@ -7,51 +7,12 @@ import Footer from '@/app/components/Footer'
 import ServicesSection from '../service'
 import { ServiceItem } from '@/app/types/service'
 import React from 'react'
-import Testimonials, { Testimonial } from '@/app/components/Testimonials'
+import Testimonials from '@/app/components/Testimonials'
 import FAQ from '@/app/components/FAQ'
 import StickyNavigation from '@/app/components/StickyNavigation'
 import KeyFeatures from '@/app/components/KeyFeatures'
 import WhyLatticeVisualizer from '@/app/components/WhyLatticeVisualizer'
 import { Sparkles, Zap, Palette } from 'lucide-react'
-
-const aiDesignerTestimonials: Testimonial[] = [
-  {
-    id: 1,
-    body: "Game-changer for consultations. I upload a photo during our meeting and show 5 different design directions instantly. Clients are blown away. What used to take a week of back-and-forth now happens in real-time.",
-    clientName: "Marcus Johnson",
-    clientCompany: "Johnson Renovations"
-  },
-  {
-    id: 2,
-    body: "The AI understands construction constraints. It doesn\'t suggest removing load-bearing walls or impossible layouts. Every design it generates is actually buildable, saving tons of revision time.",
-    clientName: "Sarah Mitchell",
-    clientCompany: "Mitchell Design Build"
-  },
-  {
-    id: 3,
-    body: "We use it for quick quotes. Client sends a photo, we run it through AI for design options, and send a ballpark estimate with visuals same day. Our response time beats every competitor.",
-    clientName: "Tony Deluca",
-    clientCompany: "Deluca Brothers Construction"
-  },
-  {
-    id: 4,
-    body: "The style variations are incredible. Modern, traditional, transitional, industrial – all from one photo. Helps clients who don\'t know what they want see possibilities. Upsells happen naturally.",
-    clientName: "Emma Thompson",
-    clientCompany: "Thompson Interiors & Remodeling"
-  },
-  {
-    id: 5,
-    body: "ROI is insane. Won a $200K whole-home remodel because I could show the vision faster than competitors. The AI designs were so good, the client hired us on the spot.",
-    clientName: "Robert Chen",
-    clientCompany: "Chen Custom Homes"
-  },
-  {
-    id: 6,
-    body: "It learns our style preferences. The more we use it, the better it gets at generating designs that match our brand. Feels like having a whole design team working 24/7.",
-    clientName: "Jessica Adams",
-    clientCompany: "Adams Architectural Remodeling"
-  }
-];
 
 const aiDesignerServices: ServiceItem[] = [
   {

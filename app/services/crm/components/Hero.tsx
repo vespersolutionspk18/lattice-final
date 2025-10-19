@@ -1,11 +1,7 @@
 "use client";
 import React from 'react'
 
-interface HeroProps {
-  gradientBackground?: React.CSSProperties;
-}
-
-const Hero: React.FC<HeroProps> = ({ gradientBackground }) => {
+const Hero: React.FC = () => {
   return (
   <div className="p-4 sm:p-6 md:p-8 lg:p-10 mt-16 sm:mt-20 md:mt-24 flex flex-col gap-8 sm:gap-12 md:gap-16">
         <div className="flex flex-col lg:flex-row gap-6 sm:gap-8 lg:gap-10 justify-between w-full" >
