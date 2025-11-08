@@ -15,7 +15,7 @@ interface WhyLatticeProps {
 
 const WhyLattice = ({ cards }: WhyLatticeProps) => {
   return (
-    <div className="py-16 px-10 bg-white">
+    <div className="py-8 sm:py-12 md:py-16 px-4 sm:px-6 md:px-8 lg:px-10 bg-white">
       {/* SVG Gradient Definition */}
       <svg width="0" height="0" style={{ position: 'absolute' }}>
         <defs>
@@ -55,18 +55,18 @@ const WhyLattice = ({ cards }: WhyLatticeProps) => {
 
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+        <div className="text-center mb-8 sm:mb-10 md:mb-12">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
             Why Lattice?
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto px-4">
             Nobody does home remodeling like we do. We&apos;re confident—here&apos;s why.
           </p>
         </div>
 
         {/* Cards Grid */}
-        <div className="relative mb-12">
-          <div className="grid grid-cols-3 gap-8">
+        <div className="relative mb-8 sm:mb-10 md:mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
             {cards.map((card, index) => (
               <div
                 key={index}
@@ -75,19 +75,19 @@ const WhyLattice = ({ cards }: WhyLatticeProps) => {
                 {/* Animated gradient border wrapper */}
                 <div className="relative p-[3px] rounded-2xl animated-gradient shadow-xl hover:shadow-2xl transition-shadow duration-300">
                   {/* Card content */}
-                  <div className="bg-white rounded-2xl p-8 h-[500px] flex flex-col items-center">
+                  <div className="bg-white rounded-2xl p-6 sm:p-8 min-h-[400px] sm:min-h-[450px] md:h-[500px] flex flex-col items-center">
                     {/* Icon with gradient */}
                     <card.icon
-                      size={48}
+                      size={40}
                       strokeWidth={1.5}
                       style={{ stroke: 'url(#blue-cyan-gradient-why)' }}
-                      className="mb-6"
+                      className="mb-4 sm:mb-6 sm:w-12 sm:h-12"
                     />
 
-                    <h3 className="text-2xl font-bold text-gray-900 mb-4 text-center">
+                    <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4 text-center">
                       {card.title}
                     </h3>
-                    <p className="text-gray-600 leading-relaxed text-center">
+                    <p className="text-sm sm:text-base text-gray-600 leading-relaxed text-center">
                       {card.description}
                     </p>
                   </div>
@@ -98,14 +98,14 @@ const WhyLattice = ({ cards }: WhyLatticeProps) => {
         </div>
 
         {/* CTA Button */}
-        <div className="flex justify-center">
-          <button className="group flex items-center gap-2 px-8 py-3 text-white rounded-full font-medium hover:shadow-lg transition-shadow duration-300"
+        <div className="flex justify-center px-4">
+          <button className="group flex items-center gap-2 px-6 sm:px-8 py-2.5 sm:py-3 text-sm sm:text-base text-white rounded-full font-medium hover:shadow-lg transition-shadow duration-300"
             style={{
               background: 'linear-gradient(to right, #6ce2ff 0%, #3b82f6 20%, #3b82f6 80%, #6ce2ff 100%)'
             }}>
             <span>Interested? Get more information</span>
             <svg
-              className="w-5 h-5 transition-transform group-hover:translate-x-1"
+              className="w-4 h-4 sm:w-5 sm:h-5 transition-transform group-hover:translate-x-1"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"

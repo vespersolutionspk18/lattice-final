@@ -143,10 +143,10 @@ const PurpleBoxSection = () => {
           </div>
 
           {/* Right Column - Visuals Section */}
-          <div className="relative pr-12 flex justify-end">
-            <div className="relative">
+          <div className="relative md:pr-12 flex justify-center md:justify-end">
+            <div className="relative w-full md:w-auto">
               {/* Main Application UI Screenshot */}
-              <div className="w-[500px] h-[336px] bg-gray-200 rounded-2xl overflow-hidden shadow-lg border border-black">
+              <div className="w-full md:w-[500px] h-[240px] md:h-[336px] bg-gray-200 rounded-2xl overflow-hidden shadow-lg border border-black">
                 <img
                   src="/assets/meeting.png"
                   alt="Video Meeting Interface"
@@ -155,7 +155,7 @@ const PurpleBoxSection = () => {
               </div>
 
               {/* Mobile Placeholder - Behind revenue, above main UI */}
-              <div className="absolute top-8 -right-16 h-[280px] w-[160px] bg-white border border-black rounded-2xl overflow-hidden shadow-lg z-0">
+              <div className="hidden md:block absolute top-8 -right-16 h-[280px] w-[160px] bg-white border border-black rounded-2xl overflow-hidden shadow-lg z-0">
                 <img
                   src="/assets/cad1.png"
                   alt="Floor Plan Design"
@@ -164,7 +164,7 @@ const PurpleBoxSection = () => {
               </div>
 
               {/* CAD Widget - Bottom Right overlapping */}
-              <div className="absolute bottom-0 -right-20 h-[150px] w-[250px] bg-white border border-black rounded-xl overflow-hidden shadow-lg z-10">
+              <div className="hidden md:block absolute bottom-0 -right-20 h-[150px] w-[250px] bg-white border border-black rounded-xl overflow-hidden shadow-lg z-10">
                 <img
                   src="/assets/cad2.png"
                   alt="3D Design View"
@@ -180,10 +180,10 @@ const PurpleBoxSection = () => {
       <div className="rounded-2xl md:rounded-4xl p-6 md:p-12 bg-white mt-6 md:mt-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-[67px] items-center">
           {/* Left Column - Visuals Section */}
-          <div className="relative pl-12 flex justify-start">
-            <div className="relative">
+          <div className="relative md:pl-12 flex justify-center md:justify-start order-2 md:order-1">
+            <div className="relative w-full md:w-auto">
               {/* Main Application UI Screenshot */}
-              <div className="w-[500px] h-[336px] bg-gray-200 rounded-2xl overflow-hidden shadow-lg border border-black">
+              <div className="w-full md:w-[500px] h-[240px] md:h-[336px] bg-gray-200 rounded-2xl overflow-hidden shadow-lg border border-black">
                 <img
                   src="/assets/magicai.png"
                   alt="AI Designer Interface"
@@ -192,7 +192,7 @@ const PurpleBoxSection = () => {
               </div>
 
               {/* Revenue Widget - Bottom Left overlapping */}
-              <div className="absolute bottom-0 -left-20 h-[224px] w-[373px] bg-white border border-black rounded-xl overflow-hidden shadow-lg">
+              <div className="hidden md:block absolute bottom-0 -left-20 h-[224px] w-[373px] bg-white border border-black rounded-xl overflow-hidden shadow-lg">
                 <img
                   src="/assets/showroom.png"
                   alt="Digital Showroom Interface"
@@ -203,7 +203,7 @@ const PurpleBoxSection = () => {
           </div>
 
           {/* Right Column - Content Section */}
-          <div className="flex flex-col gap-4 md:gap-[19px]">
+          <div className="flex flex-col gap-4 md:gap-[19px] order-1 md:order-2">
             {/* Header with Icon */}
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-full bg-[#3b82f6] flex items-center justify-center">

@@ -456,92 +456,92 @@ const WhyChooseUs = () => {
           </div>
 
           {/* Card 3: Process timeline - 1 col, 2 rows tall */}
-          <div className="col-span-1 row-span-2 bg-stone-200/40 rounded-3xl p-8 flex flex-col">
-            <h3 className="text-2xl font-medium tracking-tighter text-black/80 mb-3">
+          <div className="col-span-1 md:row-span-2 bg-stone-200/40 rounded-2xl sm:rounded-3xl p-5 sm:p-6 md:p-8 flex flex-col">
+            <h3 className="text-xl sm:text-2xl font-medium tracking-tighter text-black/80 mb-2 sm:mb-3">
               Growth Journey
             </h3>
-            <p className="text-xl text-black/60 tracking-tighter mb-8">
+            <p className="text-lg sm:text-xl text-black/60 tracking-tighter mb-6 sm:mb-8">
               Scale your business with Lattice
             </p>
-            <div className="flex-1 flex flex-col justify-between">
-              <div className="flex gap-4 group">
+            <div className="flex-1 flex flex-col justify-between gap-4 sm:gap-0">
+              <div className="flex gap-3 sm:gap-4 group">
                 <div className="flex flex-col items-center">
-                  <div className="w-12 h-12 bg-pink-400 rounded-full flex items-center justify-center text-black font-medium transition-all duration-300 group-hover:bg-pink-400/50 group-hover:scale-110">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-pink-400 rounded-full flex items-center justify-center text-black font-medium transition-all duration-300 group-hover:bg-pink-400/50 group-hover:scale-110">
                     1
                   </div>
-                  <div className="w-0.5 h-20 bg-black/20"></div>
+                  <div className="w-0.5 h-16 sm:h-20 bg-black/20"></div>
                 </div>
                 <div className="flex-1">
-                  <h4 className="text-xl font-medium text-black/75 group-hover:text-black transition-colors">Onboard</h4>
-                  <p className="text-lg text-black/50 mt-1">Quick setup & training</p>
-                  <div className="mt-2 text-xs text-black/40 tracking-tight">CRM setup • Tool access</div>
+                  <h4 className="text-lg sm:text-xl font-medium text-black/75 group-hover:text-black transition-colors">Onboard</h4>
+                  <p className="text-base sm:text-lg text-black/50 mt-1">Quick setup & training</p>
+                  <div className="mt-1 sm:mt-2 text-xs text-black/40 tracking-tight">CRM setup • Tool access</div>
                 </div>
               </div>
 
-              <div className="flex gap-4 group">
+              <div className="flex gap-3 sm:gap-4 group">
                 <div className="flex flex-col items-center">
-                  <div className="w-12 h-12 bg-orange-400 rounded-full flex items-center justify-center text-black font-medium transition-all duration-300 group-hover:bg-orange-400/50 group-hover:scale-110">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-orange-400 rounded-full flex items-center justify-center text-black font-medium transition-all duration-300 group-hover:bg-orange-400/50 group-hover:scale-110">
                     2
                   </div>
-                  <div className="w-0.5 h-20 bg-black/20"></div>
+                  <div className="w-0.5 h-16 sm:h-20 bg-black/20"></div>
                 </div>
                 <div className="flex-1">
-                  <h4 className="text-xl font-medium text-black/75 group-hover:text-black transition-colors">Design</h4>
-                  <p className="text-lg text-black/50 mt-1">Create stunning proposals</p>
-                  <div className="mt-2 text-xs text-black/40 tracking-tight">3D renders • AI assistance</div>
+                  <h4 className="text-lg sm:text-xl font-medium text-black/75 group-hover:text-black transition-colors">Design</h4>
+                  <p className="text-base sm:text-lg text-black/50 mt-1">Create stunning proposals</p>
+                  <div className="mt-1 sm:mt-2 text-xs text-black/40 tracking-tight">3D renders • AI assistance</div>
                 </div>
               </div>
 
-              <div className="flex gap-4 group">
+              <div className="flex gap-3 sm:gap-4 group">
                 <div className="flex flex-col items-center">
-                  <div className="w-12 h-12 bg-yellow-300 rounded-full flex items-center justify-center text-black font-medium transition-all duration-300 group-hover:bg-yellow-300/50 group-hover:scale-110">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-yellow-300 rounded-full flex items-center justify-center text-black font-medium transition-all duration-300 group-hover:bg-yellow-300/50 group-hover:scale-110">
                     3
                   </div>
-                  <div className="w-0.5 h-20 bg-black/20"></div>
+                  <div className="w-0.5 h-16 sm:h-20 bg-black/20"></div>
                 </div>
                 <div className="flex-1">
-                  <h4 className="text-xl font-medium text-black/75 group-hover:text-black transition-colors">Manage</h4>
-                  <p className="text-lg text-black/50 mt-1">Streamline operations</p>
-                  <div className="mt-2 text-xs text-black/40 tracking-tight">CRM tracking • Automation</div>
+                  <h4 className="text-lg sm:text-xl font-medium text-black/75 group-hover:text-black transition-colors">Manage</h4>
+                  <p className="text-base sm:text-lg text-black/50 mt-1">Streamline operations</p>
+                  <div className="mt-1 sm:mt-2 text-xs text-black/40 tracking-tight">CRM tracking • Automation</div>
                 </div>
               </div>
 
-              <div className="flex gap-4 group">
+              <div className="flex gap-3 sm:gap-4 group">
                 <div className="flex flex-col items-center">
-                  <div className="w-12 h-12 bg-green-400 rounded-full flex items-center justify-center text-black font-medium transition-all duration-300 group-hover:bg-green-400/50 group-hover:scale-110">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-green-400 rounded-full flex items-center justify-center text-black font-medium transition-all duration-300 group-hover:bg-green-400/50 group-hover:scale-110">
                     4
                   </div>
-                  <div className="w-0.5 h-20 bg-black/20"></div>
+                  <div className="w-0.5 h-16 sm:h-20 bg-black/20"></div>
                 </div>
                 <div className="flex-1">
-                  <h4 className="text-xl font-medium text-black/75 group-hover:text-black transition-colors">Market</h4>
-                  <p className="text-lg text-black/50 mt-1">Attract more clients</p>
-                  <div className="mt-2 text-xs text-black/40 tracking-tight">SEO website • Showroom</div>
+                  <h4 className="text-lg sm:text-xl font-medium text-black/75 group-hover:text-black transition-colors">Market</h4>
+                  <p className="text-base sm:text-lg text-black/50 mt-1">Attract more clients</p>
+                  <div className="mt-1 sm:mt-2 text-xs text-black/40 tracking-tight">SEO website • Showroom</div>
                 </div>
               </div>
 
-              <div className="flex gap-4 group">
+              <div className="flex gap-3 sm:gap-4 group">
                 <div className="flex flex-col items-center">
-                  <div className="w-12 h-12 bg-highlighter-green rounded-full flex items-center justify-center text-white font-medium transition-all duration-300 group-hover:bg-highlighter-green/30 group-hover:scale-110 group-hover:ring-2 group-hover:ring-highlighter-green/20 group-hover:ring-offset-2">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-highlighter-green rounded-full flex items-center justify-center text-white font-medium transition-all duration-300 group-hover:bg-highlighter-green/30 group-hover:scale-110 group-hover:ring-2 group-hover:ring-highlighter-green/20 group-hover:ring-offset-2">
                     5
                   </div>
                 </div>
                 <div className="flex-1">
-                  <h4 className="text-xl font-medium text-black/75 group-hover:text-black transition-colors">Scale</h4>
-                  <p className="text-lg text-black/50 mt-1">Grow exponentially</p>
-                  <div className="mt-2 text-xs text-black/40 tracking-tight">More projects • Higher revenue</div>
+                  <h4 className="text-lg sm:text-xl font-medium text-black/75 group-hover:text-black transition-colors">Scale</h4>
+                  <p className="text-base sm:text-lg text-black/50 mt-1">Grow exponentially</p>
+                  <div className="mt-1 sm:mt-2 text-xs text-black/40 tracking-tight">More projects • Higher revenue</div>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Card 4: Real-time availability - 1 col */}
-          <div className="col-span-1 row-span-1 bg-stone-200/40 rounded-3xl p-8 flex flex-col justify-between">
+          <div className="col-span-1 row-span-1 bg-stone-200/40 rounded-2xl sm:rounded-3xl p-5 sm:p-6 md:p-8 flex flex-col justify-between">
             <div>
-              <h3 className="text-2xl font-medium tracking-tighter text-black/80 mb-3">
+              <h3 className="text-xl sm:text-2xl font-medium tracking-tighter text-black/80 mb-2 sm:mb-3">
                 24/7 Support
               </h3>
-              <p className="text-xl text-black/60 tracking-tighter mb-6">
+              <p className="text-lg sm:text-xl text-black/60 tracking-tighter mb-4 sm:mb-6">
                 We&apos;re here when you need us
               </p>
             </div>
@@ -579,79 +579,79 @@ const WhyChooseUs = () => {
               </AnimatePresence>
             </div>
 
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-3 sm:gap-4">
               <div className="flex items-center justify-between">
-                <span className="text-lg text-black/70">Response Time</span>
-                <span className="text-2xl font-medium text-black/80">&lt; 10mins</span>
+                <span className="text-base sm:text-lg text-black/70">Response Time</span>
+                <span className="text-xl sm:text-2xl font-medium text-black/80">&lt; 10mins</span>
               </div>
-              <div className="w-full bg-black/10 rounded-full h-3 overflow-hidden">
+              <div className="w-full bg-black/10 rounded-full h-2.5 sm:h-3 overflow-hidden">
                 <div className="bg-green-700 h-full rounded-full" style={{width: '95%'}}></div>
               </div>
-              <div className="grid grid-cols-3 gap-2 mt-2">
+              <div className="grid grid-cols-3 gap-2 mt-1 sm:mt-2">
                 <div className="text-center">
-                  <div className="text-sm text-black/50">Mon-Fri</div>
-                  <div className="text-lg font-medium text-black/70">24/7</div>
+                  <div className="text-xs sm:text-sm text-black/50">Mon-Fri</div>
+                  <div className="text-base sm:text-lg font-medium text-black/70">24/7</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-sm text-black/50">Weekend</div>
-                  <div className="text-lg font-medium text-black/70">On-call</div>
+                  <div className="text-xs sm:text-sm text-black/50">Weekend</div>
+                  <div className="text-base sm:text-lg font-medium text-black/70">On-call</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-sm text-black/50">Emergency</div>
-                  <div className="text-lg font-medium text-black/70">Always</div>
+                  <div className="text-xs sm:text-sm text-black/50">Emergency</div>
+                  <div className="text-base sm:text-lg font-medium text-black/70">Always</div>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Card 5: Sustainability focus - 1 col */}
-          <div className="col-span-1 row-span-1 bg-stone-200/40 rounded-3xl p-8 flex flex-col justify-between">
+          <div className="col-span-1 row-span-1 bg-stone-200/40 rounded-2xl sm:rounded-3xl p-5 sm:p-6 md:p-8 flex flex-col justify-between">
             <div>
-              <h3 className="text-2xl font-medium tracking-tighter text-black/80 mb-3">
+              <h3 className="text-xl sm:text-2xl font-medium tracking-tighter text-black/80 mb-2 sm:mb-3">
                 ROI Focused
               </h3>
-              <p className="text-xl text-black/60 tracking-tighter mb-6">
+              <p className="text-lg sm:text-xl text-black/60 tracking-tighter mb-4 sm:mb-6">
                 Maximize your returns
               </p>
             </div>
-            <div className="space-y-4">
+            <div className="space-y-3 sm:space-y-4">
               <div className="flex justify-between items-center">
-                <span className="text-lg text-black/70">Lead Quality</span>
+                <span className="text-base sm:text-lg text-black/70">Lead Quality</span>
                 <div className="flex gap-1">
-                  <div className="w-8 h-8 bg-highlighter-green/40 rounded-full"></div>
-                  <div className="w-8 h-8 bg-highlighter-green/60 rounded-full"></div>
-                  <div className="w-8 h-8 bg-highlighter-green/80 rounded-full"></div>
+                  <div className="w-6 h-6 sm:w-8 sm:h-8 bg-highlighter-green/40 rounded-full"></div>
+                  <div className="w-6 h-6 sm:w-8 sm:h-8 bg-highlighter-green/60 rounded-full"></div>
+                  <div className="w-6 h-6 sm:w-8 sm:h-8 bg-highlighter-green/80 rounded-full"></div>
                 </div>
               </div>
               <div className="flex justify-between items-center">
-                <span className="text-lg text-black/70">Close Rate</span>
-                <span className="text-2xl font-medium text-black/80">+42%</span>
+                <span className="text-base sm:text-lg text-black/70">Close Rate</span>
+                <span className="text-xl sm:text-2xl font-medium text-black/80">+42%</span>
               </div>
               <div className="flex justify-between items-center">
-                <span className="text-lg text-black/70">Profit Increase</span>
-                <span className="text-2xl font-medium text-black/80">35%</span>
+                <span className="text-base sm:text-lg text-black/70">Profit Increase</span>
+                <span className="text-xl sm:text-2xl font-medium text-black/80">35%</span>
               </div>
-              <div className="pt-4 border-t border-black/10">
-                <div className="text-sm text-black/50">Average ROI</div>
-                <div className="text-3xl font-medium text-stone-800 mt-1">3.8x</div>
+              <div className="pt-3 sm:pt-4 border-t border-black/10">
+                <div className="text-xs sm:text-sm text-black/50">Average ROI</div>
+                <div className="text-2xl sm:text-3xl font-medium text-stone-800 mt-1">3.8x</div>
               </div>
             </div>
           </div>
 
           {/* Card 6: Real-time updates - 2 cols */}
-          <div className="col-span-2 row-span-1 bg-stone-200/40 rounded-3xl p-8 flex flex-col justify-between relative">
+          <div className="col-span-1 md:col-span-2 row-span-1 bg-stone-200/40 rounded-2xl sm:rounded-3xl p-5 sm:p-6 md:p-8 flex flex-col justify-between relative">
             <div>
-              <h3 className="text-2xl font-medium tracking-tighter text-black/80 mb-3">
+              <h3 className="text-xl sm:text-2xl font-medium tracking-tighter text-black/80 mb-2 sm:mb-3">
                 Live Business Dashboard
               </h3>
-              <p className="text-xl text-black/60 tracking-tighter">
+              <p className="text-lg sm:text-xl text-black/60 tracking-tighter">
                 Track your success in real-time
               </p>
             </div>
             
             {/* Fixed height container */}
-            <div className="relative h-[160px] overflow-hidden">
-              <div className="flex flex-col gap-2">
+            <div className="relative h-[140px] sm:h-[160px] overflow-hidden">
+              <div className="flex flex-col gap-1.5 sm:gap-2">
                 <AnimatePresence mode="popLayout">
                   {visibleNotifications.map((notification, index) => (
                     <motion.div
@@ -670,16 +670,16 @@ const WhyChooseUs = () => {
                         damping: 25,
                       }}
                     >
-                      <div className={`${notification.color} border border-black/5 rounded-lg p-2`}>
-                        <div className="flex justify-between items-center">
-                          <div className="flex items-center gap-3">
-                            <div>
-                              <h4 className="text-sm font-medium text-black/80">{notification.title}</h4>
-                              <p className="text-xs text-black/50">{notification.message}</p>
+                      <div className={`${notification.color} border border-black/5 rounded-lg p-2 sm:p-2.5`}>
+                        <div className="flex justify-between items-center gap-2">
+                          <div className="flex items-center gap-2 sm:gap-3 flex-1 min-w-0">
+                            <div className="flex-1 min-w-0">
+                              <h4 className="text-xs sm:text-sm font-medium text-black/80 truncate">{notification.title}</h4>
+                              <p className="text-xs text-black/50 truncate">{notification.message}</p>
                             </div>
-                            {index === 0 && <div className="w-1.5 h-1.5 bg-highlighter-green rounded-full animate-pulse"></div>}
+                            {index === 0 && <div className="w-1.5 h-1.5 bg-highlighter-green rounded-full animate-pulse flex-shrink-0"></div>}
                           </div>
-                          <span className="text-xs text-black/40">{notification.time}</span>
+                          <span className="text-xs text-black/40 flex-shrink-0">{notification.time}</span>
                         </div>
                       </div>
                     </motion.div>
@@ -688,11 +688,11 @@ const WhyChooseUs = () => {
               </div>
               
               {/* Gradient fade at bottom */}
-              <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-stone-200/75 to-transparent pointer-events-none"></div>
+              <div className="absolute bottom-0 left-0 right-0 h-16 sm:h-20 bg-gradient-to-t from-stone-200/75 to-transparent pointer-events-none"></div>
             </div>
-            
-            <div className="flex justify-between items-center">
-              <span className="text-sm text-black/50">Live project tracking</span>
+
+            <div className="flex justify-between items-center mt-3 sm:mt-0">
+              <span className="text-xs sm:text-sm text-black/50">Live project tracking</span>
               <div className="flex gap-1">
                 {[0, 1, 2].map((i) => (
                   <div key={i} className="w-1 h-1 bg-black/30 rounded-full"></div>

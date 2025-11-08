@@ -19,6 +19,7 @@ export default function Home() {
    <Header enableScrollEffects={true} />
    <main className="pt-[11.8rem] md:pt-[11.2rem]">
    <Hero />
+   
    <AboutUs />
    <PurpleBoxSection />
     <WhyChooseUs />
