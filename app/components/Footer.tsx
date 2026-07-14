@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation'
 
 import LogoTestInverted from './LogoTestInverted'
 import { Phone, Mail, MapPin, ArrowUpRight } from 'lucide-react'
+import { submitJsonSubmission } from '@/lib/submission-client'
 
 interface FooterProps {
   backgroundColor?: string;
@@ -13,34 +14,81 @@ interface FooterProps {
 const Footer = ({ backgroundColor = '#3b82f6' }: FooterProps) => {
   const router = useRouter();
   const [isArrowHovered, setIsArrowHovered] = useState(false);
+  const [email, setEmail] = useState('');
+  const [submissionState, setSubmissionState] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const [submissionMessage, setSubmissionMessage] = useState('');
+
+  const handleFooterSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (submissionState === 'submitting') return;
+
+    setSubmissionState('submitting');
+    setSubmissionMessage('');
+
+    try {
+      await submitJsonSubmission('footer_lead', { email });
+      setEmail('');
+      setSubmissionState('success');
+      setSubmissionMessage('Thanks! We will be in touch.');
+    } catch (error) {
+      setSubmissionState('error');
+      setSubmissionMessage(error instanceof Error ? error.message : 'Unable to send your email. Please try again.');
+    }
+  };
+
   return (
     <div className="p-3 sm:p-5">
         <div className="tracking-tighter text-white px-4 sm:px-8 md:px-12 lg:px-16 pt-8 sm:pt-12 md:pt-16 pb-4 rounded-2xl sm:rounded-3xl flex flex-col gap-6 sm:gap-8 md:gap-10" style={{ backgroundColor }}>
         <div className="w-full flex flex-col lg:flex-row gap-6 sm:gap-8 lg:gap-10">
             <div className="flex flex-col gap-4 sm:gap-5 md:gap-7 w-full lg:w-[40%]">
                 <h5 className="text-2xl sm:text-3xl md:text-4xl w-full lg:w-[80%]">Ready to Scale Your Business?</h5>
-                <div className="relative w-full max-w-md">
-                    <input
-                        type="email"
-                        placeholder="Your Email Address"
-                        className="w-full bg-white/10 backdrop-blur-sm text-white placeholder:text-white/50 px-4 sm:px-6 py-3 sm:py-4 pr-14 sm:pr-16 rounded-full border border-white/20 focus:outline-none focus:border-white/40 transition-all text-base sm:text-lg"
-                    />
-                    <button
-                        className="absolute right-2 top-1/2 -translate-y-1/2 bg-white hover:bg-white/90 text-black p-2 sm:p-3 rounded-full transition-all"
-                        onClick={() => router.push('/contact')}
-                        onMouseEnter={() => setIsArrowHovered(true)}
-                        onMouseLeave={() => setIsArrowHovered(false)}
-                    >
-                        <ArrowUpRight
-                            size={20}
-                            className="sm:w-6 sm:h-6"
-                            style={{
-                                transform: isArrowHovered ? 'scaleY(-1)' : 'scaleY(1)',
-                                transition: 'transform 0.3s ease-in-out'
+                <form className="w-full max-w-md" onSubmit={handleFooterSubmit} aria-busy={submissionState === 'submitting'}>
+                    <div className="relative w-full">
+                        <input
+                            type="email"
+                            name="email"
+                            value={email}
+                            onChange={(event) => {
+                                setEmail(event.target.value);
+                                if (submissionState === 'success' || submissionState === 'error') {
+                                    setSubmissionState('idle');
+                                    setSubmissionMessage('');
+                                }
                             }}
+                            placeholder="Your Email Address"
+                            aria-label="Email address"
+                            required
+                            disabled={submissionState === 'submitting'}
+                            className="w-full bg-white/10 backdrop-blur-sm text-white placeholder:text-white/50 px-4 sm:px-6 py-3 sm:py-4 pr-14 sm:pr-16 rounded-full border border-white/20 focus:outline-none focus:border-white/40 transition-all text-base sm:text-lg disabled:opacity-70"
                         />
-                    </button>
-                </div>
+                        <button
+                            type="submit"
+                            aria-label={submissionState === 'submitting' ? 'Submitting email' : 'Submit email'}
+                            disabled={submissionState === 'submitting'}
+                            className="absolute right-2 top-1/2 -translate-y-1/2 bg-white hover:bg-white/90 text-black p-2 sm:p-3 rounded-full transition-all disabled:opacity-70 disabled:cursor-not-allowed"
+                            onMouseEnter={() => setIsArrowHovered(true)}
+                            onMouseLeave={() => setIsArrowHovered(false)}
+                        >
+                            <ArrowUpRight
+                                size={20}
+                                className="sm:w-6 sm:h-6"
+                                style={{
+                                    transform: isArrowHovered ? 'scaleY(-1)' : 'scaleY(1)',
+                                    transition: 'transform 0.3s ease-in-out'
+                                }}
+                            />
+                        </button>
+                    </div>
+                    {submissionMessage && (
+                        <p
+                            role={submissionState === 'error' ? 'alert' : 'status'}
+                            aria-live="polite"
+                            className={`mt-2 text-sm ${submissionState === 'error' ? 'text-red-100' : 'text-white'}`}
+                        >
+                            {submissionMessage}
+                        </p>
+                    )}
+                </form>
             </div>
 
             {/* Navigation Links Grid */}

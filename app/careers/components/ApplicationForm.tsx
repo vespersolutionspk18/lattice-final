@@ -3,36 +3,78 @@
 import React, { useState, useEffect } from 'react'
 import { useSearchParams } from 'next/navigation'
 import Button from '@/app/components/Button'
+import { submitMultipartSubmission } from '@/lib/submission-client'
+
+const MAX_RESUME_SIZE = 5 * 1024 * 1024
+const ALLOWED_RESUME_EXTENSIONS = ['pdf', 'doc', 'docx']
+const ALLOWED_RESUME_TYPES = [
+  'application/pdf',
+  'application/msword',
+  'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+]
+
+const createInitialFormData = (position = '') => ({
+  firstName: '',
+  lastName: '',
+  email: '',
+  phone: '',
+  position,
+  location: '',
+  experience: '',
+  portfolio: '',
+  linkedin: '',
+  salary: '',
+  startDate: '',
+  referral: '',
+  coverLetter: '',
+  resume: null as File | null
+})
+
+const getResumeValidationError = (file: File) => {
+  const extension = file.name.split('.').pop()?.toLowerCase() || ''
+  const hasAllowedExtension = ALLOWED_RESUME_EXTENSIONS.includes(extension)
+  const hasAllowedType = !file.type || file.type === 'application/octet-stream' || ALLOWED_RESUME_TYPES.includes(file.type)
+
+  if (!hasAllowedExtension || !hasAllowedType) {
+    return 'Please upload a PDF, DOC, or DOCX resume.'
+  }
+
+  if (file.size > MAX_RESUME_SIZE) {
+    return 'Your resume must be 5MB or smaller.'
+  }
+
+  return null
+}
 
 const ApplicationForm = () => {
   const searchParams = useSearchParams()
   const positionFromUrl = searchParams.get('position') || ''
 
-  const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
-    position: positionFromUrl,
-    location: '',
-    experience: '',
-    portfolio: '',
-    linkedin: '',
-    salary: '',
-    startDate: '',
-    referral: '',
-    coverLetter: '',
-    resume: null as File | null
-  })
+  const [formData, setFormData] = useState(() => createInitialFormData(positionFromUrl))
+  const [submissionState, setSubmissionState] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
+  const [submissionMessage, setSubmissionMessage] = useState('')
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value, type } = e.target
     
     if (type === 'file') {
       const fileInput = e.target as HTMLInputElement
+      const resume = fileInput.files?.[0] || null
+
+      if (resume) {
+        const validationError = getResumeValidationError(resume)
+        if (validationError) {
+          fileInput.value = ''
+          setFormData(previous => ({ ...previous, resume: null }))
+          setSubmissionState('error')
+          setSubmissionMessage(validationError)
+          return
+        }
+      }
+
       setFormData({
         ...formData,
-        [name]: fileInput.files?.[0] || null
+        [name]: resume
       })
     } else {
       setFormData({
@@ -40,11 +82,51 @@ const ApplicationForm = () => {
         [name]: value
       })
     }
+
+    if (submissionState === 'success' || submissionState === 'error') {
+      setSubmissionState('idle')
+      setSubmissionMessage('')
+    }
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    console.log('Application submitted:', formData)
+    if (submissionState === 'submitting') return
+    const applicationForm = e.currentTarget
+
+    if (!formData.resume) {
+      setSubmissionState('error')
+      setSubmissionMessage('Please attach your resume before submitting.')
+      return
+    }
+
+    const validationError = getResumeValidationError(formData.resume)
+    if (validationError) {
+      setSubmissionState('error')
+      setSubmissionMessage(validationError)
+      return
+    }
+
+    setSubmissionState('submitting')
+    setSubmissionMessage('')
+
+    const multipartData = new FormData()
+    const { resume, ...payload } = formData
+    multipartData.append('type', 'job_application')
+    multipartData.append('sourcePath', window.location.pathname)
+    multipartData.append('payload', JSON.stringify(payload))
+    multipartData.append('file', resume)
+
+    try {
+      await submitMultipartSubmission(multipartData)
+      applicationForm.reset()
+      setFormData(createInitialFormData(positionFromUrl))
+      setSubmissionState('success')
+      setSubmissionMessage('Thanks! Your application has been submitted.')
+    } catch (error) {
+      setSubmissionState('error')
+      setSubmissionMessage(error instanceof Error ? error.message : 'Unable to submit your application. Please try again.')
+    }
   }
 
   const positions = [
@@ -109,7 +191,12 @@ const ApplicationForm = () => {
 
       {/* Right Section with Form */}
       <div className="w-[55%] p-8 bg-white">
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form
+          onSubmit={handleSubmit}
+          className="space-y-4"
+          aria-busy={submissionState === 'submitting'}
+          inert={submissionState === 'submitting' ? true : undefined}
+        >
           <h2 className="text-3xl text-black/85 tracking-tighter mb-6">Application Form</h2>
           
           {/* Name Row */}
@@ -345,14 +432,24 @@ const ApplicationForm = () => {
           <div className="pt-2">
             <button
               type="submit"
-              className="w-full bg-black text-white py-3 px-6 rounded-full text-base font-medium hover:bg-black/90 transition-all flex items-center justify-center gap-2"
+              disabled={submissionState === 'submitting'}
+              className="w-full bg-black text-white py-3 px-6 rounded-full text-base font-medium hover:bg-black/90 transition-all flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed"
             >
-              Submit Application
+              {submissionState === 'submitting' ? 'Submitting...' : 'Submit Application'}
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 11l5-5m0 0l5 5m-5-5v12" transform="rotate(45 12 12)" />
               </svg>
             </button>
           </div>
+          {submissionMessage && (
+            <p
+              role={submissionState === 'error' ? 'alert' : 'status'}
+              aria-live="polite"
+              className={`text-sm ${submissionState === 'error' ? 'text-red-600' : 'text-green-700'}`}
+            >
+              {submissionMessage}
+            </p>
+          )}
         </form>
       </div>
       </div>

@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react'
 import Button from '@/app/components/Button'
+import { submitJsonSubmission } from '@/lib/submission-client'
 
 const Form = () => {
   const [formData, setFormData] = useState({
@@ -15,17 +16,46 @@ const Form = () => {
     source: '',
     message: ''
   })
+  const [submissionState, setSubmissionState] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
+  const [submissionMessage, setSubmissionMessage] = useState('')
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     })
+    if (submissionState === 'success' || submissionState === 'error') {
+      setSubmissionState('idle')
+      setSubmissionMessage('')
+    }
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    console.log('Form submitted:', formData)
+    if (submissionState === 'submitting') return
+
+    setSubmissionState('submitting')
+    setSubmissionMessage('')
+
+    try {
+      await submitJsonSubmission('contact', formData)
+      setFormData({
+        firstName: '',
+        lastName: '',
+        email: '',
+        jobTitle: '',
+        company: '',
+        interest: '',
+        region: '',
+        source: '',
+        message: ''
+      })
+      setSubmissionState('success')
+      setSubmissionMessage('Thanks! Your message has been sent to our team.')
+    } catch (error) {
+      setSubmissionState('error')
+      setSubmissionMessage(error instanceof Error ? error.message : 'Unable to send your message. Please try again.')
+    }
   }
 
   return (
@@ -65,7 +95,12 @@ const Form = () => {
 
       {/* Right Section with Form */}
       <div className="w-[55%] p-8 bg-white">
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form
+          onSubmit={handleSubmit}
+          className="space-y-4"
+          aria-busy={submissionState === 'submitting'}
+          inert={submissionState === 'submitting' ? true : undefined}
+        >
           {/* Name Row */}
           <div className="grid grid-cols-2 gap-4">
             <div>
@@ -232,14 +267,24 @@ const Form = () => {
           <div className="pt-2">
             <button
               type="submit"
-              className="w-full bg-black text-white py-3 px-6 rounded-full text-base font-medium hover:bg-black/90 transition-all flex items-center justify-center gap-2"
+              disabled={submissionState === 'submitting'}
+              className="w-full bg-black text-white py-3 px-6 rounded-full text-base font-medium hover:bg-black/90 transition-all flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed"
             >
-              Submit Form
+              {submissionState === 'submitting' ? 'Sending...' : 'Submit Form'}
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 11l5-5m0 0l5 5m-5-5v12" transform="rotate(45 12 12)" />
               </svg>
             </button>
           </div>
+          {submissionMessage && (
+            <p
+              role={submissionState === 'error' ? 'alert' : 'status'}
+              aria-live="polite"
+              className={`text-sm ${submissionState === 'error' ? 'text-red-600' : 'text-green-700'}`}
+            >
+              {submissionMessage}
+            </p>
+          )}
         </form>
       </div>
     </div>

@@ -2,8 +2,9 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { GoogleGenAI } from '@google/genai';
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import ReactMarkdown from 'react-markdown';
+import { submitJsonSubmission } from '@/lib/submission-client';
 
 interface Message {
   role: 'user' | 'assistant';
@@ -31,6 +32,8 @@ export default function ChatBot({
   const chatRef = useRef<unknown>(null);
   const aiRef = useRef<unknown>(null);
   const router = useRouter();
+  const pathname = usePathname();
+  const isInternalRoute = pathname === '/login' || pathname.startsWith('/admin');
 
   // Check if message should show "Book a Meeting" button
   const shouldShowBookingButton = (message: string, role: string) => {
@@ -63,6 +66,9 @@ export default function ChatBot({
     setIsLoading(true);
 
     try {
+      // Record the visitor input before sending it to Gemini so the admin ledger stays complete.
+      await submitJsonSubmission('chat_message', { message: userMessage });
+
       // Create or reuse chat session
       if (!chatRef.current) {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -119,6 +125,8 @@ export default function ChatBot({
   const toggleChat = () => {
     setIsOpen(!isOpen);
   };
+
+  if (isInternalRoute) return null;
 
   return (
     <>

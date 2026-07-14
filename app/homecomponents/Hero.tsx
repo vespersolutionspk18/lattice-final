@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Button from "../components/Button";
 import { ArrowRight } from "lucide-react";
+import { submitJsonSubmission } from "@/lib/submission-client";
 
 interface HeroProps {
   preHeader?: string;
@@ -42,6 +43,8 @@ const Hero = ({
     email: "",
     message: ""
   });
+  const [submissionState, setSubmissionState] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [submissionMessage, setSubmissionMessage] = useState("");
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -49,11 +52,28 @@ const Hero = ({
       ...prev,
       [name]: value
     }));
+    if (submissionState === "success" || submissionState === "error") {
+      setSubmissionState("idle");
+      setSubmissionMessage("");
+    }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
+    if (submissionState === "submitting") return;
+
+    setSubmissionState("submitting");
+    setSubmissionMessage("");
+
+    try {
+      await submitJsonSubmission("estimate", formData);
+      setFormData({ firstName: "", lastName: "", email: "", message: "" });
+      setSubmissionState("success");
+      setSubmissionMessage("Thanks! Your estimate request has been sent.");
+    } catch (error) {
+      setSubmissionState("error");
+      setSubmissionMessage(error instanceof Error ? error.message : "Unable to send your request. Please try again.");
+    }
   };
 
   const defaultBackgroundStyle = {
@@ -177,7 +197,12 @@ const Hero = ({
                 Curious about what we do? Or, interested in our services? Reach out and let&apos;s chat!
               </p>
 
-              <form onSubmit={handleSubmit} className="flex flex-col gap-2 sm:gap-3">
+              <form
+                onSubmit={handleSubmit}
+                className="flex flex-col gap-2 sm:gap-3"
+                aria-busy={submissionState === "submitting"}
+                inert={submissionState === "submitting" ? true : undefined}
+              >
                 <input
                   type="text"
                   name="firstName"
@@ -219,10 +244,19 @@ const Hero = ({
                 />
 
                 <div className="mt-1 sm:mt-2">
-                  <Button type="submit" variant="blue" className="w-full">
-                    Get an Estimate
+                  <Button type="submit" variant="blue" className="w-full" disabled={submissionState === "submitting"}>
+                    {submissionState === "submitting" ? "Sending..." : "Get an Estimate"}
                   </Button>
                 </div>
+                {submissionMessage && (
+                  <p
+                    role={submissionState === "error" ? "alert" : "status"}
+                    aria-live="polite"
+                    className={`text-sm ${submissionState === "error" ? "text-red-600" : "text-green-700"}`}
+                  >
+                    {submissionMessage}
+                  </p>
+                )}
               </form>
             </div>
           </div>

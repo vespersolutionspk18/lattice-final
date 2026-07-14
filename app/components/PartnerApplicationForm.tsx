@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react'
 import Button from '@/app/components/Button'
+import { submitJsonSubmission } from '@/lib/submission-client'
 
 const PartnerApplicationForm = () => {
   const [formData, setFormData] = useState({
@@ -20,6 +21,8 @@ const PartnerApplicationForm = () => {
     referral: '',
     message: ''
   })
+  const [submissionState, setSubmissionState] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
+  const [submissionMessage, setSubmissionMessage] = useState('')
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
@@ -27,11 +30,43 @@ const PartnerApplicationForm = () => {
       ...formData,
       [name]: value
     })
+    if (submissionState === 'success' || submissionState === 'error') {
+      setSubmissionState('idle')
+      setSubmissionMessage('')
+    }
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    console.log('Partnership application submitted:', formData)
+    if (submissionState === 'submitting') return
+
+    setSubmissionState('submitting')
+    setSubmissionMessage('')
+
+    try {
+      await submitJsonSubmission('partner_application', formData)
+      setFormData({
+        firstName: '',
+        lastName: '',
+        email: '',
+        phone: '',
+        companyName: '',
+        companyWebsite: '',
+        industry: '',
+        companySize: '',
+        location: '',
+        annualRevenue: '',
+        partnershipType: '',
+        expectedVolume: '',
+        referral: '',
+        message: ''
+      })
+      setSubmissionState('success')
+      setSubmissionMessage('Thanks! Your partnership application has been sent.')
+    } catch (error) {
+      setSubmissionState('error')
+      setSubmissionMessage(error instanceof Error ? error.message : 'Unable to send your application. Please try again.')
+    }
   }
 
   const partnershipTypes = [
@@ -72,7 +107,12 @@ const PartnerApplicationForm = () => {
             </p>
           </div>
 
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form
+          onSubmit={handleSubmit}
+          className="space-y-4"
+          aria-busy={submissionState === 'submitting'}
+          inert={submissionState === 'submitting' ? true : undefined}
+        >
           {/* Name Row */}
           <div className="grid grid-cols-2 gap-4">
             <div>
@@ -312,10 +352,20 @@ const PartnerApplicationForm = () => {
               variant="blue"
               customBackgroundColor="#1b2e9e"
               className="w-full"
+              disabled={submissionState === 'submitting'}
             >
-              Submit Partnership Application
+              {submissionState === 'submitting' ? 'Sending...' : 'Submit Partnership Application'}
             </Button>
           </div>
+          {submissionMessage && (
+            <p
+              role={submissionState === 'error' ? 'alert' : 'status'}
+              aria-live="polite"
+              className={`text-sm ${submissionState === 'error' ? 'text-red-600' : 'text-green-700'}`}
+            >
+              {submissionMessage}
+            </p>
+          )}
         </form>
         </div>
       </div>
